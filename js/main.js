@@ -6,7 +6,7 @@ let FundBox     = "3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n"
 let GovernToken = "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P"
 
 function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
-	console.log(Address, nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+FundBox+'_'+StakedToken)
+	console.log(Address, 'Reward Available:', nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+FundBox+'_'+StakedToken)
 
 	$.getJSON(nodeUrl+'/assets/balance/'+dAppAddress+'/'+StakedToken,
 	function (result) {
