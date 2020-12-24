@@ -6,6 +6,7 @@ let FundBox     = "3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n"
 let GovernToken = "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P"
 
 // Smart Contract Balance
+// ..................
 $.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+FundBox+'_'+StakedToken,  
 function (Reward) {
 		if (Reward.length == 0) {
@@ -31,7 +32,7 @@ function (result) {
 
 
 function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
-	console.log(Address, nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+FundBox+'_'+StakedToken)
+	console.log('Address: ',Address,'Node:', nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+FundBox+'_'+StakedToken)
 
 		// Stake Token Balance of the User's Wallet
 			$.getJSON(nodeUrl+'/assets/balance/'+Address+'/'+StakedToken,  
@@ -76,11 +77,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : '+GovernTokenBalance[0].value+' Troika';
 			 }								
 				
-		});					     
-
-
-
-		
+		});					     		
 }
 
 function toggle_menu() {
@@ -342,8 +339,7 @@ document.getElementById('withdraw-troika-form').onsubmit = function() {
 			  showConfirmButton: false,
 			  timer: 1500
 			})
-				 		 			 
-			 
+				 		 			 			 
 		   }).catch((error) => {
 			 Swal.fire({
 				  icon: 'error',
@@ -356,7 +352,6 @@ document.getElementById('withdraw-troika-form').onsubmit = function() {
     return false;
 };  		       
 } 
-
 
 function UnlockMyWallet(){   
    if (typeof Waves !== 'undefined') {	
@@ -381,9 +376,8 @@ function UnlockMyWallet(){
 	     let StakedToken = "GECLRH2fx2Xxix5gmrGV92AMt1A9LPohRpqwqRE16mwr"
 	     let GovernToken = "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P"
 	     let dAppAddress = "3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u"
-	     UpdateBalance(dAppAddress,auth.Address,StakedToken,GovernToken)
-	     
-	     let Address = auth.address
+	     UpdateBalance(dAppAddress,auth.address,StakedToken,GovernToken)
+	     	     
 	      // Check if User is winner and withdraw in case he is	      	      
 	      function GetWinnerAddress (auth){ 
 		      $.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey',
@@ -424,5 +418,7 @@ function UnlockMyWallet(){
 	})	
        
      }
-	 return Address
+	 return auth.address
 }            
+
+console.log(auth.address)
