@@ -1,0 +1,97 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TroikaNdApp -  ASIMI Staking Based Waves</title>
+    <link rel="icon" href="icons/page-icon.png" />
+    <link rel="stylesheet" href="css/page.css" />
+    <link rel="stylesheet" href="css/contents.css" />
+    <link rel="stylesheet" href="css/widgets.css" />
+    <link rel="stylesheet" href="css/media-queries.css" />
+</head>
+
+<body>
+
+    <header>
+        <img id="logo" src="icons/logo.png" />
+        <h2 id="title">TroikaNdApp</h2>     
+        <nav>
+            <p id ="ContractStaked">Total ASIMI in SmartContract</p>
+            <a id ="ContractReward">Reward Vaialble Amount</a>
+	    <p id="WalletInfo"><button class="round dark" onclick="UnlockMyWallet()" id="UnlockWallet">  Unlock My Wallet</button></p>
+        </nav>
+        
+    </header>
+
+    <div class="spacer" ></div>
+    <h1>Manage funds</h1>
+    <p id="Rewarding"></p>
+    <div id="funds-container" >
+        <div class="fund-item" hidden>
+            <img draggable="false" src="icons/tag.svg" />
+            <h2>Stake my ASIMI</h2>
+            <span class="desc" id ="UserWalletStakeBalance">---</span>
+	     <p id="StakeButton" hidden><button class="round light" onclick="revealForm('stake-form')" >Stake now</button></p>
+        </div>
+        <div class="fund-item" >
+            <img draggable="false" src="icons/tag.svg" />
+            <h2>Withdraw Staked ASIMI</h2>
+            <span class="desc" id="UserBalanceStakeSmartContract">---</span>
+	     <p id="WithdrawStakeButton" hidden><button class="round light" onclick="revealForm('withdraw-form')">Withdraw now</button></p>
+        </div>
+        <div class="fund-item">
+            <img draggable="false" src="icons/tag.svg" />
+            <h2>Deposit Troika Token</h2>
+            <span class="desc" id="UserWalletGovernBalance">---</span>
+	     <p id="DepositGovernButton" hidden><button class="round light" onclick="revealForm('deposit-form')">Deposit now</button></p>
+        </div>
+        <div class="fund-item">
+            <img draggable="false" src="icons/tag.svg" />
+            <h2>Harvest Troika Token</h2>
+            <span class="desc" id="UserBalanceGovernSmartContract"> ---</span>
+	    <p id="WithdrawGovernButton" hidden><button class="round light" onclick="revealForm('withdraw-troika-form')">Harvest now</button>
+        </div>
+    </div>
+    <a name="form"></a>
+    <form id="stake-form" hidden>
+        <h1>Stake my ASIMIs</h1>
+        <h4>Amount to stake</h4>
+        <input type="text" placeholder="ASIMI amount to stake" id="StakeAmount" />
+        <span class="msg"></span>
+        <button value="Submit" class="block dark" onclick="StakeTokens()">Stake ASIMI</button>
+    </form>
+    <form id="withdraw-form" hidden>
+        <h1>Withdraw my ASIMIs</h1>
+        <h4>Amount to withdraw</h4>
+        <input type="text" placeholder="ASIMI amount to withdraw" id="WithdrawAmount" />
+        <span class="msg"></span>
+        <button class="block dark" onclick="WithdrawStakeTokens()">Withdraw ASIMI</button>
+    </form>
+    <form id="deposit-form" hidden>
+        <h1>Deposit Troika Token</h1>
+        <h4>Amount to deposit</h4>
+        <input type="text" placeholder="Troika amount to deposit" id="DespoitTroika"/>
+        <span class="msg"></span>
+        <button class="block dark" onclick="DepositGovernTokens()">Deposit Troika</button>
+    </form>
+    <form id="withdraw-troika-form" hidden>
+        <h1>Harvest my Troikas</h1>
+        <h4>Troika to withdraw</h4>
+        <input type="text" placeholder="Troika to withdraw" id="HarvestTroika"/>
+        <span class="msg"></span>
+        <button class="block dark" onclick="HarvestGovernToiken()">Harvest Troika</button>
+    </form>
+    <footer>
+        <nav>
+            <a href="#"><img draggable="false" src="icons/facebook.svg" /></a>
+            <a href="#"><img draggable="false" src="icons/twitter.svg" /></a>
+            <a href="#"><img draggable="false" src="icons/linkedin.svg" /></a>
+        </nav>
+        &copy;2020 by TroikaNdApp
+    </footer>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</html>

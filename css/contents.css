@@ -1,0 +1,67 @@
+#funds-container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.fund-item {
+    background-color: var(--color-light-bg);
+    padding: 30px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform .3s, box-shadow .3s;
+}
+
+.fund-item:hover {
+    z-index: 1;
+    transform: scale(1.05);
+    box-shadow: 0 5px 25px var(--color-shadow);
+}
+
+.fund-item img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.fund-item h2 {
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.fund-item .desc {
+    display: block;
+    margin-bottom: 15px;
+}
+
+form {
+    margin: auto;
+    max-width: 400px;
+}
+
+form h4 {
+    text-align: left;
+    font-weight: normal;
+    margin: 0 0 5px 0;
+}
+
+form input {
+    width: 100%;
+    border: 1px solid black;
+    padding: 15px;
+}
+
+form input::placeholder {
+    color: black;
+}
+
+form .msg {
+    display: block;
+    text-align: start;
+}
+
+form button {
+    margin-top: 20px;
+    font-weight: bold;
+}

@@ -1,0 +1,60 @@
+@media screen and (max-width: 900px) {
+    #funds-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    body {
+        padding: 0 30px;
+    }
+    header {
+        padding: 0 20px;
+    }
+    header>nav {
+        display: none;
+    }
+    #menu>#header-nav {
+        display: block;
+    }
+    #funds-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #funds-container {
+        grid-template-columns: 1fr;
+    }
+    h1 {
+        margin: 50px 0 30px 0;
+    }
+    #menu {
+        left: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    body {
+        padding: 0 20px;
+    }
+    header {
+        padding: 0 10px;
+        height: 60px;
+    }
+    header #title {
+        font-size: 1.3em;
+    }
+    header #logo {
+        height: 40px;
+    }
+    header #menu-btn img {
+        height: 2em;
+    }
+    .spacer {
+        height: 60px;
+    }
+    #menu {
+        top: 60px;
+    }
+}

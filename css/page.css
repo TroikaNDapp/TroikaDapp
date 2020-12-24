@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+
+:root {
+    --color-dark: #0074f9;
+    --color-light: white;
+    --color-shadow: #0074f99c;
+    --color-light-bg: #f5f5f5;
+}
+
+html {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0 50px;
+    text-align: center;
+}
+
+header {
+    height: 110px;
+    background-color: var(--color-dark);
+    padding: 0 45px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    transition: padding .3s, height .3s;
+}
+
+footer {
+    margin: 100px 0 20px 0;
+}

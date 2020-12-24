@@ -1,0 +1,147 @@
+a {
+    text-decoration: none;
+    text-align: center;
+}
+
+a:hover {
+    color: white;
+}
+
+button {
+    cursor: pointer;
+    transition: background-color .3s, color .3s;
+}
+
+button:focus,
+a:focus,
+input:focus {
+    outline: 2px solid var(--color-dark);
+}
+
+header *,
+#menu *,
+header a:hover,
+menu a:hover {
+    color: var(--color-light);
+}
+
+header #menu-btn {
+    margin-left: auto;
+    background-color: transparent;
+    border: none;
+}
+
+header #menu-btn img {
+    height: 2.5em;
+}
+
+header #logo {
+    height: 60px;
+    border-radius: 50%;
+    transition: height .3s;
+}
+
+header #title {
+    margin-left: 10px;
+}
+
+header>nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+header>nav>* {
+    margin-right: 15px;
+}
+
+.spacer {
+    height: 110px;
+}
+
+h1 {
+    margin: 100px 0 50px 0;
+    transition: margin .3s;
+}
+
+button.round {
+    border-radius: 5em;
+    padding: 10px 20px;
+}
+
+button.block {
+    padding: 20px 35px;
+}
+
+button.light {
+    border: 1px solid var(--color-dark);
+    background-color: transparent;
+}
+
+button.light:hover {
+    background-color: var(--color-dark);
+    border: 1px solid var(--color-light);
+    color: var(--color-light);
+}
+
+button.dark {
+    color: var(--color-light);
+    border: 1px solid var(--color-light);
+    background-color: var(--color-dark);
+}
+
+button.dark:hover {
+    background-color: var(--color-light);
+    border: 1px solid var(--color-dark);
+    color: var(--color-dark);
+}
+
+footer nav {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    margin-right: -10px
+}
+
+footer nav a {
+    margin-right: 10px;
+}
+
+footer nav a img {
+    width: 20px;
+    height: 20px;
+}
+
+#menu {
+    position: fixed;
+    right: 0;
+    top: 110px;
+    background-color: var(--color-dark);
+    z-index: 9;
+    min-width: 300px;
+}
+
+#menu a {
+    margin-bottom: 20px;
+    display: block;
+}
+
+#menu a:last-child {
+    margin-bottom: 0;
+}
+
+#menu>nav {
+    padding: 20px;
+}
+
+#menu>#header-nav {
+    padding-bottom: 0;
+    display: none;
+}
+
+#menu hr {
+    border: none;
+    border-bottom: 1px solid;
+    margin: 20px 0 0 0;
+}
