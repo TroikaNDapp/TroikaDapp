@@ -5,20 +5,33 @@ let StakedToken = "GECLRH2fx2Xxix5gmrGV92AMt1A9LPohRpqwqRE16mwr"
 let FundBox     = "3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n"
 let GovernToken = "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P"
 
-function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
-	console.log(Address, 'Reward Available:', nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+FundBox+'_'+StakedToken)
+// Smart Contract Balance
+$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+FundBox+'_'+StakedToken,  
+function (Reward) {
+		if (Reward.length == 0) {
+			document.getElementById("ContractReward").innerHTML = 'Reward Available: 0.0 ASIMI';
+		}
+		else{
+			document.getElementById("ContractReward").innerHTML = 'Reward Available: '+Reward[0].value+' ASIMI';
+		}
+	});	
 
-	$.getJSON(nodeUrl+'/assets/balance/'+dAppAddress+'/'+StakedToken,
-	function (result) {
-			if (result.length == 0) {
-				document.getElementById("ContractStaked").innerHTML = 'Staked: 0.0 ASIMI';
-			}	
-			else{
-				document.getElementById("ContractStaked").innerHTML = 'Staked: '+result.balance+' ASIMI';
-			}
-			console.log(nodeUrl+'/assets/balance/'+dAppAddress+'/'+StakedToken)
-			
-		});
+// Smart Contract Balance Staked
+$.getJSON(nodeUrl+'/assets/balance/'+dAppAddress+'/'+StakedToken,
+function (result) {
+		if (result.length == 0) {
+			document.getElementById("ContractStaked").innerHTML = 'Staked: 0.0 ASIMI';
+		}	
+		else{
+			document.getElementById("ContractStaked").innerHTML = 'Staked: '+result.balance+' ASIMI';
+		}
+		console.log(nodeUrl+'/assets/balance/'+dAppAddress+'/'+StakedToken)
+		
+	});
+
+
+function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
+	console.log(Address, nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+FundBox+'_'+StakedToken)
 
 		// Stake Token Balance of the User's Wallet
 			$.getJSON(nodeUrl+'/assets/balance/'+Address+'/'+StakedToken,  
@@ -65,16 +78,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 				
 		});					     
 
-		// Smart Contract Balance
-		$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+FundBox+'_'+StakedToken,  
-		function (Reward) {
-				if (Reward.length == 0) {
-					document.getElementById("ContractReward").innerHTML = 'Reward Available: 0.0 ASIMI';
-				}
-				else{
-					document.getElementById("ContractReward").innerHTML = 'Reward Available: '+Reward[0].value+' ASIMI';
-				}
-			});	
+
 
 		
 }
