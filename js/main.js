@@ -415,10 +415,7 @@ function UnlockMyWallet(){
 	  title: 'Oops...',
 	  text: 'Could not find WavesKeeper, Please install the extension for your browser',
 	  footer: '<a href>Why do I have this issue?</a>'
-	})	
-       
-     }
+	})	       
+    }
 	 return auth.address
 }            
-
-console.log(auth.address)
