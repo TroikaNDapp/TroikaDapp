@@ -380,6 +380,7 @@ function UnlockMyWallet(){
 	     	     
 	      // Check if User is winner and withdraw in case he is	      	      
 	      function GetWinnerAddress (auth){ 
+			  console.log('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey')
 		      $.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey',
 			function (result) {						
 				if (result.value == auth.address+'_'+ GovernToken)  {
