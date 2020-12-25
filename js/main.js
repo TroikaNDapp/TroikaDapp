@@ -377,9 +377,22 @@ function UnlockMyWallet(){
 	     let GovernToken = "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P"
 	     let dAppAddress = "3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u"
 	     UpdateBalance(dAppAddress,auth.address,StakedToken,GovernToken)
-	     	     
+
+		 // Smart Contract Balance
+		// ..................
+		$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/GovernTokenMaxDeposit',  
+		function (AuctionReward) {
+				if (AuctionReward.length == 0) {
+					document.getElementById("Auction").innerHTML = ' No Push';
+				}
+				else{
+					document.getElementById("Auction").innerHTML = 'Last Push to win reward: '+AuctionReward[0].value+' TROIKA';				
+					
+				}
+			});	
+		 
+
 	      // Check if User is winner and withdraw in case he is	      	      
-			  console.log('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey')
 		      $.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey',
 				function (result) {						
 					if (result.value == auth.address+'_'+ GovernToken)  {
