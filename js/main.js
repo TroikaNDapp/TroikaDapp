@@ -382,6 +382,7 @@ function UnlockMyWallet(){
 		// ..................
 		$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/GovernTokenMaxDeposit',  
 		function (AuctionReward) {
+			console.log(AuctionReward)
 				if (AuctionReward.length == 0) {
 					document.getElementById("Auction").innerHTML = ' No Push';
 				}
