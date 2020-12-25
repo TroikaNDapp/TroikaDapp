@@ -387,7 +387,7 @@ function UnlockMyWallet(){
 					document.getElementById("Auction").innerHTML = ' No Push';
 				}
 				else{
-					document.getElementById("Auction").innerHTML = 'Last Push to win reward: '+AuctionReward[0].value+' TROIKA';				
+					document.getElementById("Auction").innerHTML = 'Last Push to win reward: '+AuctionReward.value+' TROIKA';				
 					
 				}
 			});	
