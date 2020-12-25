@@ -379,31 +379,29 @@ function UnlockMyWallet(){
 	     UpdateBalance(dAppAddress,auth.address,StakedToken,GovernToken)
 	     	     
 	      // Check if User is winner and withdraw in case he is	      	      
-	      function GetWinnerAddress (auth){ 
 			  console.log('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey')
 		      $.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey',
-			function (result) {						
-				if (result.value == auth.address+'_'+ GovernToken)  {
-					// Managing Retrieve Reward
-					Swal.fire({
-					  title: 'Congrats ! You won the reward',
-					  text: "Do you wish to retrieve the reward to your wallet ?",
-					  icon: 'warning',
-					  showCancelButton: true,
-					  confirmButtonColor: '#3085d6',
-					  cancelButtonColor: '#d33',
-					  confirmButtonText: 'Yes, Withdraw reward now!'
-					}).then((result) => {
-					  if (result.isConfirmed) {				
-					    RetrieveReward()
-					  }
-					})														
-				//document.getElementById("Rewarding").innerHTML = '<button class="round dark" onclick="RetrieveReward()" >Retrieve Reward</button>'
-				} else {
-					console.log('NO WINNER')				
-				}									
-			});				   			
-			}
+				function (result) {						
+					if (result.value == auth.address+'_'+ GovernToken)  {
+						// Managing Retrieve Reward
+						Swal.fire({
+						title: 'Congrats ! You won the reward',
+						text: "Do you wish to retrieve the reward to your wallet ?",
+						icon: 'warning',
+						showCancelButton: true,
+						confirmButtonColor: '#3085d6',
+						cancelButtonColor: '#d33',
+						confirmButtonText: 'Yes, Withdraw reward now!'
+						}).then((result) => {
+						if (result.isConfirmed) {				
+							RetrieveReward()
+						}
+						})														
+					//document.getElementById("Rewarding").innerHTML = '<button class="round dark" onclick="RetrieveReward()" >Retrieve Reward</button>'
+					} else {
+						console.log('NO WINNER')				
+					}									
+				});				   			
 		}).catch(error => {
 			console.error("Shit happend: ",error); // displaying the result on the console
 			/*...processing errors: Show here error message: */
