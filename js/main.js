@@ -161,7 +161,7 @@ function RetrieveReward(){
 			  icon: 'success',
 			  title: 'Your Transaction has been sent: Retrieve Reward',
 			  showConfirmButton: false,
-			  timer: 1500
+			  timer: 3000
 			})				 		 			 			 
 		   }).catch((error) => {
 			 Swal.fire({
@@ -203,7 +203,7 @@ document.getElementById('stake-form').onsubmit = function() {
 			  icon: 'success',
 			  title: 'Your Transaction has been sent Staking '+StakeAmount+' ASIMI',
 			  showConfirmButton: false,
-			  timer: 1500
+			  timer: 3000
 			})				 		 			 			 
 		   }).catch((error) => {
 			 Swal.fire({
@@ -250,7 +250,7 @@ document.getElementById('withdraw-form').onsubmit = function() {
 			  icon: 'success',
 			  title: 'Your Transaction has been sent: Withdraw '+WithdrawAmount+' ASIMI',
 			  showConfirmButton: false,
-			  timer: 1500
+			  timer: 3000
 			})				 		 			 			 
 		   }).catch((error) => {
 			 Swal.fire({
@@ -293,7 +293,7 @@ document.getElementById('deposit-form').onsubmit = function() {
 			  icon: 'success',
 			  title: 'Your Transaction has been sent: Deposit '+DespoitTroika+' TROIKA',
 			  showConfirmButton: false,
-			  timer: 1500
+			  timer: 3000
 			})
 				 		 			 
 			 
@@ -340,7 +340,7 @@ document.getElementById('withdraw-troika-form').onsubmit = function() {
 			  icon: 'success',
 			  title: 'Your Transaction has been sent: Withdraw '+HarvestTroika+' TROIKA',
 			  showConfirmButton: false,
-			  timer: 1500
+			  timer: 3000
 			})
 				 		 			 			 
 		   }).catch((error) => {
@@ -378,8 +378,10 @@ function UnlockMyWallet(){
 	     const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
 	     let StakedToken = "GECLRH2fx2Xxix5gmrGV92AMt1A9LPohRpqwqRE16mwr"
 	     let GovernToken = "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P"
-	     let dAppAddress = "3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u"
-	     UpdateBalance(dAppAddress,auth.address,StakedToken,GovernToken)
+		 let dAppAddress = "3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u"
+		 
+		 var interval = setInterval(function () { UpdateBalance(dAppAddress,auth.address,StakedToken,GovernToken); }, 100);
+	     
 
 		 // Smart Contract Balance
 		// ..................
