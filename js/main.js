@@ -398,9 +398,8 @@ function UnlockMyWallet(){
 				function (result) {						
 					if (result.value == auth.address+'_'+ GovernToken)  {
 						// Show Retrieve reward GUI
-						document.getElementById("RetrieveReward").innerHTML ='<div class="fund-item" ><img draggable="false" src="icons/tag.svg" /><h2>Withdraw Staked ASIMI</h2>'+
-						'<span class="desc" id="UserBalanceStakeSmartContract">---</span>'+
-						'<p id="WithdrawStakeButton" hidden><button class="round light" onclick="revealForm("withdraw-form")">Withdraw now</button></p>'+
+						document.getElementById("RetrieveReward").innerHTML ='<div class="fund-item" ><img draggable="false" src="icons/tag.svg" /><h2>Claim reward !</h2>'+						
+						'<p id="WithdrawStakeButton" ><button class="round light" onclick="RetrieveReward()">Claim reward now</button></p>'+
 						'</div>'
 						// Managing Retrieve Reward
 						Swal.fire({
