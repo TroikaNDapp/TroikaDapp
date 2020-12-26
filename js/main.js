@@ -30,6 +30,20 @@ function UpdateBalanceContract (){
 			console.log(nodeUrl+'/assets/balance/'+dAppAddress+'/'+StakedToken)
 			
 		});
+		
+		// Smart Contract Balance
+		// ..................
+		$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/GovernTokenMaxDeposit',  
+		function (AuctionReward) {
+			console.log(AuctionReward)
+				if (AuctionReward.value == 0) {
+					document.getElementById("Auction").innerHTML = 'No Push';
+				}
+				else{
+					document.getElementById("Auction").innerHTML = 'Last Push: '+AuctionReward.value+' TROIKA';				
+					
+				}
+			});	
 }
 
 var interval = setInterval(function () { UpdateBalanceContract(); }, 100);
@@ -80,7 +94,8 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : '+GovernTokenBalance[0].value+' Troika';
 			 }								
 				
-		});					     		
+		});	
+						     		
 }
 
 function toggle_menu() {
@@ -381,23 +396,7 @@ function UnlockMyWallet(){
 		 let dAppAddress = "3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u"
 		 
 		 var interval = setInterval(function () { UpdateBalance(dAppAddress,auth.address,StakedToken,GovernToken); }, 100);
-	     
-
-		 // Smart Contract Balance
-		// ..................
-		$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/GovernTokenMaxDeposit',  
-		function (AuctionReward) {
-			console.log(AuctionReward)
-				if (AuctionReward.value == 0) {
-					document.getElementById("Auction").innerHTML = 'No Push';
-				}
-				else{
-					document.getElementById("Auction").innerHTML = 'Last Push: '+AuctionReward.value+' TROIKA';				
-					
-				}
-			});	
-		 
-
+	     		 
 	      // Check if User is winner and withdraw in case he is	      	      
 		      $.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey',
 				function (result) {						
