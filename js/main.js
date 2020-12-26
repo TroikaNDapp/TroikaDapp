@@ -7,29 +7,32 @@ let GovernToken = "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P"
 
 // Smart Contract Balance
 // ..................
-$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+FundBox+'_'+StakedToken,  
-function (Reward) {
-		if (Reward.length == 0) {
-			document.getElementById("ContractReward").innerHTML = 'Reward Available: 0.0 ASIMI';
-		}
-		else{
-			document.getElementById("ContractReward").innerHTML = 'Reward Available: '+Reward[0].value+' ASIMI';
-		}
-	});	
+function UpdateBalanceContract (){
+	$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+FundBox+'_'+StakedToken,  
+	function (Reward) {
+			if (Reward.length == 0) {
+				document.getElementById("ContractReward").innerHTML = 'Reward Available: 0.0 ASIMI';
+			}
+			else{
+				document.getElementById("ContractReward").innerHTML = 'Reward Available: '+Reward[0].value+' ASIMI';
+			}
+		});	
 
-// Smart Contract Balance Staked
-$.getJSON(nodeUrl+'/assets/balance/'+dAppAddress+'/'+StakedToken,
-function (result) {
-		if (result.length == 0) {
-			document.getElementById("ContractStaked").innerHTML = 'Staked: 0.0 ASIMI';
-		}	
-		else{
-			document.getElementById("ContractStaked").innerHTML = 'Staked: '+result.balance+' ASIMI';
-		}
-		console.log(nodeUrl+'/assets/balance/'+dAppAddress+'/'+StakedToken)
-		
-	});
+	// Smart Contract Balance Staked
+	$.getJSON(nodeUrl+'/assets/balance/'+dAppAddress+'/'+StakedToken,
+	function (result) {
+			if (result.length == 0) {
+				document.getElementById("ContractStaked").innerHTML = 'Staked: 0.0 ASIMI';
+			}	
+			else{
+				document.getElementById("ContractStaked").innerHTML = 'Staked: '+result.balance+' ASIMI';
+			}
+			console.log(nodeUrl+'/assets/balance/'+dAppAddress+'/'+StakedToken)
+			
+		});
+}
 
+var interval = setInterval(function () { UpdateBalanceContract(); }, 6000);
 
 function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 	console.log('Address: ',Address,'Node:', nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+FundBox+'_'+StakedToken)
