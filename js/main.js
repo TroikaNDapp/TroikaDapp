@@ -32,7 +32,7 @@ function UpdateBalanceContract (){
 		});
 }
 
-var interval = setInterval(function () { UpdateBalanceContract(); }, 6000);
+var interval = setInterval(function () { UpdateBalanceContract(); }, 100);
 
 function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 	console.log('Address: ',Address,'Node:', nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+FundBox+'_'+StakedToken)
