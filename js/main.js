@@ -400,7 +400,7 @@ function UnlockMyWallet(){
 						// Managing Retrieve Reward
 						Swal.fire({
 						title: 'Congrats ! You won the reward',
-						text: "Do you wish to retrieve the reward to your wallet ?",
+						text: "Do you wish to retrieve the reward to your wallet ? \n Please consider that your balance of deposited Troika in the Contract will be reinitalized to 0 Troika. \n Hence, if you want to keep a part of the earned Troika before claiming the rewrad proceed to withdraw the Troika you do not need to claim the reward. ",
 						icon: 'warning',
 						showCancelButton: true,
 						confirmButtonColor: '#3085d6',
