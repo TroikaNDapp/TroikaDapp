@@ -107,13 +107,13 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 					else{						
 						r = HeightBlockch[0].height-(FundBoxHeight[0].value + 10)
 						if (r < 0) {
-							document.getElementById("Rewarding").innerHTML = '<h1>Remaining : '+ -r+' Blocks (Around 01 Block per min)</h1>'
+							document.getElementById("Rewarding").innerHTML = '<h1>You still have'+ -r+' Blocks to push with Troika Token and possibly win the rewrad <br>(Around 01 Block per min)</h1>'
 						}
 						else{
 							// Check if User is winner and withdraw in case he is	      	      
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey',
 							function (result) {						
-								if (result.value == auth.address+'_'+ GovernToken)  {
+								if (result.value == Address+'_'+ GovernToken)  {
 									// Show Retrieve reward GUI
 									document.getElementById("RetrieveReward").innerHTML ='<div class="fund-item" ><img draggable="false" src="icons/tag.svg" /><h2>Claim reward !</h2>'+						
 									'<p id="WithdrawStakeButton" ><button class="round light" onclick="RetrieveReward()">Claim reward now</button></p>'+
