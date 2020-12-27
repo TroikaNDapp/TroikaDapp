@@ -101,11 +101,11 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 			$.getJSON("https://nodes-testnet.wavesnodes.com/blocks/height")
 			).done(function (FundBoxHeight,HeightBlockch) {	
 					if (FundBoxHeight.length == 0) {
-						console.log("Height SHIT: ", FundBoxHeight)
+						console.log("Height SHIT: ", FundBoxHeight[0].value)
 						document.getElementById("Rewarding").innerHTML = 'Remnaining : 0.0 Troika';
 					}
 					else{
-						console.log("Height miaw: ", FundBoxHeight)	
+						console.log("Height miaw: ", FundBoxHeight[0])	
 						console.log("tooozzz;: ", HeightBlockch)			
 						document.getElementById("Rewarding").innerHTML = '<h1>Remnaining : '+FundBoxHeight.value+'....'+HeightBlockch+'</h1>';
 					}					
