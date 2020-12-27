@@ -107,7 +107,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 					else{
 						//
 						console.log("Height miaw: ", FundBoxHeight[0].value)	
-						console.log("tooozzz;: ", HeightBlockch[0])			
+						console.log("tooozzz;: ", HeightBlockch[0].height)			
 						document.getElementById("Rewarding").innerHTML = '<h1>Remnaining : '+HeightBlockch[0]+'....'+ FundBoxHeight[0].value +'</h1>';
 					}					
 						
