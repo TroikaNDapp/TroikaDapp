@@ -46,7 +46,7 @@ function UpdateBalanceContract (){
 			});	
 }
 
-var interval = setInterval(function () { UpdateBalanceContract(); }, 1000);
+var interval = setInterval(function () { UpdateBalanceContract(); }, 3000);
 
 function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){	
 
@@ -107,7 +107,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 					else{						
 						r = HeightBlockch[0].height-(FundBoxHeight[0].value + 10)
 						if (r < 0) {
-							document.getElementById("Rewarding").innerHTML = '<h1>You still have'+ -r+' Blocks to push with Troika Token and possibly win the rewrad <br>(Around 01 Block per min)</h1>'
+							document.getElementById("Rewarding").innerHTML = '<h1>You still have '+ -r+' Blocks to push <br> with Troika Token and possibly win the rewrad <br>(Around '-r+' min)</h1>'
 						}
 						else{
 							// Check if User is winner and withdraw in case he is	      	      
@@ -442,7 +442,7 @@ function UnlockMyWallet(){
 	     let GovernToken = "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P"
 		 let dAppAddress = "3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u"
 		 
-		 var interval = setInterval(function () { UpdateBalance(dAppAddress,auth.address,StakedToken,GovernToken); }, 1000);
+		 var interval = setInterval(function () { UpdateBalance(dAppAddress,auth.address,StakedToken,GovernToken); }, 3000);
 	     		 
 			   			
 		}).catch(error => {
