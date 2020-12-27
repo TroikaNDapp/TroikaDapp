@@ -104,11 +104,15 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 				 document.getElementById("Rewarding").innerHTML = 'Remnaining : 0.0 Troika';
 			 }
 			 else{
+
 				console.log("Height: ", FundBoxHeight)
+				var r = FundBoxHeight.value	
 				 document.getElementById("Rewarding").innerHTML = 'Remnaining : '+FundBoxHeight.value;
-			 }								
+			 }	
+			 return r						
 				
-		});			
+		});
+		console.log("Testing: ", r)			
 						     		
 }
 
