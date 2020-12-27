@@ -109,6 +109,35 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 						if (r < 0) {
 							document.getElementById("Rewarding").innerHTML = '<h1>Remaining : '+ -r+' Blocks (Around 01 Block per min)</h1>'
 						}
+						else{
+							// Check if User is winner and withdraw in case he is	      	      
+							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey',
+							function (result) {						
+								if (result.value == auth.address+'_'+ GovernToken)  {
+									// Show Retrieve reward GUI
+									document.getElementById("RetrieveReward").innerHTML ='<div class="fund-item" ><img draggable="false" src="icons/tag.svg" /><h2>Claim reward !</h2>'+						
+									'<p id="WithdrawStakeButton" ><button class="round light" onclick="RetrieveReward()">Claim reward now</button></p>'+
+									'</div>'
+									// Managing Retrieve Reward
+									Swal.fire({
+									title: 'Congrats ! You won the reward',
+									text: "Do you wish to retrieve the reward to your wallet ? \n Please consider that your balance of deposited Troika in the Contract will be reinitalized to 0 Troika. \n Hence, if you want to keep a part of the earned Troika before claiming the rewrad proceed to withdraw the Troika you do not need to claim the reward. ",
+									icon: 'warning',
+									showCancelButton: true,
+									confirmButtonColor: '#3085d6',
+									cancelButtonColor: '#d33',
+									confirmButtonText: 'Yes, Withdraw reward now!'
+									}).then((result) => {
+									if (result.isConfirmed) {				
+										RetrieveReward()
+									}
+									})														
+								//document.getElementById("Rewarding").innerHTML = '<button class="round dark" onclick="RetrieveReward()" >Retrieve Reward</button>'
+								} else {
+									console.log('NO WINNER')				
+								}									
+							});	
+						}
 					}					
 						
 				});
@@ -415,33 +444,7 @@ function UnlockMyWallet(){
 		 
 		 var interval = setInterval(function () { UpdateBalance(dAppAddress,auth.address,StakedToken,GovernToken); }, 1000);
 	     		 
-	      // Check if User is winner and withdraw in case he is	      	      
-		      $.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey',
-				function (result) {						
-					if (result.value == auth.address+'_'+ GovernToken)  {
-						// Show Retrieve reward GUI
-						document.getElementById("RetrieveReward").innerHTML ='<div class="fund-item" ><img draggable="false" src="icons/tag.svg" /><h2>Claim reward !</h2>'+						
-						'<p id="WithdrawStakeButton" ><button class="round light" onclick="RetrieveReward()">Claim reward now</button></p>'+
-						'</div>'
-						// Managing Retrieve Reward
-						Swal.fire({
-						title: 'Congrats ! You won the reward',
-						text: "Do you wish to retrieve the reward to your wallet ? \n Please consider that your balance of deposited Troika in the Contract will be reinitalized to 0 Troika. \n Hence, if you want to keep a part of the earned Troika before claiming the rewrad proceed to withdraw the Troika you do not need to claim the reward. ",
-						icon: 'warning',
-						showCancelButton: true,
-						confirmButtonColor: '#3085d6',
-						cancelButtonColor: '#d33',
-						confirmButtonText: 'Yes, Withdraw reward now!'
-						}).then((result) => {
-						if (result.isConfirmed) {				
-							RetrieveReward()
-						}
-						})														
-					//document.getElementById("Rewarding").innerHTML = '<button class="round dark" onclick="RetrieveReward()" >Retrieve Reward</button>'
-					} else {
-						console.log('NO WINNER')				
-					}									
-				});				   			
+			   			
 		}).catch(error => {
 			
 			/*...processing errors: Show here error message: */
