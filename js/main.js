@@ -96,23 +96,22 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 		});	
 			console.log("Test Here....: https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n_PrizeHeight")
 		// Timer for Reward Retrieve
-		$.getJSON("https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n_PrizeHeight",  
-		function (FundBoxHeight) {	
-			
-			 if (FundBoxHeight.length == 0) {
-				console.log("Height SHIT: ", FundBoxHeight)
-				 document.getElementById("Rewarding").innerHTML = 'Remnaining : 0.0 Troika';
-			 }
-			 else{
-
-				console.log("Height: ", FundBoxHeight)
-				var r = FundBoxHeight.value	
-				 document.getElementById("Rewarding").innerHTML = 'Remnaining : '+FundBoxHeight.value;
-			 }	
-			 return r						
-				
-		});
-		console.log("Testing: ", r)			
+		$.when(
+			$.getJSON("https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n_PrizeHeight"),  
+			$.getJSON("https://nodes-testnet.wavesnodes.com/blocks/height")
+			.done(function (FundBoxHeight,HeightBlockch) {	
+					if (FundBoxHeight.length == 0) {
+						console.log("Height SHIT: ", FundBoxHeight)
+						document.getElementById("Rewarding").innerHTML = 'Remnaining : 0.0 Troika';
+					}
+					else{
+						console.log("Height: ", FundBoxHeight,HeightBlockch)				
+						document.getElementById("Rewarding").innerHTML = '<h1>Remnaining : '+FundBoxHeight.value+'....'+HeightBlockch+'</h1>';
+					}					
+						
+				})
+		);
+	
 						     		
 }
 
