@@ -105,7 +105,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 						document.getElementById("Rewarding").innerHTML = 'Remnaining : 0.0 Troika';
 					}
 					else{
-						console.log("Height: ", FundBoxHeight,HeightBlockch)				
+						console.log("Height: ", FundBoxHeight.value,HeightBlockch)				
 						document.getElementById("Rewarding").innerHTML = '<h1>Remnaining : '+FundBoxHeight.value+'....'+HeightBlockch+'</h1>';
 					}					
 						
