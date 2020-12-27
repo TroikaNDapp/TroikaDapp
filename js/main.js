@@ -113,8 +113,8 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey'),
 							$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+FundBox+'_'+StakedToken)
 							).done(function (result,PrizeAmount) {
-								console.log("PrizeAmount : ", PrizeAmount[0][0])						
-								if (result.value == Address+'_'+ GovernToken && PrizeAmount[0].value > 0 )  {
+								console.log("PrizeAmount : ", PrizeAmount[0][0].value)						
+								if (result.value == Address+'_'+ GovernToken && PrizeAmount[0][0].value > 0 )  {
 									// Show Retrieve reward GUI
 									document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>You push was the highest, and you won the reward prize <h1>'
 									document.getElementById("RetrieveReward").innerHTML ='<div class="fund-item" id ="RetrieveReward"><img draggable="false" src="icons/tag.svg" /><h2>Claim reward !</h2>'+						
