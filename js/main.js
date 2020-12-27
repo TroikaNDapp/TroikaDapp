@@ -27,7 +27,7 @@ function UpdateBalanceContract (){
 			else{
 				document.getElementById("ContractStaked").innerHTML = 'Staked: '+result.balance+' ASIMI';
 			}
-			console.log(nodeUrl+'/assets/balance/'+dAppAddress+'/'+StakedToken)
+			
 			
 		});
 		
@@ -35,7 +35,7 @@ function UpdateBalanceContract (){
 		// ..................
 		$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/GovernTokenMaxDeposit',  
 		function (AuctionReward) {
-			console.log(AuctionReward)
+			
 				if (AuctionReward.value == 0) {
 					document.getElementById("Auction").innerHTML = 'No Push';
 				}
@@ -48,8 +48,7 @@ function UpdateBalanceContract (){
 
 var interval = setInterval(function () { UpdateBalanceContract(); }, 10000);
 
-function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
-	console.log('Address: ',Address,'Node:', nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+FundBox+'_'+StakedToken)
+function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){	
 
 		// Stake Token Balance of the User's Wallet
 			$.getJSON(nodeUrl+'/assets/balance/'+Address+'/'+StakedToken,  
@@ -95,9 +94,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 			 }								
 				
 		});	
-
+			console.log("Test Here....: https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n_PrizeHeight")
 		// Timer for Reward Retrieve
-		$.getJSON("https://nodes-testnet.wavesnodes.com/addresses/data/"+dAppAddress+"_PrizeHeight",  
+		$.getJSON("https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n_PrizeHeight",  
 		function (FundBoxHeight) {	
 			console.log("Height: ", FundBoxHeight)
 			 if (FundBoxHeight.length == 0) {
@@ -183,7 +182,7 @@ function RetrieveReward(){
 			      	}, payment: []
 			 }
 		   }).then((tx) => {
-			console.log("Success");
+			
 			Swal.fire({
 			  position: 'center',
 			  icon: 'success',
@@ -207,7 +206,7 @@ function RetrieveReward(){
 function StakeTokens(){
 			
 document.getElementById('stake-form').onsubmit = function() { 
-    console.log(document.getElementById('StakeAmount').value);
+    
     StakeAmount = document.getElementById('StakeAmount').value
     // Staking Transaction
     setTimeout(() => {
@@ -225,7 +224,7 @@ document.getElementById('stake-form').onsubmit = function() {
 			      	}, payment: [{assetId: "GECLRH2fx2Xxix5gmrGV92AMt1A9LPohRpqwqRE16mwr", tokens: StakeAmount}]
 			 }
 		   }).then((tx) => {
-			console.log("Success");
+			
 			Swal.fire({
 			  position: 'center',
 			  icon: 'success',
@@ -251,7 +250,7 @@ document.getElementById('stake-form').onsubmit = function() {
 function WithdrawStakeTokens(){
 			
 document.getElementById('withdraw-form').onsubmit = function() { 
-    console.log(document.getElementById('WithdrawAmount').value);
+    
     WithdrawAmount = document.getElementById('WithdrawAmount').value
     // Staking Transaction
     setTimeout(() => {
@@ -272,7 +271,7 @@ document.getElementById('withdraw-form').onsubmit = function() {
 			      	}, payment: []
 			 }
 		   }).then((tx) => {
-			console.log("Success");
+			
 			Swal.fire({
 			  position: 'center',
 			  icon: 'success',
@@ -297,7 +296,7 @@ document.getElementById('withdraw-form').onsubmit = function() {
 function DepositGovernTokens(){
 			
 document.getElementById('deposit-form').onsubmit = function() { 
-    console.log(document.getElementById('DespoitTroika').value);
+    
     DespoitTroika = document.getElementById('DespoitTroika').value
     // Staking Transaction
     setTimeout(() => {
@@ -315,7 +314,7 @@ document.getElementById('deposit-form').onsubmit = function() {
 			      	}, payment: [{assetId: "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P", tokens: DespoitTroika}]
 			 }
 		   }).then((tx) => {
-			console.log("Success",);
+			
 			Swal.fire({
 			  position: 'center',
 			  icon: 'success',
@@ -341,7 +340,7 @@ document.getElementById('deposit-form').onsubmit = function() {
 function HarvestGovernToiken(){
 			
 document.getElementById('withdraw-troika-form').onsubmit = function() { 
-    console.log(document.getElementById('HarvestTroika').value);
+    
     HarvestTroika = document.getElementById('HarvestTroika').value
     // Staking Transaction
     setTimeout(() => {
@@ -362,7 +361,7 @@ document.getElementById('withdraw-troika-form').onsubmit = function() {
 			      	}, payment: []
 			 }
 		   }).then((tx) => {
-			console.log("Success");
+			
 			Swal.fire({
 			  position: 'center',
 			  icon: 'success',
@@ -438,12 +437,12 @@ function UnlockMyWallet(){
 					}									
 				});				   			
 		}).catch(error => {
-			console.error("Shit happend: ",error); // displaying the result on the console
+			
 			/*...processing errors: Show here error message: */
 			/* "Ups Something went wrong with your authentication, please check your Wallet data" */
 		})
    } else {
-       console.log('not installed')
+       
        Swal.fire({
 	  icon: 'error',
 	  title: 'Oops...',
