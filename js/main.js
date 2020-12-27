@@ -93,8 +93,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : '+GovernTokenBalance[0].value+' Troika';
 			 }								
 				
-		});	
-			console.log("Test Here....: https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n_PrizeHeight")
+		});				
 		// Timer for Reward Retrieve
 		$.when(
 			$.getJSON("https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n_PrizeHeight"),  
@@ -110,10 +109,13 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							document.getElementById("Rewarding").innerHTML = '<h1>You still have '+ -r+' Blocks to push <br> with Troika Token and possibly win the rewrad <br>(Around '+-r+' min)</h1>'
 						}
 						else{
-							// Check if User is winner and withdraw in case he is	      	      
-							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey',
-							function (result) {						
-								if (result.value == Address+'_'+ GovernToken)  {
+							// Check if User is winner and withdraw in case he is	
+						$.when(							      	      
+							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey'),
+							$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+FundBox+'_'+StakedToken)
+							).done(function (result,PrizeAmount) {
+								console.log("PrizeAmount : ", PrizeAmount)						
+								if (result.value == Address+'_'+ GovernToken && PrizeAmount > 0 )  {
 									// Show Retrieve reward GUI
 									document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>You push was the highest, and you won the reward prize <h1>'
 									document.getElementById("RetrieveReward").innerHTML ='<div class="fund-item" id ="RetrieveReward"><img draggable="false" src="icons/tag.svg" /><h2>Claim reward !</h2>'+						
