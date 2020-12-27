@@ -95,6 +95,18 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 			 }								
 				
 		});	
+
+		// Timer for Reward Retrieve
+		$.getJSON("https://nodes-testnet.wavesnodes.com/addresses/data/"+dAppAddress+"_PrizeHeight",  
+		function (FundBoxHeight) {	
+			 if (FundBoxHeight.length == 0) {
+				 document.getElementById("Timer").innerHTML = 'Earned : 0.0 Troika';
+			 }
+			 else{
+				 document.getElementById("Timer").innerHTML = 'Remnaining : '+FundBoxHeight.value;
+			 }								
+				
+		});			
 						     		
 }
 
