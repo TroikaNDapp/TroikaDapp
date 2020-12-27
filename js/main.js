@@ -46,7 +46,7 @@ function UpdateBalanceContract (){
 			});	
 }
 
-var interval = setInterval(function () { UpdateBalanceContract(); }, 100);
+var interval = setInterval(function () { UpdateBalanceContract(); }, 10000);
 
 function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 	console.log('Address: ',Address,'Node:', nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+FundBox+'_'+StakedToken)
@@ -408,7 +408,7 @@ function UnlockMyWallet(){
 	     let GovernToken = "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P"
 		 let dAppAddress = "3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u"
 		 
-		 var interval = setInterval(function () { UpdateBalance(dAppAddress,auth.address,StakedToken,GovernToken); }, 100);
+		 var interval = setInterval(function () { UpdateBalance(dAppAddress,auth.address,StakedToken,GovernToken); }, 10000);
 	     		 
 	      // Check if User is winner and withdraw in case he is	      	      
 		      $.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey',
