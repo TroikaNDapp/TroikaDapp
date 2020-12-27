@@ -98,11 +98,13 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 		// Timer for Reward Retrieve
 		$.getJSON("https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n_PrizeHeight",  
 		function (FundBoxHeight) {	
-			console.log("Height: ", FundBoxHeight.length)
+			
 			 if (FundBoxHeight.length == 0) {
+				console.log("Height SHIT: ", FundBoxHeight)
 				 document.getElementById("Timer").innerHTML = 'Remnaining : 0.0 Troika';
 			 }
 			 else{
+				console.log("Height: ", FundBoxHeight)
 				 document.getElementById("Timer").innerHTML = 'Remnaining : '+FundBoxHeight.value;
 			 }								
 				
