@@ -101,11 +101,11 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 			
 			 if (FundBoxHeight.length == 0) {
 				console.log("Height SHIT: ", FundBoxHeight)
-				 document.getElementById("Timer").innerHTML = 'Remnaining : 0.0 Troika';
+				 document.getElementById("Rewarding").innerHTML = 'Remnaining : 0.0 Troika';
 			 }
 			 else{
 				console.log("Height: ", FundBoxHeight)
-				 document.getElementById("Timer").innerHTML = 'Remnaining : '+FundBoxHeight.value;
+				 document.getElementById("Rewarding").innerHTML = 'Remnaining : '+FundBoxHeight.value;
 			 }								
 				
 		});			
