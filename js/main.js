@@ -115,8 +115,8 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							).done(function (result,PrizeAmount) {
 								console.log("PrizeAmount : ", PrizeAmount[0][0].value)						
 								console.log(result[0].value)
-								console.log(Address+'_'+ GovernToken)
-								if (result[0].value == Address+'_'+ GovernToken && PrizeAmount[0][0].value > 0 )  {
+								console.log(Address+'_'+ GovernToken) //&& PrizeAmount[0][0].value > 0
+								if (result[0].value == Address+'_'+ GovernToken  )  {
 									// Show Retrieve reward GUI
 									document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>You push was the highest, and you won the reward prize <h1>'
 									document.getElementById("RetrieveReward").innerHTML ='<div class="fund-item" id ="RetrieveReward"><img draggable="false" src="icons/tag.svg" /><h2>Claim reward !</h2>'+						
