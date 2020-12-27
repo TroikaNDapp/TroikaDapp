@@ -46,7 +46,7 @@ function UpdateBalanceContract (){
 			});	
 }
 
-var interval = setInterval(function () { UpdateBalanceContract(); }, 10000);
+var interval = setInterval(function () { UpdateBalanceContract(); }, 1000);
 
 function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){	
 
@@ -104,13 +104,10 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 						console.log("Height SHIT: ")
 						
 					}
-					else{
-						//
-						console.log("Height miaw: ", FundBoxHeight[0].value)	
-						console.log("tooozzz;: ", HeightBlockch[0].height)
+					else{						
 						r = HeightBlockch[0].height-(FundBoxHeight[0].value + 10)
 						if (r < 0) {
-							document.getElementById("Rewarding").innerHTML = '<h1>Remnaining : '+ -r+'</h1>'
+							document.getElementById("Rewarding").innerHTML = '<h1>Remaining : '+ -r+' Blocks (Around 01 Block per min)</h1>'
 						}
 					}					
 						
@@ -416,7 +413,7 @@ function UnlockMyWallet(){
 	     let GovernToken = "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P"
 		 let dAppAddress = "3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u"
 		 
-		 var interval = setInterval(function () { UpdateBalance(dAppAddress,auth.address,StakedToken,GovernToken); }, 10000);
+		 var interval = setInterval(function () { UpdateBalance(dAppAddress,auth.address,StakedToken,GovernToken); }, 1000);
 	     		 
 	      // Check if User is winner and withdraw in case he is	      	      
 		      $.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey',
