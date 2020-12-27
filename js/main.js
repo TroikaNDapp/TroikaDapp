@@ -114,6 +114,8 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+FundBox+'_'+StakedToken)
 							).done(function (result,PrizeAmount) {
 								console.log("PrizeAmount : ", PrizeAmount[0][0].value)						
+								console.log(result.value)
+								console.log(Address+'_'+ GovernToken)
 								if (result.value == Address+'_'+ GovernToken && PrizeAmount[0][0].value > 0 )  {
 									// Show Retrieve reward GUI
 									document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>You push was the highest, and you won the reward prize <h1>'
