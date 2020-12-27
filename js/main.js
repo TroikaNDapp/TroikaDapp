@@ -100,8 +100,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 			$.getJSON("https://nodes-testnet.wavesnodes.com/blocks/height")
 			).done(function (FundBoxHeight,HeightBlockch) {	
 					if (FundBoxHeight.length == 0 ) {
-						console.log("Height SHIT: ")
-						
+						console.log("Height SHIT: ")						
 					}
 					else{						
 						r = HeightBlockch[0].height-(FundBoxHeight[0].value + 10)
