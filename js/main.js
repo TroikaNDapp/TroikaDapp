@@ -100,13 +100,13 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 			$.getJSON("https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n_PrizeHeight"),  
 			$.getJSON("https://nodes-testnet.wavesnodes.com/blocks/height")
 			).done(function (FundBoxHeight,HeightBlockch) {	
-					if (FundBoxHeight.length == 0) {
-						console.log("Height SHIT: ", FundBoxHeight[0].value)
-						document.getElementById("Rewarding").innerHTML = 'Remnaining : 0.0 Troika';
+					if (FundBoxHeight.length == 0 ) {
+						console.log("Height SHIT: ")
+						
 					}
 					else{
-						console.log("Height miaw: ", FundBoxHeight[0])	
-						console.log("tooozzz;: ", HeightBlockch)			
+						console.log("Height miaw: ", FundBoxHeight[0].value)	
+						console.log("tooozzz;: ", HeightBlockch[0].value)			
 						document.getElementById("Rewarding").innerHTML = '<h1>Remnaining : '+FundBoxHeight.value+'....'+HeightBlockch+'</h1>';
 					}					
 						
