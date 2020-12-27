@@ -107,7 +107,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 					else{						
 						r = HeightBlockch[0].height-(FundBoxHeight[0].value + 10)
 						if (r < 0) {
-							document.getElementById("Rewarding").innerHTML = '<h1>You still have '+ -r+' Blocks to push <br> with Troika Token and possibly win the rewrad <br>(Around '-r+' min)</h1>'
+							document.getElementById("Rewarding").innerHTML = '<h1>You still have '+ -r+' Blocks to push <br> with Troika Token and possibly win the rewrad <br>(Around '+-r+' min)</h1>'
 						}
 						else{
 							// Check if User is winner and withdraw in case he is	      	      
