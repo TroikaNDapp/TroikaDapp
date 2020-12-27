@@ -108,8 +108,10 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 						//
 						console.log("Height miaw: ", FundBoxHeight[0].value)	
 						console.log("tooozzz;: ", HeightBlockch[0].height)
-						r = HeightBlockch[0].height-FundBoxHeight[0].value 			
-						document.getElementById("Rewarding").innerHTML = '<h1>Remnaining : '+ r+'</h1>';
+						r = HeightBlockch[0].height-(FundBoxHeight[0].value + 10)
+						if (r < 0) {
+							document.getElementById("Rewarding").innerHTML = '<h1>Remnaining : '+ -r+'</h1>'
+						}
 					}					
 						
 				});
