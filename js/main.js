@@ -143,7 +143,8 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								//document.getElementById("Rewarding").innerHTML = '<button class="round dark" onclick="RetrieveReward()" >Retrieve Reward</button>'
 								} else {
 									console.log('NO WINNER')	
-									document.getElementById("RetrieveReward").innerHTML =''			
+									document.getElementById("RetrieveReward").innerHTML =''		
+									document.getElementById("Rewarding").innerHTML =''		
 								}									
 							});	
 						}
