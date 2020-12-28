@@ -47,7 +47,7 @@ function UpdateBalanceContract (){
 			});	
 }
 
-var interval = setInterval(function () { UpdateBalanceContract(); }, 30000);
+var interval = setInterval(function () { UpdateBalanceContract(); }, 3000);
 
 function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){	
 
@@ -448,7 +448,7 @@ function UnlockMyWallet(){
 	     let GovernToken = "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P"
 		 let dAppAddress = "3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u"
 		 
-		 var interval = setInterval(function () { UpdateBalance(dAppAddress,auth.address,StakedToken,GovernToken); }, 30000);
+		 var interval = setInterval(function () { UpdateBalance(dAppAddress,auth.address,StakedToken,GovernToken); }, 3000);
 	     		 
 			   			
 		}).catch(error => {
