@@ -25,7 +25,7 @@ function UpdateBalanceContract (){
 				document.getElementById("ContractStaked").innerHTML = 'Staked: 0.0 ASIMI';
 			}	
 			else{
-				document.getElementById("ContractStaked").innerHTML = 'Staked: '+result.balance+' ASIMI';
+				document.getElementById("ContractStaked").innerHTML = 'Staked: '+result.value+' ASIMI';
 			}
 			
 			
