@@ -8,13 +8,13 @@ let GovernToken = "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P"
 // Smart Contract Balance
 // ..................
 function UpdateBalanceContract (){
-	$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+FundBox+'_'+StakedToken,  
+	$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'/FundBox',  
 	function (Reward) {
 			if (Reward.length == 0) {
 				document.getElementById("ContractReward").innerHTML = 'Reward Available: 0.0 ASIMI';
 			}
 			else{
-				document.getElementById("ContractReward").innerHTML = 'Reward Available: '+Reward[0].value+' ASIMI';
+				document.getElementById("ContractReward").innerHTML = 'Reward Available: '+Reward.value+' ASIMI';
 			}
 		});	
 
