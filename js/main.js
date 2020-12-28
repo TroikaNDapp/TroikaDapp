@@ -21,6 +21,7 @@ function UpdateBalanceContract (){
 	// Smart Contract Balance Staked
 	$.getJSON(nodeUrl+'/assets/balance/'+dAppAddress+'/StakeBalance',
 	function (result) {
+		console.log('StakeBalance: ', StakeBalance)
 			if (result.length == 0) {
 				document.getElementById("ContractStaked").innerHTML = 'Staked: 0.0 ASIMI';
 			}	
