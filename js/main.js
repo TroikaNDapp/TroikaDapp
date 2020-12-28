@@ -97,7 +97,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 		});				
 		// Timer for Reward Retrieve
 		$.when(
-			$.getJSON("https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n_PrizeHeight"),  
+			$.getJSON("https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/PrizeHeight"),  
 			$.getJSON("https://nodes-testnet.wavesnodes.com/blocks/height")
 			).done(function (FundBoxHeight,HeightBlockch) {	
 					if (FundBoxHeight.length == 0 ) {
@@ -116,10 +116,6 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+Address+'_'+GovernToken),
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/GovernTokenMaxDeposit')
 							).done(function (result,PrizeAmount,UserGovernToken,TroikaLastPush) {
-								console.log("PrizeAmount : ", PrizeAmount[0].value)						
-								console.log(result[0].value)
-								console.log(TroikaLastPush[0].value) 
-								console.log("UserGovernToken: ", UserGovernToken[0][0].value)
 								if (( result[0].value == Address+'_'+ GovernToken  ) && (PrizeAmount[0].value > 0) && (UserGovernToken[0][0].value >= TroikaLastPush[0].value) ) {
 									// Show Retrieve reward GUI
 									document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>You push was the highest, and you won the reward prize <h1>'
