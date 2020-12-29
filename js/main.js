@@ -98,13 +98,15 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 		// Timer for Reward Retrieve
 		$.when(
 			$.getJSON("https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/PrizeHeight"),  
-			$.getJSON("https://nodes-testnet.wavesnodes.com/blocks/height")
-			).done(function (FundBoxHeight,HeightBlockch) {	
+			$.getJSON("https://nodes-testnet.wavesnodes.com/blocks/height"),
+			$.getJSON("https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/Delay")
+			).done(function (FundBoxHeight,HeightBlockch,delayblock) {	
 					if (FundBoxHeight.length == 0 ) {
 						console.log("Waiting for Reward to be received")						
 					}
-					else{						
-						r = HeightBlockch[0].height-(FundBoxHeight[0].value + 10)
+					else{			
+						console.log("New Delay is: ", delayblock[0].value)			
+						r = HeightBlockch[0].height-(FundBoxHeight[0].value + delayblock[0].value)
 						if (r < 0) {
 							document.getElementById("Rewarding").innerHTML = '<h1>You still have '+ -r+' Blocks to push <br> with Troika Token and possibly win the rewrad <br>(Around '+-r+' min)</h1>'
 						}
