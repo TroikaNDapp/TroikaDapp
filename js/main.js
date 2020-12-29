@@ -474,23 +474,14 @@ function UnlockMyWallet(){
 }            
 
 function PushReward(){
-	swal({
+	Swal.fire({
 		title: "An input!",
 		text: "Write something interesting:",
-		type: "input",
-		showCancelButton: true,
-		closeOnConfirm: false,
-		animation: "slide-from-top",
-		inputPlaceholder: "Write something"
-	  },
-	  function(inputValue){
-		if (inputValue === false) return false;
-	  
-		if (inputValue === "") {
-		  swal.showInputError("You need to write something!");
-		  return false
+		input: 'text',
+		showCancelButton: true        
+	}).then((result) => {
+		if (result.value) {
+			console.log("Result: " + result.value);
 		}
-	  
-		swal("Nice!", "You wrote: " + inputValue, "success");
-	  });
+	});
 };
