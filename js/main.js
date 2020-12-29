@@ -490,7 +490,7 @@ function PushReward(){
 					 },
 					 dApp: '3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u',
 					 call: {
-							 function: 'DepositGovernToken',
+							 function: 'PushReward',
 							 args: []
 						 }, payment: [{assetId: "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P", tokens: result.value}]
 				}
