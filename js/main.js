@@ -499,7 +499,7 @@ function PushReward(){
 			   Swal.fire({
 				 position: 'center',
 				 icon: 'success',
-				 title: 'Your Transaction has been sent: Deposit '+DespoitTroika+' TROIKA',
+				 title: 'Your Transaction has been sent: Deposit '+result.value+' TROIKA',
 				 showConfirmButton: false,
 				 timer: 3000
 			   })
