@@ -5,8 +5,8 @@ let StakedToken = "GECLRH2fx2Xxix5gmrGV92AMt1A9LPohRpqwqRE16mwr"
 let FundBox     = "3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n"
 let GovernToken = "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P"
 
+
 // Smart Contract Balance
-// ..................
 function UpdateBalanceContract (){
 	$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'/FundBox',  
 	function (Reward) {
@@ -85,7 +85,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 		});	
 
 		// Govern Token Balance of the User's in Smart Contract
-		$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+Address+'_'+GovernToken,  
+		$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+Address+'_Ferm_'+GovernToken,  
 		function (GovernTokenBalance) {	
 			 if (GovernTokenBalance.length == 0) {
 				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : 0.0 Troika';
@@ -443,7 +443,9 @@ function UnlockMyWallet(){
 	     		document.getElementById("StakeButton").removeAttribute("hidden");
 	     		document.getElementById("WithdrawStakeButton").removeAttribute("hidden");
 	     		document.getElementById("DepositGovernButton").removeAttribute("hidden");
-	     		document.getElementById("WithdrawGovernButton").removeAttribute("hidden");
+				document.getElementById("WithdrawGovernButton").removeAttribute("hidden");
+				document.getElementById("WalletInfo").innerHTML = '<button class="round dark" onclick="PushRewrad()" id="PushRewrad">Push for Reward</button>'+
+																  '<button class="round dark" onclick="DelayReward()" id="DelayReward">Postpone the Reward Release</button>'
 	     })
 	     /*Update UserBalace Txt*/
 	     const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
@@ -469,3 +471,43 @@ function UnlockMyWallet(){
 	})	       
     }	 
 }            
+
+function PushRewrad(){
+	setTimeout(() => {
+		WavesKeeper.signAndPublishTransaction({
+		type: 16,
+		data: {
+			 fee: {
+			  "tokens": "0.05",
+			  "assetId": "WAVES"
+			 },
+			 dApp: '3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u',
+			 call: {
+					 function: 'HarvestGovernToiken',
+					 args: [ {
+						   "type": "integer",
+						   "value": HarvestTroika
+						 }]
+				 }, payment: []
+		}
+	  }).then((tx) => {
+	   
+	   Swal.fire({
+		 position: 'center',
+		 icon: 'success',
+		 title: 'Your Transaction has been sent: Withdraw '+HarvestTroika+' TROIKA',
+		 showConfirmButton: false,
+		 timer: 3000
+	   })
+											   
+	  }).catch((error) => {
+		Swal.fire({
+			 icon: 'error',
+			 title: 'Oops...',
+			 text: error.data ,
+			 footer: ''
+		   })
+	  });	
+})	    
+return false;
+};
