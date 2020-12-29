@@ -526,7 +526,10 @@ function DelayReward(){
 			DelayTokenCost = 10
 		} 
 		else {
-			DelayTokenCost= 2*(DelayCost.value)
+			if (DelayCost.value == 0 ) 
+				DelayTokenCost = 10
+			else 
+			 	DelayTokenCost = 2*(DelayCost.value)
 
 			Swal.fire({
 				title: "Postpone the release of the reward!",
