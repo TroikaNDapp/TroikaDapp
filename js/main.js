@@ -445,7 +445,7 @@ function UnlockMyWallet(){
 	     		document.getElementById("WithdrawStakeButton").removeAttribute("hidden");
 	     		document.getElementById("DepositGovernButton").removeAttribute("hidden");
 				document.getElementById("WithdrawGovernButton").removeAttribute("hidden");
-				document.getElementById("WalletInfo").innerHTML = '<button class="round dark" onclick="PushRewrad()" id="PushRewrad">Push for Reward</button>'+
+				document.getElementById("WalletInfo").innerHTML = '<button class="round dark" onclick="PushReward()" id="PushReward">Push for Reward</button>'+
 																  '<button class="round dark" onclick="DelayReward()" id="DelayReward">Postpone the Reward Release</button>'
 	     })
 	     /*Update UserBalace Txt*/
@@ -473,42 +473,24 @@ function UnlockMyWallet(){
     }	 
 }            
 
-function PushRewrad(){
+function PushReward(){
 	setTimeout(() => {
-		WavesKeeper.signAndPublishTransaction({
-		type: 16,
-		data: {
-			 fee: {
-			  "tokens": "0.05",
-			  "assetId": "WAVES"
-			 },
-			 dApp: '3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u',
-			 call: {
-					 function: 'HarvestGovernToiken',
-					 args: [ {
-						   "type": "integer",
-						   "value": HarvestTroika
-						 }]
-				 }, payment: []
-		}
-	  }).then((tx) => {
-	   
-	   Swal.fire({
-		 position: 'center',
-		 icon: 'success',
-		 title: 'Your Transaction has been sent: Withdraw '+HarvestTroika+' TROIKA',
-		 showConfirmButton: false,
-		 timer: 3000
-	   })
-											   
-	  }).catch((error) => {
-		Swal.fire({
-			 icon: 'error',
-			 title: 'Oops...',
-			 text: error.data ,
-			 footer: ''
-		   })
-	  });	
+		const { value: ipAddress } = await Swal.fire({
+			title: 'Enter your IP address',
+			input: 'text',
+			inputLabel: 'Your IP address',
+			inputValue: inputValue,
+			showCancelButton: true,
+			inputValidator: (value) => {
+			  if (!value) {
+				return 'You need to write something!'
+			  }
+			}
+		  })
+		  
+		  if (ipAddress) {
+			Swal.fire(`Your IP address is ${ipAddress}`)
+		  }
 })	    
 return false;
 };
