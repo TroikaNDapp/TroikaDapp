@@ -105,7 +105,8 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 						console.log("Waiting for Reward to be received")						
 					}
 					else{			
-						console.log("New Delay is: ", delayblock[0].value)			
+						console.log("New Delay is: ", delayblock[0].value)
+						console.log("Wait: ", HeightBlockch[0].height-(FundBoxHeight[0].value + delayblock[0].value))		
 						r = HeightBlockch[0].height-(FundBoxHeight[0].value + delayblock[0].value)
 						if (r < 0) {
 							document.getElementById("Rewarding").innerHTML = '<h1>You still have '+ -r+' Blocks to push <br> with Troika Token and possibly win the rewrad <br>(Around '+-r+' min)</h1>'
