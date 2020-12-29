@@ -85,8 +85,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 		});	
 
 		// Govern Token Balance of the User's in Smart Contract
-		$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+Address+'_Earnings',    
+		$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_Earnings',    
 		function (GovernTokenBalance) {	
+			console.log("ffff: ", GovernTokenBalance)
 			 if (GovernTokenBalance.length == 0) {
 				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : 0.0 Troika';
 			 }
