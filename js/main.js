@@ -474,7 +474,6 @@ function UnlockMyWallet(){
 }            
 
 function PushReward(){
-	setTimeout(() => {
 		const { value: ipAddress } = await Swal.fire({
 			title: 'Enter your IP address',
 			input: 'text',
@@ -491,6 +490,4 @@ function PushReward(){
 		  if (ipAddress) {
 			Swal.fire(`Your IP address is ${ipAddress}`)
 		  }
-})	    
-return false;
 };
