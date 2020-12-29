@@ -40,12 +40,6 @@
         </div>
         <div class="fund-item">
             <img draggable="false" src="icons/tag.svg" />
-            <h2>Deposit Troika Token</h2>
-            <span class="desc" id="UserWalletGovernBalance">---</span>
-	     <p id="DepositGovernButton" hidden><button class="round light" onclick="revealForm('deposit-form')">Deposit now</button></p>
-        </div>
-        <div class="fund-item">
-            <img draggable="false" src="icons/tag.svg" />
             <h2>Harvest Troika Token</h2>
             <span class="desc" id="UserBalanceGovernSmartContract"> ---</span>
 	    <p id="WithdrawGovernButton" hidden><button class="round light" onclick="revealForm('withdraw-troika-form')">Harvest now</button>
@@ -75,13 +69,6 @@
         <input type="text" placeholder="Troika amount to deposit" id="DespoitTroika"/>
         <span class="msg"></span>
         <button class="block dark" onclick="DepositGovernTokens()">Deposit Troika</button>
-    </form>
-    <form id="withdraw-troika-form" hidden>
-        <h1>Harvest my Troikas</h1>
-        <h4>Troika to withdraw</h4>
-        <input type="text" placeholder="Troika to withdraw" id="HarvestTroika"/>
-        <span class="msg"></span>
-        <button class="block dark" onclick="HarvestGovernToiken()">Harvest Troika</button>
     </form>
     <footer>
         <nav>
