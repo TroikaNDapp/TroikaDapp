@@ -520,8 +520,8 @@ function PushReward(){
 
 function DelayReward(){
 	Swal.fire({
-		title: "Postpone the release ONE MORE DAY!",
-		text: "To postpone the release of the reward one day later than planned, you have to deposit Troika, The cost to delay a day doubles after every delay",
+		title: "Push for the reward!",
+		text: "To be able to claim the reward you have to deposit a higher amount of Troikas than the last higest push:",
 		input: 'text',
 		showCancelButton: true        
 	}).then((result) => {
@@ -535,7 +535,7 @@ function DelayReward(){
 					 },
 					 dApp: '3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u',
 					 call: {
-							 function: 'delayprize',
+							 function: 'PushReward',
 							 args: []
 						 }, payment: [{assetId: "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P", tokens: result.value}]
 				}
@@ -544,7 +544,7 @@ function DelayReward(){
 			   Swal.fire({
 				 position: 'center',
 				 icon: 'success',
-				 title: 'Your Transaction has been sent: Request for delay of the release of the reward with '+result.value+' TROIKA',
+				 title: 'Your Transaction has been sent: Pushing for reward with '+result.value+' TROIKA',
 				 showConfirmButton: false,
 				 timer: 3000
 			   })
