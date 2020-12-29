@@ -481,7 +481,38 @@ function PushReward(){
 		showCancelButton: true        
 	}).then((result) => {
 		if (result.value) {
-			console.log("Result: " + result.value);
+			WavesKeeper.signAndPublishTransaction({
+				type: 16,
+				data: {
+					 fee: {
+					  "tokens": "0.05",
+					  "assetId": "WAVES"
+					 },
+					 dApp: '3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u',
+					 call: {
+							 function: 'DepositGovernToken',
+							 args: []
+						 }, payment: [{assetId: "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P", tokens: result.value}]
+				}
+			  }).then((tx) => {
+			   
+			   Swal.fire({
+				 position: 'center',
+				 icon: 'success',
+				 title: 'Your Transaction has been sent: Deposit '+DespoitTroika+' TROIKA',
+				 showConfirmButton: false,
+				 timer: 3000
+			   })
+										  
+				
+			  }).catch((error) => {
+				Swal.fire({
+					 icon: 'error',
+					 title: 'Oops...',
+					 text: error.data ,
+					 footer: ''
+				   })
+			  });	
 		}
 	});
 };
