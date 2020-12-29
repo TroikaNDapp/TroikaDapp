@@ -61,16 +61,6 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 				}
 
 			});		
-		// Govern Token Balance of the User's Wallet
-		$.getJSON(nodeUrl+'/assets/balance/'+Address+'/'+GovernToken,  
-		function (result) {
-			if (result.length == 0) {
-				document.getElementById("UserWalletGovernBalance").innerHTML = 'Balance Wallet: 0.0 Troika';
-			}else{
-				document.getElementById("UserWalletGovernBalance").innerHTML = 'Balance Wallet: '+result.balance+' Troika';
-			}
-				
-		});
 
 		// Stake Token Balance of the User's in Smart Contract
 		$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+Address+'_'+StakedToken,  

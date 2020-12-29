@@ -21,10 +21,7 @@
         </nav>
         
     </header>
-    <p id="UtilityUse">
-        <button class="round dark" onclick="PushRewrad()" id="PushRewrad">Push for Reward</button>
-        <button class="round dark" onclick="DelayReward()" id="DelayReward">Postpone the Reward Release</button>
-    </p>
+    <p id="UtilityUse"></p>
     <div class="spacer" ></div>    
     <p id="Rewarding"></p>
     <div id="funds-container" >
@@ -39,12 +36,6 @@
             <h2>Withdraw Staked ASIMI</h2>
             <span class="desc" id="UserBalanceStakeSmartContract">---</span>
 	     <p id="WithdrawStakeButton" hidden><button class="round light" onclick="revealForm('withdraw-form')">Withdraw now</button></p>
-        </div>
-        <div class="fund-item">
-            <img draggable="false" src="icons/tag.svg" />
-            <h2>Deposit Troika Token</h2>
-            <span class="desc" id="UserWalletGovernBalance">---</span>
-	     <p id="DepositGovernButton" hidden><button class="round light" onclick="revealForm('deposit-form')">Deposit now</button></p>
         </div>
         <div class="fund-item">
             <img draggable="false" src="icons/tag.svg" />
@@ -70,13 +61,6 @@
         <input type="text" placeholder="ASIMI amount to withdraw" id="WithdrawAmount" />
         <span class="msg"></span>
         <button class="block dark" onclick="WithdrawStakeTokens()">Withdraw ASIMI</button>
-    </form>
-    <form id="deposit-form" hidden>
-        <h1>Deposit Troika Token</h1>
-        <h4>Amount to deposit</h4>
-        <input type="text" placeholder="Troika amount to deposit" id="DespoitTroika"/>
-        <span class="msg"></span>
-        <button class="block dark" onclick="DepositGovernTokens()">Deposit Troika</button>
     </form>
     <form id="withdraw-troika-form" hidden>
         <h1>Harvest my Troikas</h1>
