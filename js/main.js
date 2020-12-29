@@ -62,6 +62,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 
 			});		
 
+
 		// Stake Token Balance of the User's in Smart Contract
 		$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+Address+'_'+StakedToken,  
 		function (Stakedbalance) {						
