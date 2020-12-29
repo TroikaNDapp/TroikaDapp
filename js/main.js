@@ -474,20 +474,14 @@ function UnlockMyWallet(){
 }            
 
 function PushReward(){
-		const { value: ipAddress } = await Swal.fire({
-			title: 'Enter your IP address',
-			input: 'text',
-			inputLabel: 'Your IP address',
-			inputValue: inputValue,
-			showCancelButton: true,
-			inputValidator: (value) => {
-			  if (!value) {
-				return 'You need to write something!'
-			  }
-			}
-		  })
-		  
-		  if (ipAddress) {
-			Swal.fire(`Your IP address is ${ipAddress}`)
-		  }
+	const { value: email } = await Swal.fire({
+		title: 'Input email address',
+		input: 'email',
+		inputLabel: 'Your email address',
+		inputPlaceholder: 'Enter your email address'
+	  })
+	  
+	  if (email) {
+		Swal.fire(`Entered email: ${email}`)
+	  }
 };
