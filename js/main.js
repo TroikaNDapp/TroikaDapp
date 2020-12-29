@@ -85,7 +85,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 		});	
 
 		// Govern Token Balance of the User's in Smart Contract
-		$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+"/_Ferm_GovernToken",  
+		$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+Address+'_Farm_GovernToken',    
 		function (GovernTokenBalance) {	
 			 if (GovernTokenBalance.length == 0) {
 				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : 0.0 Troika';
@@ -99,7 +99,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 		$.when(
 			$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+"/PrizeHeight"),  
 			$.getJSON("https://nodes-testnet.wavesnodes.com/blocks/height"),
-			$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+"/Delay")
+			$.getJSON("https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/Delay")
 			).done(function (FundBoxHeight,HeightBlockch,delayblock) {	
 					if (FundBoxHeight.length == 0 ) {
 						console.log("Waiting for Reward to be received")						
