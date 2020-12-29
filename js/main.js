@@ -430,12 +430,13 @@ function UnlockMyWallet(){
 	     		document.getElementById("StakeButton").removeAttribute("hidden");
 	     		document.getElementById("WithdrawStakeButton").removeAttribute("hidden");	     		
 				document.getElementById("WithdrawGovernButton").removeAttribute("hidden");
-				document.getElementById("UtilityUse").innerHTML = '<button class="round dark" onclick="PushReward()" id="PushReward">Push for Reward</button> '+
-																  ' <button class="round dark" onclick="DelayReward()" id="DelayReward">Postpone the Reward Release</button>'
+				
 		 })
 	     // Change Unlock Button Text		     
 	     setTimeout(() => {
-			document.getElementById("UnlockWallet").hidden = true;	  		       
+			document.getElementById("UnlockWallet").hidden = true;	  
+			document.getElementById("UtilityUse").innerHTML = '<button class="round dark" onclick="PushReward()" id="PushReward">Push for Reward</button> '+
+																  ' <button class="round dark" onclick="DelayReward()" id="DelayReward">Postpone the Reward Release</button>'		       
 			document.getElementById("WalletInfo").innerHTML = 
 			'<button class="round dark" >  '+auth.address.substring(0,4)+'...'+auth.address.slice(-4)+'</button>';	
 		})			 
