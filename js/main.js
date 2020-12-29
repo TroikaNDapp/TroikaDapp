@@ -433,8 +433,7 @@ function UnlockMyWallet(){
 	     //Show Buttons for SmartContract Actions
 	     setTimeout(() => {
 	     		document.getElementById("StakeButton").removeAttribute("hidden");
-	     		document.getElementById("WithdrawStakeButton").removeAttribute("hidden");
-	     		document.getElementById("DepositGovernButton").removeAttribute("hidden");
+	     		document.getElementById("WithdrawStakeButton").removeAttribute("hidden");	     		
 				document.getElementById("WithdrawGovernButton").removeAttribute("hidden");
 				document.getElementById("WalletInfo").innerHTML = '<button class="round dark" onclick="PushReward()" id="PushReward">Push for Reward</button>'+
 																  '<button class="round dark" onclick="DelayReward()" id="DelayReward">Postpone the Reward Release</button>'
