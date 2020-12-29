@@ -474,14 +474,16 @@ function UnlockMyWallet(){
 }            
 
 function PushReward(){
-	const { value: email } = await Swal.fire({
-		title: 'Input email address',
-		input: 'email',
-		inputLabel: 'Your email address',
-		inputPlaceholder: 'Enter your email address'
+	Swal.fire({
+		title: 'How old are you?',
+		icon: 'question',
+		input: 'range',
+		inputLabel: 'Your age',
+		inputAttributes: {
+		  min: 8,
+		  max: 120,
+		  step: 1
+		},
+		inputValue: 25
 	  })
-	  
-	  if (email) {
-		Swal.fire(`Entered email: ${email}`)
-	  }
 };
