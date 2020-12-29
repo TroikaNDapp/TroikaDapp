@@ -523,7 +523,7 @@ function DelayReward(){
 	$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/DelayCost',  
 	function (DelayCost) {						
 		 if (DelayCost.length == 0) {
-			DelayTokenCost = 0
+			DelayTokenCost = 10
 		} 
 		else {
 			DelayTokenCost= 2*(DelayCost.value)
