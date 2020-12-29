@@ -519,45 +519,57 @@ function PushReward(){
 
 
 function DelayReward(){
-	Swal.fire({
-		title: "Push for the reward!",
-		text: "To be able to claim the reward you have to deposit a higher amount of Troikas than the last higest push:",
-		input: 'text',
-		showCancelButton: true        
-	}).then((result) => {
-		if (result.value) {
-			WavesKeeper.signAndPublishTransaction({
-				type: 16,
-				data: {
-					 fee: {
-					  "tokens": "0.05",
-					  "assetId": "WAVES"
-					 },
-					 dApp: '3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u',
-					 call: {
-							 function: 'delayprize',
-							 args: []
-						 }, payment: [{assetId: "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P", tokens: result.value}]
+
+	$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/DelayCost',  
+	function (DelayCost) {						
+		 if (DelayCost.length == 0) {
+			DelayTokenCost = 0
+		} 
+		else {
+			DelayTokenCost= DelayCost[0].value
+
+			Swal.fire({
+				title: "Postpone the release of the reward!",
+				text: "You will delay the release of the pending or next reward ONE DAY later",
+				input: 'text',
+				inputValue: DelayTokenCost,
+				showCancelButton: true        
+			}).then((result) => {
+				if (result.value) {
+					WavesKeeper.signAndPublishTransaction({
+						type: 16,
+						data: {
+							 fee: {
+							  "tokens": "0.05",
+							  "assetId": "WAVES"
+							 },
+							 dApp: '3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u',
+							 call: {
+									 function: 'delayprize',
+									 args: []
+								 }, payment: [{assetId: "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P", tokens: result.value}]
+						}
+					  }).then((tx) => {
+					   
+					   Swal.fire({
+						 position: 'center',
+						 icon: 'success',
+						 title: 'Your Transaction has been sent: Pushing for reward with '+result.value+' TROIKA',
+						 showConfirmButton: false,
+						 timer: 3000
+					   })
+												  
+						
+					  }).catch((error) => {
+						Swal.fire({
+							 icon: 'error',
+							 title: 'Oops...',
+							 text: error.data ,
+							 footer: ''
+						   })
+					  });	
 				}
-			  }).then((tx) => {
-			   
-			   Swal.fire({
-				 position: 'center',
-				 icon: 'success',
-				 title: 'Your Transaction has been sent: Pushing for reward with '+result.value+' TROIKA',
-				 showConfirmButton: false,
-				 timer: 3000
-			   })
-										  
-				
-			  }).catch((error) => {
-				Swal.fire({
-					 icon: 'error',
-					 title: 'Oops...',
-					 text: error.data ,
-					 footer: ''
-				   })
-			  });	
+			});
 		}
-	});
+	});	
 };
