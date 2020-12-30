@@ -110,10 +110,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/GovernTokenMaxDeposit')
 							).done(function (result,PrizeAmount,UserGovernToken,TroikaLastPush) {
 								console.log("CHECK:  ", result[0].value)
-								console.log("UserGovernToken:  ", UserGovernToken[0].value)
+								console.log("UserGovernToken:  ", UserGovernToken)
 								console.log("PrizeAmount[0].value:  ", PrizeAmount[0].value)
-								console.log("UserGovernToken[0].value:  ", UserGovernToken[0].value)
-								console.log("TroikaLastPush[0].value:  ", TroikaLastPush[0].value)
+							
 								if (( result[0].value == Address+'_Push') && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) ) {
 									// Show Retrieve reward GUI
 									document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>You push was the highest, and you won the reward prize <h1>'
