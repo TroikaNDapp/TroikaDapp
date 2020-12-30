@@ -77,8 +77,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 
 		// Govern Token Balance of the User's in Smart Contract
 		$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_Earnings',    
-		function (GovernTokenBalance) {	
-			console.log("ffff: ", GovernTokenBalance)
+		function (GovernTokenBalance) {				
 			 if (GovernTokenBalance.length == 0) {
 				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : 0.0 Troika';
 			 }
@@ -100,7 +99,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 						r = HeightBlockch[0].height-(FundBoxHeight[0].value + delayblock[0].value)
 						if (r < 0) {
 							var nextWeek = moment().add(-r, 'days');
-							alert(nextWeek);
+							//alert(nextWeek);
 							document.getElementById("Rewarding").innerHTML = '<p id="demo"></p>'+
 							'<script>'+
 							// Set the date we're counting down to
