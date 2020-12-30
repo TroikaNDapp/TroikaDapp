@@ -99,9 +99,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 						r = HeightBlockch[0].height-(FundBoxHeight[0].value + delayblock[0].value)
 						if (r < 0) {
 							var nextWeek = moment().add(-r, 'days');
-							//alert(nextWeek);
-							document.getElementById("Rewarding").innerHTML = 'nextWeek'
-							
+							//alert(nextWeek);														
 							//'<h1>You still have '+ -r+' Blocks to push <br> with Troika Token and possibly win the rewrad <br>(Around '+-r+' min)</h1>'
 						}
 						else{
