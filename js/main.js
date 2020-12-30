@@ -99,11 +99,11 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 						r = HeightBlockch[0].height-(FundBoxHeight[0].value + delayblock[0].value)
 						if (r < 0) {
 							var nextWeek = moment().add(-r, 'days');
-							alert(nextWeek);
+							//alert(nextWeek);
 							document.getElementById("Rewarding").innerHTML = '<p id="demo"></p>'+
 							'<script>'+
 							// Set the date we're counting down to
-							'var countDownDate = new Date("'+nextWeek+'").getTime();'+
+							'var countDownDate = new Date("Jan 5, 2021 15:37:25).getTime();'+
 
 							// Update the count down every 1 second'+
 							'var x = setInterval(function() {'+
