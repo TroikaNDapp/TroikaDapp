@@ -41,7 +41,7 @@ function UpdateBalanceContract (){
 					document.getElementById("Auction").innerHTML = 'No Push';
 				}
 				else{
-					document.getElementById("Auction").innerHTML = 'Last Push: '+AuctionReward.value+' TROIKA';				
+					document.getElementById("Auction").innerHTML = 'Highest Push: '+AuctionReward.value+' TROIKA';				
 					
 				}
 			});	
@@ -99,6 +99,8 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 					else{									
 						r = HeightBlockch[0].height-(FundBoxHeight[0].value + delayblock[0].value)
 						if (r < 0) {
+							var nextWeek = moment().add(-r, 'days');
+							alert(nextWeek);
 							document.getElementById("Rewarding").innerHTML = '<h1>You still have '+ -r+' Blocks to push <br> with Troika Token and possibly win the rewrad <br>(Around '+-r+' min)</h1>'
 						}
 						else{
@@ -112,10 +114,10 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								console.log("CHECK:  ", result[0].value)
 								console.log("UserGovernToken:  ", UserGovernToken)
 								console.log("PrizeAmount[0].value:  ", PrizeAmount[0].value)
-							
+								
 								if (( result[0].value == Address+'_Push') && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) ) {
 									// Show Retrieve reward GUI
-									document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>You push was the highest, and you won the reward prize <h1>'
+									document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>You push was the highest, and you won the reward prize <h1>'																						
 									document.getElementById("RetrieveReward").innerHTML ='<div class="fund-item" id ="RetrieveReward"><img draggable="false" src="icons/tag.svg" /><h2>Claim reward !</h2>'+						
 									'<p id="WithdrawStakeButton" ><button class="round light" onclick="RetrieveReward()">Claim reward now</button></p>'+
 									'</div>'
