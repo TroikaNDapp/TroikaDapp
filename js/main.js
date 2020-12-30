@@ -108,10 +108,11 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 						$.when(							      	      
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey'),
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/FundBox'),
-							$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+Address+'_'+GovernToken),
+							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/+/'+Address+'_Push'),
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/GovernTokenMaxDeposit')
 							).done(function (result,PrizeAmount,UserGovernToken,TroikaLastPush) {
-								if (( result[0].value == Address) && (PrizeAmount[0].value > 0) && (UserGovernToken[0][0].value >= TroikaLastPush[0].value) ) {
+								console.log("UserGovernToken:  ", )
+								if (( result[0].value == Address) && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) ) {
 									// Show Retrieve reward GUI
 									document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>You push was the highest, and you won the reward prize <h1>'
 									document.getElementById("RetrieveReward").innerHTML ='<div class="fund-item" id ="RetrieveReward"><img draggable="false" src="icons/tag.svg" /><h2>Claim reward !</h2>'+						
