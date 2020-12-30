@@ -21,7 +21,7 @@ function UpdateBalanceContract (){
 	// Smart Contract Balance Staked
 	$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'/StakeBalance',
 	function (result) {
-		console.log('StakeBalance: ', result)
+		
 			if (result.length == 0) {
 				document.getElementById("ContractStaked").innerHTML = 'Staked: 0.0 ASIMI';
 			}	
@@ -96,9 +96,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 					if (FundBoxHeight.length == 0 ) {
 						console.log("Waiting for Reward to be received")						
 					}
-					else{			
-						console.log("New Delay is: ", delayblock[0].value)
-						console.log("Wait: ", HeightBlockch[0].height,FundBoxHeight[0].value , delayblock[0].value)		
+					else{									
 						r = HeightBlockch[0].height-(FundBoxHeight[0].value + delayblock[0].value)
 						if (r < 0) {
 							document.getElementById("Rewarding").innerHTML = '<h1>You still have '+ -r+' Blocks to push <br> with Troika Token and possibly win the rewrad <br>(Around '+-r+' min)</h1>'
@@ -111,7 +109,11 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/+/'+Address+'_Push'),
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/GovernTokenMaxDeposit')
 							).done(function (result,PrizeAmount,UserGovernToken,TroikaLastPush) {
-								console.log("UserGovernToken:  ", )
+								console.log("CHECK:  ", result[0].value)
+								console.log("Address:  ", Address)
+								console.log("PrizeAmount[0].value:  ", PrizeAmount[0].value)
+								console.log("UserGovernToken[0].value:  ", UserGovernToken[0].value)
+								console.log("TroikaLastPush[0].value:  ", TroikaLastPush[0].value)
 								if (( result[0].value == Address) && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) ) {
 									// Show Retrieve reward GUI
 									document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>You push was the highest, and you won the reward prize <h1>'
