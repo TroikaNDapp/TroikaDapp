@@ -112,7 +112,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								console.log("CHECK:  ", result[0].value)
 								console.log("Address:  ", Address)
 								console.log("PrizeAmount[0].value:  ", PrizeAmount[0].value)
-								console.log("UserGovernToken[0].value:  ", UserGovernToken[0].value)
+								console.log("UserGovernToken[0].value:  ", UserGovernToken)
 								console.log("TroikaLastPush[0].value:  ", TroikaLastPush[0].value)
 								if (( result[0].value == Address) && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) ) {
 									// Show Retrieve reward GUI
