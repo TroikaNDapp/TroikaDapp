@@ -64,7 +64,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 
 
 		// Stake Token Balance of the User's in Smart Contract
-		$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+Address+'_'+StakedToken,  
+		$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+Address+'_Staking',  
 		function (Stakedbalance) {						
 			 if (Stakedbalance.length == 0) {
 				document.getElementById("UserBalanceStakeSmartContract").innerHTML = 'Staked in Contract: 0.0 ASIMI';
@@ -549,7 +549,7 @@ function DelayReward(){
 					   Swal.fire({
 						 position: 'center',
 						 icon: 'success',
-						 title: 'Your Transaction has been sent: Pushing for reward with '+result.value+' TROIKA',
+						 title: 'Your Transaction has been sent: Postpone One day the release of reward <br>Cost '+result.value+' TROIKA',
 						 showConfirmButton: false,
 						 timer: 3000
 					   })
