@@ -99,7 +99,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 						r = HeightBlockch[0].height-(FundBoxHeight[0].value + delayblock[0].value)
 						if (r < 0) {
 							var nextWeek = moment().add(-r, 'days');
-							//alert(nextWeek);
+							alert(nextWeek);
 							document.getElementById("Rewarding").innerHTML = '<p id="demo"></p>'+
 							'<script>'+
 							// Set the date we're counting down to
