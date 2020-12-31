@@ -110,7 +110,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							if (HighestPushAddress[0].value == Address) {
 								document.getElementById("Rewarding").innerHTML = -r+ ' minutes before reward is released <br> Your Push is actually the highest, if reward is released you would be the winner'
 							}else{
-								ocument.getElementById("Rewarding").innerHTML = -r+ ' minutes before reward is released '	
+								document.getElementById("Rewarding").innerHTML = -r+ ' minutes before reward is released '	
 							}
 						}
 							
