@@ -90,21 +90,22 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 		$.when(
 			$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+"/PrizeHeight"),  
 			$.getJSON("https://nodes-testnet.wavesnodes.com/blocks/height"),
-			$.getJSON("https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/Delay")
-			).done(function (FundBoxHeight,HeightBlockch,delayblock) {	
+			$.getJSON("https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/Delay"),
+			$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey')
+			).done(function (FundBoxHeight,HeightBlockch,delayblock, HighestPushAddress) {	
 					if (FundBoxHeight.length == 0 ) {
-						console.log("Waiting for Reward to be received")						
+						console.log("Waiting for Reward to be received")	
+						document.getElementById("Rewarding").innerHTML = 'No Reward available for now'					
+						if (HighestPushAddress[0].value == Address) {
+							document.getElementById("Rewarding").innerHTML = 'No Reward available for now <br> Your Push is actually the highest, if reward is released you would be the winner'
+						}
+						
 					}
 					else{									
 						r = HeightBlockch[0].height-(FundBoxHeight[0].value + delayblock[0].value)
 						if (r < 0) {
 							var nextWeek = moment().add(-r, 'days');
 							document.getElementById("Rewarding").innerHTML = '  <p id="demo"></p><script>var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();var x = setInterval(function() {var now = new Date().getTime();var distance = countDownDate - now;var days = Math.floor(distance / (1000 * 60 * 60 * 24));var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));var seconds = Math.floor((distance % (1000 * 60)) / 1000);document.getElementById("demo").innerHTML = days + "d " + hours + "h "+ minutes + "m " + seconds + "s ";if (distance < 0) {learInterval(x);document.getElementById("demo").innerHTML = "EXPIRED";}}, 1000);</script>'
-							
-
-
-
-							
 							//'<h1>You still have '+ -r+' Blocks to push <br> with Troika Token and possibly win the rewrad <br>(Around '+-r+' min)</h1>'
 						}
 						else{
