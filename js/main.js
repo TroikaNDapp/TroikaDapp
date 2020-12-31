@@ -106,16 +106,14 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 					}
 					else{									
 						r = HeightBlockch[0].height-(FundBoxHeight[0].value + delayblock[0].value)
-						if (r < 0) {
-							console.log("Math.trunc(-r/60 ) ", Math.trunc(-r/60 ))
-							console.log("-r-Math.trunc(-r/60 ) ",-r-Math.trunc(-r/60 ))
+						if (r < 0) {					
 							if (Math.trunc(-r/60 ) < 10) Hours ='0'+ Math.trunc(-r/60 ); else Hours = Math.trunc(-r/60 )
 							if (-r-Math.trunc(-r/60 ) < 10) Minutes = '0'+-r-Math.trunc(-r/60 ); else Minutes =  -r-Math.trunc(-r/60 )
 							
 							if (HighestPushAddress[0].value == Address+"_Push") {
-								document.getElementById("Rewarding").innerHTML = '<h1>'+Hours+' Hours '+ Minutes+' minutes before reward is released</h1> <br> Your Push is actually the highest, if reward is released you would be the winner'
+								document.getElementById("Rewarding").innerHTML = '<h1>'+Hours+' Hours'+ Minutes+' minutes before reward is released</h1> <br> Your Push is actually the highest, if reward is released you would be the winner'
 							}else{
-								document.getElementById("Rewarding").innerHTML = '<h1>'+Hours+' Hours '+ Minutes+' minutes before reward is released</h1> minutes before reward is released '	
+								document.getElementById("Rewarding").innerHTML = '<h1>'+Hours+' Hours'+ Minutes+' minutes before reward is released</h1> minutes before reward is released '	
 							}
 						}
 							
@@ -151,8 +149,8 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								//document.getElementById("Rewarding").innerHTML = '<button class="round dark" onclick="RetrieveReward()" >Retrieve Reward</button>'
 								} else {
 									console.log('NO WINNER')	
-									document.getElementById("RetrieveReward").innerHTML =''		
-									document.getElementById("Rewarding").innerHTML =''		
+									document.getElementById("RetrieveReward").innerHTML = ''		
+									document.getElementById("Rewarding").innerHTML = ''		
 								}									
 							});	
 						}
@@ -235,7 +233,8 @@ function RetrieveReward(){
 			      	}, payment: []
 			 }
 		   }).then((tx) => {
-			
+			document.getElementById("RetrieveReward").innerHTML = ''		
+			document.getElementById("Rewarding").innerHTML = ''	
 			Swal.fire({
 			  position: 'center',
 			  icon: 'success',

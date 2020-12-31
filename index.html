@@ -21,10 +21,9 @@
         <p id="WalletInfo"><button class="round dark" onclick="UnlockMyWallet()" id="UnlockWallet">  Unlock My Wallet</button></p>                
         </nav>        
     </header>    
-    <div class="spacer" ></div>   
-    
+    <div class="spacer" ></div>    
     <p id="Rewarding"></p>
-    <div id="funds-container" style="text-align:center">
+    <div id="funds-container" >
         <div class="fund-item" hidden>
             <img draggable="false" src="icons/tag.svg" />
             <h2>Stake my ASIMI</h2>
@@ -41,11 +40,11 @@
             <img draggable="false" src="icons/tag.svg" />
             <h2>Harvest Troika Token</h2>
             <span class="desc" id="UserBalanceGovernSmartContract"> ---</span>
-        <p id="WithdrawGovernButton" hidden><button class="round light" onclick="revealForm('withdraw-troika-form')">Harvest now</button>
-        <p id="RetrieveReward" ></p>
+	    <p id="WithdrawGovernButton" hidden><button class="round light" onclick="revealForm('withdraw-troika-form')">Harvest now</button>
         </div>
-
-                   
+        <div class="rewrad-item">
+            <p id="RetrieveReward" ></p>
+        </div>            
     </div>
     <a name="form"></a>
     <form id="stake-form" hidden>
@@ -83,5 +82,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment-with-locales.min.js"></script>
+
 </html>
