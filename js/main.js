@@ -109,7 +109,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 						if (r < 0) {		
 							console.log("r: ", r)			
 							if (Math.trunc(-r/60 ) < 10) Hours ='0'+ Math.trunc(-r/60 ); else Hours = Math.trunc(-r/60 )
-							if (-r-Math.trunc(-r/60 ) < 10) Minutes = '0'+-r-Math.trunc(-r/60 ); else Minutes =  -r-Math.trunc(-r/60 )
+							if (-r-Math.trunc(-r/60 ) < 10) Minutes = '0'+-r-Math.trunc(-r/60 ); else Minutes =  -r-60*Math.trunc(-r/60 )
 							
 							if (HighestPushAddress[0].value == Address+"_Push") {
 								document.getElementById("Rewarding").innerHTML = '<h1>'+Hours+' Hours '+ Minutes+' minutes before reward is released</h1> <br> Your Push is actually the highest, if reward is released you would be the winner'
