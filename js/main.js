@@ -115,7 +115,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								document.getElementById("Rewarding").innerHTML = '<h1>'+Hours+' Hours '+ Minutes+' minutes before reward is released</h1> <br> Your Push is actually the highest, if reward is released you would be the winner'
 							}else{
 								console.log("Hours, Minutes: ", Hours,Minutes)
-								document.getElementById("Rewarding").innerHTML = '<h1>'+Hours+' Hours '+ Minutes+' minutes before reward is released</h1>User '+HighestPushAddress[0].value.substring(0,4)+'...'+HighestPushAddress[0].value.slice(31,-8)+' has the highest Push for reward right now'
+								document.getElementById("Rewarding").innerHTML = '<h1>'+Hours+' Hours '+ Minutes+' minutes before reward is released</h1>User '+HighestPushAddress[0].value.substring(0,4)+'...'+HighestPushAddress[0].value.slice(31,-5)+' has the highest Push for reward right now'
 							}
 						}
 							
