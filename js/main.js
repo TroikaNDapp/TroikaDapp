@@ -98,9 +98,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							
 						//document.getElementById("Rewarding").innerHTML = 'Waiting for Reward to be received'					
 						if (HighestPushAddress[0].value == Address+"_Push") {
-							document.getElementById("Rewarding").innerHTML = 'No Reward available for now <br> Your Push is actually the highest, if reward is released you would be the winner'
+							document.getElementById("Rewarding").innerHTML = '<h1>No Reward available for now <br> Your Push is actually the highest, if reward is released you would be the winner</h1>'
 						}else{
-							document.getElementById("Rewarding").innerHTML = 'No Reward available for now'	
+							document.getElementById("Rewarding").innerHTML = '<h1>No Reward available for now</h1>'	
 						}
 						
 					}
@@ -115,47 +115,47 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								document.getElementById("Rewarding").innerHTML = '<h1>'+Hours+' Hours '+ Minutes+' minutes before reward is released</h1> <br> Your Push is actually the highest, if reward is released you would be the winner'
 							}else{
 								console.log("Hours, Minutes: ", Hours,Minutes)
-								document.getElementById("Rewarding").innerHTML = '<h1>'+Hours+' Hours '+ Minutes+' minutes before reward is released</h1> minutes before reward is released '	
+								document.getElementById("Rewarding").innerHTML = '<h1>'+Hours+' Hours '+ Minutes+' minutes before reward is released</h1>User '+HighestPushAddress[0].value.substring(0,4)+'...'+HighestPushAddress[0].value.slice(-4)+' has the highest Push for reward right now'
 							}
 						}
 							
 						else{
 							// Check if User is winner and withdraw in case he is	
-						$.when(							      	      
-							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey'),
-							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/FundBox'),
-							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_Push'),
-							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/GovernTokenMaxDeposit')
-							).done(function (result,PrizeAmount,UserGovernToken,TroikaLastPush) {						
-								
-								if (( result[0].value == Address+'_Push') && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) ) {
-									// Show Retrieve reward GUI
-									document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>You push was the highest, and you won the reward prize <h1>'																						
-									document.getElementById("RetrieveReward").innerHTML ='<div class="fund-item" id ="RetrieveReward"><img draggable="false" src="icons/tag.svg" /><h2>Claim reward !</h2>'+						
-									'<p id="WithdrawStakeButton" ><button class="round light" onclick="RetrieveReward()">Claim reward now</button></p>'+
-									'</div>'
-									// Managing Retrieve Reward
-									Swal.fire({
-									title: 'Congrats ! You won the reward',
-									text: "Do you wish to retrieve the reward to your wallet ? \n Please consider that your balance of deposited Troika in the Contract will be reinitalized to 0 Troika. \n Hence, if you want to keep a part of the earned Troika before claiming the rewrad proceed to withdraw the Troika you do not need to claim the reward. ",
-									icon: 'warning',
-									showCancelButton: true,
-									confirmButtonColor: '#3085d6',
-									cancelButtonColor: '#d33',
-									confirmButtonText: 'Yes, Withdraw reward now!'
-									}).then((result) => {
-									if (result.isConfirmed) {				
-										RetrieveReward()
-									}
-									})														
-								//document.getElementById("Rewarding").innerHTML = '<button class="round dark" onclick="RetrieveReward()" >Retrieve Reward</button>'
-								} else {
-									console.log('NO WINNER')	
-									document.getElementById("RetrieveReward").innerHTML = ''		
-									document.getElementById("Rewarding").innerHTML = ''		
-								}									
-							});	
-						}
+							$.when(							      	      
+								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey'),
+								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/FundBox'),
+								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_Push'),
+								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/GovernTokenMaxDeposit')
+								).done(function (result,PrizeAmount,UserGovernToken,TroikaLastPush) {						
+									
+									if (( result[0].value == Address+'_Push') && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) ) {
+										// Show Retrieve reward GUI
+										document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>You push was the highest, and you won the reward prize <h1>'																						
+										document.getElementById("RetrieveReward").innerHTML ='<div class="fund-item" id ="RetrieveReward"><img draggable="false" src="icons/tag.svg" /><h2>Claim reward !</h2>'+						
+										'<p id="WithdrawStakeButton" ><button class="round light" onclick="RetrieveReward()">Claim reward now</button></p>'+
+										'</div>'
+										// Managing Retrieve Reward
+										Swal.fire({
+										title: 'Congrats ! You won the reward',
+										text: "Do you wish to retrieve the reward to your wallet ? \n Please consider that your balance of deposited Troika in the Contract will be reinitalized to 0 Troika. \n Hence, if you want to keep a part of the earned Troika before claiming the rewrad proceed to withdraw the Troika you do not need to claim the reward. ",
+										icon: 'warning',
+										showCancelButton: true,
+										confirmButtonColor: '#3085d6',
+										cancelButtonColor: '#d33',
+										confirmButtonText: 'Yes, Withdraw reward now!'
+										}).then((result) => {
+										if (result.isConfirmed) {				
+											RetrieveReward()
+										}
+										})														
+									//document.getElementById("Rewarding").innerHTML = '<button class="round dark" onclick="RetrieveReward()" >Retrieve Reward</button>'
+									} else {
+										console.log('NO WINNER')	
+										document.getElementById("RetrieveReward").innerHTML = ''		
+										document.getElementById("Rewarding").innerHTML = ''		
+									}									
+								});	
+							}
 					}					
 						
 				});
