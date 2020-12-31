@@ -123,10 +123,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/FundBox'),
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_Push'),
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/GovernTokenMaxDeposit')
-							).done(function (result,PrizeAmount,UserGovernToken,TroikaLastPush) {
-								console.log("CHECK:  ", result[0].value)
-								console.log("UserGovernToken:  ", UserGovernToken)
-								console.log("PrizeAmount[0].value:  ", PrizeAmount[0].value)
+							).done(function (result,PrizeAmount,UserGovernToken,TroikaLastPush) {						
 								
 								if (( result[0].value == Address+'_Push') && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) ) {
 									// Show Retrieve reward GUI
