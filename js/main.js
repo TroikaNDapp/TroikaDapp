@@ -100,7 +100,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 						if (HighestPushAddress[0].value == Address) {
 							document.getElementById("Rewarding").innerHTML = 'No Reward available for now <br> Your Push is actually the highest, if reward is released you would be the winner'
 						}else{
-							ocument.getElementById("Rewarding").innerHTML = 'No Reward available for now'	
+							document.getElementById("Rewarding").innerHTML = 'No Reward available for now'	
 						}
 						
 					}
