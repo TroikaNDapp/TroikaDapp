@@ -94,7 +94,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 			$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey')
 			).done(function (FundBoxHeight,HeightBlockch,delayblock, HighestPushAddress) {	
 					console.log("FundBoxHeight.length ", FundBoxHeight)
-					if (FundBoxHeight.length == 0 ) {
+					if (FundBoxHeight[0].value == 0 ) {
 						console.log("Waiting for Reward to be received")	
 						document.getElementById("Rewarding").innerHTML = 'No Reward available for now'					
 						if (HighestPushAddress[0].value == Address) {
