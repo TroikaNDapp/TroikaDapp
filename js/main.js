@@ -96,9 +96,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 					console.log("HighestPushAddress[0].value ", HighestPushAddress[0].value )
 					console.log("Address : ", Address)
 					if (FundBoxHeight[0].value == 0 ) {
-						console.log("Waiting for Reward to be received")	
-						document.getElementById("Rewarding").innerHTML = 'Waiting for Reward to be received'					
-						if (HighestPushAddress[0].value == Address) {
+							
+						//document.getElementById("Rewarding").innerHTML = 'Waiting for Reward to be received'					
+						if (HighestPushAddress[0].value == Address+"_Push") {
 							document.getElementById("Rewarding").innerHTML = 'No Reward available for now <br> Your Push is actually the highest, if reward is released you would be the winner'
 						}else{
 							document.getElementById("Rewarding").innerHTML = 'No Reward available for now'	
@@ -108,7 +108,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 					else{									
 						r = HeightBlockch[0].height-(FundBoxHeight[0].value + delayblock[0].value)
 						if (r < 0) {
-							if (HighestPushAddress[0].value == Address) {
+							if (HighestPushAddress[0].value == Address+"_Push") {
 								document.getElementById("Rewarding").innerHTML = -r+ ' minutes before reward is released <br> Your Push is actually the highest, if reward is released you would be the winner'
 							}else{
 								document.getElementById("Rewarding").innerHTML = -r+ ' minutes before reward is released '	
