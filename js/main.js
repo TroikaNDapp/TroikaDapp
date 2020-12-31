@@ -107,7 +107,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 					else{									
 						r = HeightBlockch[0].height-(FundBoxHeight[0].value + delayblock[0].value)
 						if (r < 0) {		
-							console.log(HighestPushAddress[0].value , Address+"_Push")			
+							console.log("r: ", r)			
 							if (Math.trunc(-r/60 ) < 10) Hours ='0'+ Math.trunc(-r/60 ); else Hours = Math.trunc(-r/60 )
 							if (-r-Math.trunc(-r/60 ) < 10) Minutes = '0'+-r-Math.trunc(-r/60 ); else Minutes =  -r-Math.trunc(-r/60 )
 							
