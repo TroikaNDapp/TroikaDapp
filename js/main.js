@@ -275,7 +275,7 @@ document.getElementById('stake-form').onsubmit = function() {
 			      call: {
 			      		function: 'Stake',
 			      		args: []
-			      	}, payment: [{assetId: "DEjmrvdViZH7trtuAqaKQFjNjfbK6D7yMHm18UQ8Hj21", tokens: StakeAmount*100000000}]
+			      	}, payment: [{assetId: "DEjmrvdViZH7trtuAqaKQFjNjfbK6D7yMHm18UQ8Hj21", tokens: StakeAmount}]
 			 }
 		   }).then((tx) => {
 			
@@ -365,7 +365,7 @@ document.getElementById('deposit-form').onsubmit = function() {
 			      call: {
 			      		function: 'DepositGovernToken',
 			      		args: []
-			      	}, payment: [{assetId: "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA", tokens: DespoitTroika*100000000}]
+			      	}, payment: [{assetId: "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA", tokens: DespoitTroika}]
 			 }
 		   }).then((tx) => {
 			
