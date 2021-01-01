@@ -131,7 +131,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 									if (( result[0].value == Address+'_Push') && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) ) {
 										// Show Retrieve reward GUI
 										document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>You push was the highest, and you won the reward prize <h1>'																						
-										document.getElementById("RetrieveReward").innerHTML ='<div class="fund-item" id ="RetrieveReward"><img draggable="false" src="icons/tag.svg" /><h2>Claim reward !</h2>'+						
+										document.getElementById("ClaimRewardButton").innerHTML ='<div class="fund-item" id ="RetrieveReward"><img draggable="false" src="icons/tag.svg" /><h2>Claim reward !</h2>'+						
 										'<p id="WithdrawStakeButton" ><button class="round light" onclick="RetrieveReward()">Claim reward now</button></p>'+
 										'</div>'
 										// Managing Retrieve Reward
