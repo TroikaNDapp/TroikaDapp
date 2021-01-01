@@ -82,7 +82,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : 0.0 Troika';
 			 }
 			 else{
-				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : '+(GovernTokenBalance.value/100000000).toFixed(2)+' Troika';
+				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : '+(GovernTokenBalance.value/100000000).toFixed(8)+' Troika';
 			 }								
 				
 		});				
