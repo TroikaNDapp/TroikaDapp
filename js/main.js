@@ -3,7 +3,7 @@ const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
 let dAppAddress = "3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u"
 let StakedToken = "DEjmrvdViZH7trtuAqaKQFjNjfbK6D7yMHm18UQ8Hj21"
 let FundBox     = "3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n"
-let GovernToken = "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P"
+let GovernToken = "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA"
 
 
 // Smart Contract Balance
@@ -82,7 +82,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : 0.0 Troika';
 			 }
 			 else{
-				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : '+GovernTokenBalance.value+' Troika';
+				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : '+GovernTokenBalance.value/100000000+' Troika';
 			 }								
 				
 		});				
@@ -275,7 +275,7 @@ document.getElementById('stake-form').onsubmit = function() {
 			      call: {
 			      		function: 'Stake',
 			      		args: []
-			      	}, payment: [{assetId: "DEjmrvdViZH7trtuAqaKQFjNjfbK6D7yMHm18UQ8Hj21", tokens: StakeAmount}]
+			      	}, payment: [{assetId: "DEjmrvdViZH7trtuAqaKQFjNjfbK6D7yMHm18UQ8Hj21", tokens: StakeAmount*100000000}]
 			 }
 		   }).then((tx) => {
 			
@@ -365,7 +365,7 @@ document.getElementById('deposit-form').onsubmit = function() {
 			      call: {
 			      		function: 'DepositGovernToken',
 			      		args: []
-			      	}, payment: [{assetId: "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P", tokens: DespoitTroika}]
+			      	}, payment: [{assetId: "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA", tokens: DespoitTroika*100000000}]
 			 }
 		   }).then((tx) => {
 			
@@ -410,7 +410,7 @@ document.getElementById('withdraw-troika-form').onsubmit = function() {
 			      		function: 'HarvestGovernToiken',
 			      		args: [ {
 			      		      "type": "integer",
-			      		      "value": HarvestTroika
+			      		      "value": HarvestTroika*100000000
 			      		    }]
 			      	}, payment: []
 			 }
@@ -461,7 +461,7 @@ function UnlockMyWallet(){
 	     /*Update UserBalace Txt*/
 	     const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
 	     let StakedToken = "DEjmrvdViZH7trtuAqaKQFjNjfbK6D7yMHm18UQ8Hj21"
-	     let GovernToken = "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P"
+	     let GovernToken = "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA"
 		 let dAppAddress = "3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u"
 		 
 		 var interval = setInterval(function () { UpdateBalance(dAppAddress,auth.address,StakedToken,GovernToken); }, 3000);
@@ -502,7 +502,7 @@ function PushReward(){
 					 call: {
 							 function: 'PushReward',
 							 args: []
-						 }, payment: [{assetId: "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P", tokens: result.value}]
+						 }, payment: [{assetId: "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA", tokens: result.value*100000000}]
 				}
 			  }).then((tx) => {
 			   
@@ -560,7 +560,7 @@ function DelayReward(){
 							 call: {
 									 function: 'delayprize',
 									 args: []
-								 }, payment: [{assetId: "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P", tokens: result.value}]
+								 }, payment: [{assetId: "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA", tokens: result.value*100000000}]
 						}
 					  }).then((tx) => {
 					   
