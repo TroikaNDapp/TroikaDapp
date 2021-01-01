@@ -1,7 +1,7 @@
 // Staked Tokens the Smart Contract
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
 let dAppAddress = "3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u"
-let StakedToken = "GECLRH2fx2Xxix5gmrGV92AMt1A9LPohRpqwqRE16mwr"
+let StakedToken = "DEjmrvdViZH7trtuAqaKQFjNjfbK6D7yMHm18UQ8Hj21"
 let FundBox     = "3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n"
 let GovernToken = "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P"
 
@@ -275,7 +275,7 @@ document.getElementById('stake-form').onsubmit = function() {
 			      call: {
 			      		function: 'Stake',
 			      		args: []
-			      	}, payment: [{assetId: "GECLRH2fx2Xxix5gmrGV92AMt1A9LPohRpqwqRE16mwr", tokens: StakeAmount}]
+			      	}, payment: [{assetId: "DEjmrvdViZH7trtuAqaKQFjNjfbK6D7yMHm18UQ8Hj21", tokens: StakeAmount}]
 			 }
 		   }).then((tx) => {
 			
@@ -460,7 +460,7 @@ function UnlockMyWallet(){
 		})			 
 	     /*Update UserBalace Txt*/
 	     const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
-	     let StakedToken = "GECLRH2fx2Xxix5gmrGV92AMt1A9LPohRpqwqRE16mwr"
+	     let StakedToken = "DEjmrvdViZH7trtuAqaKQFjNjfbK6D7yMHm18UQ8Hj21"
 	     let GovernToken = "2FMrxDLdQhauSY7d1uDUyKP1MpxkM7BeWA2UMnk3cG3P"
 		 let dAppAddress = "3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u"
 		 
