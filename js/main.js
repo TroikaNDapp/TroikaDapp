@@ -14,7 +14,7 @@ function UpdateBalanceContract (){
 				document.getElementById("ContractReward").innerHTML = 'Reward Available: 0.0 ASIMI';
 			}
 			else{
-				document.getElementById("ContractReward").innerHTML = 'Reward Available: '+Reward.value+' ASIMI';
+				document.getElementById("ContractReward").innerHTML = 'Reward Available: '+Reward.value/100000000+' ASIMI';
 			}
 		});	
 
@@ -26,7 +26,7 @@ function UpdateBalanceContract (){
 				document.getElementById("ContractStaked").innerHTML = 'Staked: 0.0 ASIMI';
 			}	
 			else{
-				document.getElementById("ContractStaked").innerHTML = 'Staked: '+result.value+' ASIMI';
+				document.getElementById("ContractStaked").innerHTML = 'Staked: '+result.value/100000000+' ASIMI';
 			}
 			
 			
@@ -57,7 +57,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 				if (result.length == 0) {
 					document.getElementById("UserWalletStakeBalance").innerHTML = 'Balance Wallet: 0.0 ASIMI'
 				}else{
-					document.getElementById("UserWalletStakeBalance").innerHTML = 'Balance Wallet: '+result.balance;+' ASIMI'
+					document.getElementById("UserWalletStakeBalance").innerHTML = 'Balance Wallet: '+result.balance/100000000;+' ASIMI'
 				}
 
 			});		
@@ -70,7 +70,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 				document.getElementById("UserBalanceStakeSmartContract").innerHTML = 'Staked in Contract: 0.0 ASIMI';
 			} 
 			else {
-				document.getElementById("UserBalanceStakeSmartContract").innerHTML = 'Staked in Contract: '+Stakedbalance[0].value+' ASIMI';
+				document.getElementById("UserBalanceStakeSmartContract").innerHTML = 'Staked in Contract: '+Stakedbalance[0].value/100000000+' ASIMI';
 			}
 				
 		});	
