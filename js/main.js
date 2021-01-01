@@ -320,7 +320,7 @@ document.getElementById('withdraw-form').onsubmit = function() {
 			      		function: 'WithdrawStakedFunds',
 			      		args: [ {
 			      		      "type": "integer",
-			      		      "value": WithdrawAmount
+			      		      "value": WithdrawAmount*100000000
 			      		    }]
 			      	}, payment: []
 			 }
