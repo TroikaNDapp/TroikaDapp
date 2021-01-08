@@ -117,6 +117,15 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								console.log("Hours, Minutes: ", Hours,Minutes)
 								document.getElementById("Rewarding").innerHTML = '<h1>'+Hours+' Hours '+ Minutes+' minutes before reward is released</h1>User '+HighestPushAddress[0].value.substring(0,4)+'...'+HighestPushAddress[0].value.slice(31,-5)+' has the highest Push for reward right now'
 							}
+							$.when(							      	      											
+								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_APY'),
+								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastWinner'),
+								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastPrize')
+								).done(function (UserAPY,PrizeAmount,LastPrize) {
+									console.log("LastWinner: ", LastWinner)
+									console.log("LastPrize: ", LastPrize)
+									document.getElementById("ClaimRewardButton").innerHTML ='Your APY : UserAPY <br> '	
+								})
 						}							
 						else{
 							// Check if User is winner and withdraw in case he is	
