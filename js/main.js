@@ -109,7 +109,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							).done(function (UserAPY,LastWinner,LastPrize) {
 								console.log("UserAPY2: ", UserAPY)
 								console.log("LastWinner: ", LastWinner[0].value)
-								console.log("LastPrize: ", LastPrize[0].value[0].value)
+								console.log("LastPrize: ", LastPrize[0].value)
 								document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' <br> '
 							})
 						
@@ -134,7 +134,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								).done(function (UserAPY,LastWinner,LastPrize) {
 									console.log("UserAPY1: ", UserAPY)
 									console.log("LastWinner: ", LastWinner[0].value)
-									console.log("LastPrize: ", LastPrize[0].value[0].value)
+									console.log("LastPrize: ", LastPrize[0].value)
 									document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' <br> '	
 								})
 						}							
@@ -176,7 +176,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 											).done(function (UserAPY,LastWinner,LastPrize) {
 												console.log("UserAPY0: ", UserAPY[0].value)
 												console.log("LastWinner: ", LastWinner[0].value)
-												console.log("LastPrize: ", LastPrize[0].value[0].value)
+												console.log("LastPrize: ", LastPrize[0].value)
 												document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' <br> '
 											})
 		
