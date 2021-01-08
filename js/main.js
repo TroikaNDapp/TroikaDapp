@@ -108,9 +108,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastPrize')
 							).done(function (UserAPY,LastWinner,LastPrize) {
 								console.log("UserAPY2: ", UserAPY)
-								console.log("LastWinner: ", LastWinner)
-								console.log("LastPrize: ", LastPrize)
-								document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY+' <br> '
+								console.log("LastWinner: ", LastWinner[0].value)
+								console.log("LastPrize: ", LastPrize[0].value[0].value)
+								document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' <br> '
 							})
 						
 					}
@@ -133,9 +133,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastPrize')
 								).done(function (UserAPY,LastWinner,LastPrize) {
 									console.log("UserAPY1: ", UserAPY)
-									console.log("LastWinner: ", LastWinner)
-									console.log("LastPrize: ", LastPrize)
-									document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY+' <br> '	
+									console.log("LastWinner: ", LastWinner[0].value)
+									console.log("LastPrize: ", LastPrize[0].value[0].value)
+									document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' <br> '	
 								})
 						}							
 						else{
@@ -175,9 +175,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 											$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastPrize')
 											).done(function (UserAPY,LastWinner,LastPrize) {
 												console.log("UserAPY0: ", UserAPY[0].value)
-												console.log("LastWinner: ", LastWinner)
-												console.log("LastPrize: ", LastPrize)
-												document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY+' <br> '
+												console.log("LastWinner: ", LastWinner[0].value)
+												console.log("LastPrize: ", LastPrize[0].value[0].value)
+												document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' <br> '
 											})
 		
 									}									
