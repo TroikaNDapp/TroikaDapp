@@ -130,10 +130,10 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_APY'),
 								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastWinner'),
 								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastPrize')
-								).done(function (UserAPY,PrizeAmount,LastPrize) {
+								).done(function (UserAPY,LastWinner,LastPrize) {
 									console.log("LastWinner: ", LastWinner)
 									console.log("LastPrize: ", LastPrize)
-									document.getElementById("ClaimRewardButton").innerHTML ='Your APY : UserAPY <br> '	
+									document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY+' <br> '	
 								})
 						}							
 						else{
