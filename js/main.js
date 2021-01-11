@@ -115,7 +115,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								
 								console.log("LastWinner: ", LastWinner[0].value)
 								console.log("LastPrize: ", LastPrize[0].value/100000000)
-								document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(31,-5)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
+								//document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(31,-5)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
 								}
 							})
 						
@@ -146,7 +146,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 									
 									console.log("LastWinner: ", LastWinner[0].value)
 									console.log("LastPrize: ", LastPrize[0].value/100000000)
-									document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(31,-5)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
+									//document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(31,-5)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
 									}
 									
 								})
@@ -192,10 +192,10 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 													console.log("NO APY HERE")
 												}
 												else {
-												console.log("UserAPY1: ", UserAPY)
+												
 												console.log("LastWinner: ", LastWinner[0].value)
 												console.log("LastPrize: ", LastPrize[0].value/100000000)
-												document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(31,-5)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
+												//document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(31,-5)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
 												}
 											})
 		
