@@ -121,7 +121,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								document.getElementById("Rewarding").innerHTML = '<h1>'+Hours+' Hours '+ Minutes+' minutes before reward is released</h1> <br> Your Push is actually the highest, if reward is released you would be the winner'
 							}else{
 								console.log("Hours, Minutes: ", Hours,Minutes)
-								document.getElementById("Rewarding").innerHTML = '<h1>'+Hours+' Hours '+ Minutes+' minutes before reward is released</h1>User '+HighestPushAddress[0].value.substring(0,4)+'...'+HighestPushAddress[0].value.slice(31,-5)+' has the highest Push for reward right now'+' Last award: '
+								document.getElementById("Rewarding").innerHTML = '<h1>'+Hours+' Hours '+ Minutes+' minutes before reward is released</h1>User '+HighestPushAddress[0].value.substring(0,4)+'...'+HighestPushAddress[0].value.slice(31,-5)+' has the highest Push for reward right now'
 							}
 							$.when(							      	      											
 								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_APY'),
@@ -164,10 +164,11 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 									//document.getElementById("Rewarding").innerHTML = '<button class="round dark" onclick="RetrieveReward()" >Retrieve Reward</button>'
 									} else {
 										console.log('NO WINNER')
+										document.getElementById("Rewarding").innerHTML = '<h1>Prize awarded ! <br> push was the highest <h1>'																						
 										$.when(							      	      											
 											$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_APY'),
 											$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastWinner'),
-											$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastPrize')
+											$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastPrize'),
 											).done(function (UserAPY,LastWinner,LastPrize) {
 												console.log("UserAPY21: ", UserAPY)
 												document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(31,-5)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
