@@ -102,13 +102,21 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 						}else{
 							document.getElementById("Rewarding").innerHTML = '<h1>No Reward available for now</h1>'	
 						}
-						console.log('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_APY')
+						
 						$.when(							      	      											
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_APY'),
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastWinner'),
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastPrize')
 							).done(function (UserAPY,LastWinner,LastPrize) {
-								console.log("UserAPY1: ", UserAPY)
+								
+
+								try {
+									console.log("UserAPY1: ", UserAPY);
+								  }
+								  catch(err) {
+									document.getElementById("Rewarding").innerHTML = err.message;
+								  }
+
 								//document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(31,-5)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'								
 							})
 						
