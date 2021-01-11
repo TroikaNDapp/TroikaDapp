@@ -94,30 +94,19 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 			$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey')
 			).done(function (FundBoxHeight,HeightBlockch,delayblock, HighestPushAddress) {	
 
-					if (FundBoxHeight[0].value == 0 ) {
-							
-						//document.getElementById("Rewarding").innerHTML = 'Waiting for Reward to be received'					
+					if (FundBoxHeight[0].value == 0 ) {																	
 						if (HighestPushAddress[0].value == Address+"_Push") {
-							document.getElementById("Rewarding").innerHTML = '<h1>No Reward available for now <br> Your Push is actually the highest, if reward is released you would be the winner</h1>'
+							document.getElementById("Rewarding").innerHTML = '<h1>Waiting for Reward to be received <br> Your Push is actually the highest, if reward is released you would be the winner</h1>'
 						}else{
-							document.getElementById("Rewarding").innerHTML = '<h1>No Reward available for now</h1>'	
+							document.getElementById("Rewarding").innerHTML = '<h1>Waiting for Reward to be received</h1>'	
 						}
 						
 						$.when(							      	      											
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_APY'),
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastWinner'),
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastPrize')
-							).done(function (UserAPY,LastWinner,LastPrize) {
-								
-								console.log("NOWWWWWWWWWWWWWWWWWW")
-								try {
-									console.log("UserAPY1: ", UserAPY);
-								  }
-								  catch(err) {
-									document.getElementById("Rewarding").innerHTML = err.message;
-								  }
-
-								//document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(31,-5)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'								
+							).done(function (UserAPY,LastWinner,LastPrize) {							
+								document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(31,-5)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'								
 							})
 						
 					}
@@ -140,7 +129,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastPrize')
 								).done(function (UserAPY,LastWinner,LastPrize) {
 									console.log("UserAPY11: ", UserAPY)
-									//document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(31,-5)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
+									document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(31,-5)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
 									
 								})
 						}							
@@ -181,7 +170,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 											$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastPrize')
 											).done(function (UserAPY,LastWinner,LastPrize) {
 												console.log("UserAPY21: ", UserAPY)
-												//document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(31,-5)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
+												document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(31,-5)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
 											})
 		
 									}									
