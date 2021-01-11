@@ -108,15 +108,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastPrize')
 							).done(function (UserAPY,LastWinner,LastPrize) {
 								console.log("UserAPY1: ", UserAPY)
-								if ("error" in UserAPY) {
-									console.log("NO APY HERE")
-								}
-								else {
-								
-								console.log("LastWinner: ", LastWinner[0].value)
-								console.log("LastPrize: ", LastPrize[0].value/100000000)
-								//document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(31,-5)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
-								}
+								//document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(31,-5)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'								
 							})
 						
 					}
@@ -139,15 +131,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastPrize')
 								).done(function (UserAPY,LastWinner,LastPrize) {
 									console.log("UserAPY11: ", UserAPY)
-									if ("error" in UserAPY) {
-										console.log("NO APY HERE")
-									}
-									else {
-									
-									console.log("LastWinner: ", LastWinner[0].value)
-									console.log("LastPrize: ", LastPrize[0].value/100000000)
 									//document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(31,-5)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
-									}
 									
 								})
 						}							
@@ -188,15 +172,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 											$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastPrize')
 											).done(function (UserAPY,LastWinner,LastPrize) {
 												console.log("UserAPY21: ", UserAPY)
-												if ("error" in UserAPY) {
-													console.log("NO APY HERE")
-												}
-												else {
-												
-												console.log("LastWinner: ", LastWinner[0].value)
-												console.log("LastPrize: ", LastPrize[0].value/100000000)
 												//document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(31,-5)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
-												}
 											})
 		
 									}									
