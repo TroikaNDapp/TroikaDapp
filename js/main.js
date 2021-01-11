@@ -102,6 +102,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 						}else{
 							document.getElementById("Rewarding").innerHTML = '<h1>No Reward available for now</h1>'	
 						}
+						console.log('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_APY')
 						$.when(							      	      											
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_APY'),
 							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastWinner'),
