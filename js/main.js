@@ -164,7 +164,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 									//document.getElementById("Rewarding").innerHTML = '<button class="round dark" onclick="RetrieveReward()" >Retrieve Reward</button>'
 									} else {
 										console.log('NO WINNER')
-										document.getElementById("Rewarding").innerHTML = '<h1>Prize awarded ! <br> User push  '+result[0].value.slice(0,-5)+' was the highest <h1>'																						
+										document.getElementById("Rewarding").innerHTML = '<h1>Prize awarded ! <h1><br> User push  '+result[0].value.slice(0,-5)+' was the highest '																						
 										$.when(							      	      											
 											$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_APY'),
 											$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastWinner'),
