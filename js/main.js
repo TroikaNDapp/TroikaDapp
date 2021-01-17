@@ -144,7 +144,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 									
 									if (( result[0].value == Address+'_Push') && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) )  {
 										// Show Retrieve reward GUI
-										document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>You push was the highest, and you won the reward prize<p> You have one day to withdraw the reward otherwise it will be re-played again ! <h1>'																						
+										document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>Your push was the highest, and you won the reward prize<p> You have one day to withdraw the reward otherwise it will be re-played again ! <h1>'																						
 										document.getElementById("ClaimRewardButton").innerHTML ='<p id="WithdrawStakeButton" ><button class="round light" onclick="RetrieveReward()">Claim reward now</button></p>'+
 										'</div>'
 										// Managing Retrieve Reward
@@ -164,7 +164,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 									//document.getElementById("Rewarding").innerHTML = '<button class="round dark" onclick="RetrieveReward()" >Retrieve Reward</button>'
 									} else {
 										console.log('NO WINNER')
-										document.getElementById("Rewarding").innerHTML = '<h1>Prize awarded ! <br> push was the highest <h1>'																						
+										document.getElementById("Rewarding").innerHTML = '<h1>Prize awarded ! <br> User push  '+result[0].value.slice(0,-5)+' was the highest <h1>'																						
 										$.when(							      	      											
 											$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_APY'),
 											$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastWinner'),
