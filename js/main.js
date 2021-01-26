@@ -91,7 +91,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 			$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+"/PrizeHeight"),  
 			$.getJSON("https://nodes-testnet.wavesnodes.com/blocks/height"),
 			$.getJSON("https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/Delay"),
-			$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey')
+			$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/HighestPushAddress')
 			).done(function (FundBoxHeight,HeightBlockch,delayblock, HighestPushAddress) {	
 
 					if (FundBoxHeight[0].value == 0 ) {																	
@@ -136,7 +136,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 						else{
 							// Check if User is winner and withdraw in case he is	
 							$.when(							      	      
-								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/MaxGovernTokenDepositerKey'),
+								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/HighestPushAddress'),
 								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/FundBox'),
 								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_Push'),
 								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/HighestPush')
