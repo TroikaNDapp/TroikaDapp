@@ -173,7 +173,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 									//document.getElementById("Rewarding").innerHTML = '<button class="round dark" onclick="RetrieveReward()" >Retrieve Reward</button>'
 									} else {
 										console.log('NO WINNER')
-										if (HighestPushAddress[0].value  != "" && (PrizeAmount[0].value > 0) )
+										if (HighestPushAddress[0].value  == "" && (PrizeAmount[0].value > 0) )
 											document.getElementById("Rewarding").innerHTML = '<h1>Prize Unlocked ! <p>Waiting for Users to Push, be the first to push for the reward  </p> <h1>'
 										if (HighestPushAddress[0].value  != "" && (PrizeAmount[0].value == 0) )
 											document.getElementById("Rewarding").innerHTML = '<h1>Prize awarded ! <h1><p><h2> User push  '+HighestPushAddress[0].value.slice(0,4)+'..'+HighestPushAddress[0].value.slice(-4)+
