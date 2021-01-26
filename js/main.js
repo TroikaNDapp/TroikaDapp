@@ -47,7 +47,7 @@ function UpdateBalanceContract (){
 			});	
 }
 
-var interval = setInterval(function () { UpdateBalanceContract(); }, 3000);
+var interval = setInterval(function () { UpdateBalanceContract(); }, 30000);
 
 function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){	
 
@@ -143,7 +143,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							$.when(							      	      
 								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/HighestPushAddress'),
 								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/FundBox'),
-								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address),
+								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_Push'),
 								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/HighestPush')
 								).done(function (HighestPushAddress,PrizeAmount,UserGovernToken,TroikaLastPush) {						
 									console.log(HighestPushAddress)
