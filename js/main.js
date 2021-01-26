@@ -144,10 +144,11 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 									
 									if (( result[0].value == Address) && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) )  {
 										// Show Retrieve reward GUI
-										document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>Your push was the highest, and you won the reward prize<p> You have one day to withdraw the reward otherwise it will be re-played again ! <h1>'																						
+										document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>Your push was the highest, and you won the reward prize <h1> <p> <h3> You have one day to withdraw the reward otherwise it will be re-played again ! <h3>'																						
 										document.getElementById("ClaimRewardButton").innerHTML ='<p id="WithdrawStakeButton" ><button class="round light" onclick="RetrieveReward()">Claim reward now</button></p>'+
 										'</div>'
 										// Managing Retrieve Reward
+										clearInterval(interval)
 										Swal.fire({
 										title: 'Congrats ! You won the reward',
 										text: "Do you wish to retrieve the reward to your wallet ? \n Please consider that your balance of deposited Troika in the Contract will be reinitalized to 0 Troika. \n Hence, if you want to keep a part of the earned Troika before claiming the rewrad proceed to withdraw the Troika you do not need to claim the reward. ",
