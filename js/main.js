@@ -1,7 +1,7 @@
 // Staked Tokens the Smart Contract
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
-let dAppAddress = "3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u"
-let StakedToken = "DEjmrvdViZH7trtuAqaKQFjNjfbK6D7yMHm18UQ8Hj21"
+let dAppAddress = "3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE"
+let StakedToken = "EbLVSrAi6vS3AkLwBinzZCvAXP2yYiFJEzj1MBVHcwZ5"
 let FundBox     = "3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n"
 let GovernToken = "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA"
 
@@ -34,7 +34,7 @@ function UpdateBalanceContract (){
 		
 		// Smart Contract Balance
 		// ..................
-		$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/HighestPush',  
+		$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPush',  
 		function (AuctionReward) {
 			
 				if (AuctionReward.value == 0) {
@@ -76,7 +76,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 		});	
 
 		// Govern Token Balance of the User's in Smart Contract
-		$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_Earnings',    
+		$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Earnings',    
 		function (GovernTokenBalance) {				
 			 if (GovernTokenBalance.length == 0) {
 				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : 0.0 Troika';
@@ -90,8 +90,8 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 		$.when(
 			$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+"/PrizeHeight"),  
 			$.getJSON("https://nodes-testnet.wavesnodes.com/blocks/height"),
-			$.getJSON("https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/Delay"),
-			$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/HighestPushAddress')
+			$.getJSON("https://nodes-testnet.wavesnodes.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/Delay"),
+			$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPushAddress')
 			).done(function (FundBoxHeight,HeightBlockch,delayblock, HighestPushAddress) {	
 
 					if (FundBoxHeight[0].value == 0 ) {																	
@@ -102,9 +102,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 						}
 						
 						$.when(							      	      											
-							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_APY'),
-							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastWinner'),
-							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastPrize')
+							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
+							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
+							$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
 							).done(function (UserAPY,LastWinner,LastPrize) {							
 								document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'								
 							})
@@ -129,9 +129,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								document.getElementById("Rewarding").innerHTML = '<h1>'+Days+' Days '+Hours+' Hours '+ Minutes+' minutes before reward is released</h1>User '+HighestPushAddress[0].value.substring(0,4)+'...'+HighestPushAddress[0].value.slice(-4)+' has the highest Push for reward right now'
 							}
 							$.when(							      	      											
-								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_APY'),
-								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastWinner'),
-								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastPrize')
+								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
+								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
+								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
 								).done(function (UserAPY,LastWinner,LastPrize) {
 									console.log("UserAPY11: ", UserAPY)
 									document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
@@ -141,10 +141,10 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 						else{
 							// Check if User is winner and withdraw in case he is	
 							$.when(							      	      
-								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/HighestPushAddress'),
-								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/FundBox'),
-								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_Push'),
-								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/HighestPush')
+								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPushAddress'),
+								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/FundBox'),
+								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Push'),
+								$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPush')
 								).done(function (HighestPushAddress,PrizeAmount,UserGovernToken,TroikaLastPush) {						
 									console.log(HighestPushAddress)
 									console.log(PrizeAmount)
@@ -180,9 +180,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 											document.getElementById("Rewarding").innerHTML = '<h1>Prize awarded ! <h1><p><h2> User push  '+HighestPushAddress[0].value.slice(0,4)+'..'+HighestPushAddress[0].value.slice(-4)+
 											                                                 ' was the highest </p><p> Winner has One day to withdraw Reward, After that and if Reward is not withdrawn, Users can Push again for the same reward</p> <h2>'
 										$.when(							      	      											
-											$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/'+Address+'_APY'),
-											$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastWinner'),
-											$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/LastPrize'),
+											$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
+											$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
+											$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize'),
 											).done(function (UserAPY,LastWinner,LastPrize) {
 												console.log("UserAPY21: ", UserAPY)
 												document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
@@ -263,7 +263,7 @@ function RetrieveReward(){
 				   "tokens": "0.05",
 				   "assetId": "WAVES"
 			      },
-			      dApp: '3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u',
+			      dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
 			      call: {
 			      		function: 'ClaimPrize',
 			      		args: []
@@ -306,11 +306,11 @@ document.getElementById('stake-form').onsubmit = function() {
 				   "tokens": "0.05",
 				   "assetId": "WAVES"
 			      },
-			      dApp: '3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u',
+			      dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
 			      call: {
 			      		function: 'Stake',
 			      		args: []
-			      	}, payment: [{assetId: "DEjmrvdViZH7trtuAqaKQFjNjfbK6D7yMHm18UQ8Hj21", tokens: StakeAmount}]
+			      	}, payment: [{assetId: "EbLVSrAi6vS3AkLwBinzZCvAXP2yYiFJEzj1MBVHcwZ5", tokens: StakeAmount}]
 			 }
 		   }).then((tx) => {
 			
@@ -350,7 +350,7 @@ document.getElementById('withdraw-form').onsubmit = function() {
 				   "tokens": "0.05",
 				   "assetId": "WAVES"
 			      },
-			      dApp: '3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u',
+			      dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
 			      call: {
 			      		function: 'WithdrawStakedFunds',
 			      		args: [ {
@@ -396,7 +396,7 @@ document.getElementById('deposit-form').onsubmit = function() {
 				   "tokens": "0.05",
 				   "assetId": "WAVES"
 			      },
-			      dApp: '3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u',
+			      dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
 			      call: {
 			      		function: 'DepositGovernToken',
 			      		args: []
@@ -440,7 +440,7 @@ document.getElementById('withdraw-troika-form').onsubmit = function() {
 				   "tokens": "0.05",
 				   "assetId": "WAVES"
 			      },
-			      dApp: '3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u',
+			      dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
 			      call: {
 			      		function: 'HarvestGovernToiken',
 			      		args: [ {
@@ -495,9 +495,9 @@ function UnlockMyWallet(){
 		})			 
 	     /*Update UserBalace Txt*/
 	     const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
-	     let StakedToken = "DEjmrvdViZH7trtuAqaKQFjNjfbK6D7yMHm18UQ8Hj21"
+	     let StakedToken = "EbLVSrAi6vS3AkLwBinzZCvAXP2yYiFJEzj1MBVHcwZ5"
 	     let GovernToken = "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA"
-		 let dAppAddress = "3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u"
+		 let dAppAddress = "3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE"
 		 
 		 var interval = setInterval(function () { UpdateBalance(dAppAddress,auth.address,StakedToken,GovernToken); }, 3000);
 	     		 
@@ -533,7 +533,7 @@ function PushReward(){
 					  "tokens": "0.05",
 					  "assetId": "WAVES"
 					 },
-					 dApp: '3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u',
+					 dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
 					 call: {
 							 function: 'PushReward',
 							 args: []
@@ -565,7 +565,7 @@ function PushReward(){
 
 function DelayReward(){
 
-	$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u/DelayCost',  
+	$.getJSON('https://nodes-testnet.wavesnodes.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/DelayCost',  
 	function (DelayCost) {						
 		 if (DelayCost.length == 0) {
 			DelayTokenCost = 10
@@ -591,7 +591,7 @@ function DelayReward(){
 							  "tokens": "0.05",
 							  "assetId": "WAVES"
 							 },
-							 dApp: '3N9eE86dXUm7rfc2WWCMLHkaEM4Y8yoNj7u',
+							 dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
 							 call: {
 									 function: 'delayprize',
 									 args: []
