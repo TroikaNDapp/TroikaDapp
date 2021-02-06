@@ -3,7 +3,7 @@ const nodeUrl = 'https://nodes.wavesplatform.com';
 let dAppAddress = "3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE"
 let StakedToken = "EbLVSrAi6vS3AkLwBinzZCvAXP2yYiFJEzj1MBVHcwZ5"
 let FundBox     = "3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n"
-let GovernToken = "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA"
+let GovernToken = "DHZVHe6JzD61zTwH4ZnHnmo3w7oKGABXwgBt4S8KkzUP"
 
 
 // Smart Contract Balance
@@ -401,7 +401,7 @@ document.getElementById('deposit-form').onsubmit = function() {
 			      call: {
 			      		function: 'DepositGovernToken',
 			      		args: []
-			      	}, payment: [{assetId: "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA", tokens: DespoitTroika}]
+			      	}, payment: [{assetId: "DHZVHe6JzD61zTwH4ZnHnmo3w7oKGABXwgBt4S8KkzUP", tokens: DespoitTroika}]
 			 }
 		   }).then((tx) => {
 			
@@ -497,7 +497,7 @@ function UnlockMyWallet(){
 	     /*Update UserBalace Txt*/
 	     const nodeUrl = 'https://nodes.wavesplatform.com';
 	     let StakedToken = "EbLVSrAi6vS3AkLwBinzZCvAXP2yYiFJEzj1MBVHcwZ5"
-	     let GovernToken = "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA"
+	     let GovernToken = "DHZVHe6JzD61zTwH4ZnHnmo3w7oKGABXwgBt4S8KkzUP"
 		 let dAppAddress = "3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE"
 		 
 		 var interval = setInterval(function () { UpdateBalance(dAppAddress,auth.address,StakedToken,GovernToken); }, 3000);
@@ -538,7 +538,7 @@ function PushReward(){
 					 call: {
 							 function: 'PushReward',
 							 args: []
-						 }, payment: [{assetId: "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA", tokens: result.value}]
+						 }, payment: [{assetId: "DHZVHe6JzD61zTwH4ZnHnmo3w7oKGABXwgBt4S8KkzUP", tokens: result.value}]
 				}
 			  }).then((tx) => {
 			   
@@ -598,7 +598,7 @@ function DelayReward(){
 							 call: {
 									 function: 'delayprize',
 									 args: []
-								 }, payment: [{assetId: "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA", tokens: result.value}]
+								 }, payment: [{assetId: "DHZVHe6JzD61zTwH4ZnHnmo3w7oKGABXwgBt4S8KkzUP", tokens: result.value}]
 						}
 					  }).then((tx) => {
 					   
