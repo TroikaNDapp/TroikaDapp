@@ -34,9 +34,10 @@ function UpdateBalanceContract (){
 		
 		// Smart Contract Balance
 		// ..................
-		$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPush',  
-		function (AuctionReward) {
-				console.log("gggg: ", AuctionReward)
+		console.log("1111:", modeUrl+'/addresses/data/'+dAppAddress+'HighestPush')
+		//$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'HighestPush',  
+		//function (AuctionReward) {
+				//console.log("gggg: ", AuctionReward)
 				// if (AuctionReward.length == 0) {
 				// 	document.getElementById("Auction").innerHTML = 'Be First to Push';
 				// 	console.log("Be First to Push: ", AuctionReward)
@@ -50,7 +51,7 @@ function UpdateBalanceContract (){
 				// 		document.getElementById("Auction").innerHTML = 'Highest Push: '+(AuctionReward.value/100000000).toFixed(2)+' TROIKA';				
 					
 				//}
-			});	
+			//});	
 }
 
 var interval = setInterval(function () { UpdateBalanceContract(); }, 3000);
