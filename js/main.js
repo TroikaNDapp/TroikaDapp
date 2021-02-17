@@ -36,7 +36,7 @@ function UpdateBalanceContract (){
 		// ..................
 		$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPush',  
 		function (AuctionReward) {
-			
+				console.log("gggg: ", AuctionReward)
 				if (AuctionReward.length == 0) {
 					document.getElementById("Auction").innerHTML = 'Be First to Push';
 					console.log("Be First to Push: ", AuctionReward)
