@@ -34,8 +34,8 @@ function UpdateBalanceContract (){
 		
 		// Smart Contract Balance
 		// ..................
-		console.log("1111:",nodeUrl+'/addresses/data/'+dAppAddress+'/StakeBalance')
-		$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'/StakeBalance',  
+		console.log("1111:",nodeUrl+'/addresses/data/'+dAppAddress+'/HighestPush')
+		$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'HighestPush',  
 		function (AuctionReward) {
 				console.log("gggg: ", AuctionReward)
 				// if (AuctionReward.length == 0) {
@@ -51,7 +51,7 @@ function UpdateBalanceContract (){
 				// 		document.getElementById("Auction").innerHTML = 'Highest Push: '+(AuctionReward.value/100000000).toFixed(2)+' TROIKA';				
 					
 				//}
-			});	
+			}).fail(function() { alert("error"); });	
 }
 
 var interval = setInterval(function () { UpdateBalanceContract(); }, 3000);
