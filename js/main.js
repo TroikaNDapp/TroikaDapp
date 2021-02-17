@@ -38,20 +38,22 @@ function UpdateBalanceContract (){
 		$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'HighestPush',  
 		function (AuctionReward) {
 				console.log("gggg: ", AuctionReward)
-				// if (AuctionReward.length == 0) {
-				// 	document.getElementById("Auction").innerHTML = 'Be First to Push';
-				// 	console.log("Be First to Push: ", AuctionReward)
-				// }
-				// else{
-				// 	if (AuctionReward.value == 0) {
-				// 		document.getElementById("Auction").innerHTML = 'Be First to Push';
-				// 		console.log("Be First to Push: ", AuctionReward)
-				// 		}
-				// 	else					
-				// 		document.getElementById("Auction").innerHTML = 'Highest Push: '+(AuctionReward.value/100000000).toFixed(2)+' TROIKA';				
+				if (AuctionReward.length == 0) {
+					document.getElementById("Auction").innerHTML = 'Be First to Push';
+					console.log("Be First to Push: ", AuctionReward)
+				}
+				else{
+					if (AuctionReward.value == 0) {
+						document.getElementById("Auction").innerHTML = 'Be First to Push';
+						console.log("Be First to Push: ", AuctionReward)
+						}
+					else					
+						document.getElementById("Auction").innerHTML = 'Highest Push: '+(AuctionReward.value/100000000).toFixed(2)+' TROIKA';				
 					
-				//}
-			}).fail(function() { alert("error"); });	
+				}
+			}).fail(function() { 
+						document.getElementById("Auction").innerHTML = 'Be First to Push';										
+					});	
 }
 
 var interval = setInterval(function () { UpdateBalanceContract(); }, 3000);
