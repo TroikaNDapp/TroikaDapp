@@ -39,6 +39,7 @@ function UpdateBalanceContract (){
 			
 				if (AuctionReward.value == 0) {
 					document.getElementById("Auction").innerHTML = 'Be First to Push';
+					console.log("Be First test: ", AuctionReward)
 				}
 				else{
 					document.getElementById("Auction").innerHTML = 'Highest Push: '+(AuctionReward.value/100000000).toFixed(2)+' TROIKA';				
@@ -571,7 +572,7 @@ function DelayReward(){
 	$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/DelayCost',  
 	function (DelayCost) {						
 		 if (DelayCost.length == 0) {
-			DelayTokenCost = 10
+			 DelayTokenCost = 10
 		} 
 		else {
 			if (DelayCost.value == 0 ) 
