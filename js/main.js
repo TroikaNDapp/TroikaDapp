@@ -37,12 +37,17 @@ function UpdateBalanceContract (){
 		$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPush',  
 		function (AuctionReward) {
 			
-				if (AuctionReward.value == 0) {
+				if (AuctionReward.length == 0) {
 					document.getElementById("Auction").innerHTML = 'Be First to Push';
-					console.log("Be First test: ", AuctionReward)
+					console.log("Be First to Push: ", AuctionReward)
 				}
 				else{
-					document.getElementById("Auction").innerHTML = 'Highest Push: '+(AuctionReward.value/100000000).toFixed(2)+' TROIKA';				
+					if (AuctionReward.value == 0) {
+						document.getElementById("Auction").innerHTML = 'Be First to Push';
+						console.log("Be First to Push: ", AuctionReward)
+						}
+					else					
+						document.getElementById("Auction").innerHTML = 'Highest Push: '+(AuctionReward.value/100000000).toFixed(2)+' TROIKA';				
 					
 				}
 			});	
