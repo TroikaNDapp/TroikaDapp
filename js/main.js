@@ -35,7 +35,7 @@ function UpdateBalanceContract (){
 		// Smart Contract Balance
 		// ..................
 		console.log("1111:",nodeUrl+'/addresses/data/'+dAppAddress+'/HighestPush')
-		$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'HighestPush',  
+		$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'/HighestPush',  
 		function (AuctionReward) {
 				console.log("gggg: ", AuctionReward)
 				// if (AuctionReward.length == 0) {
