@@ -80,7 +80,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 				document.getElementById("UserBalanceStakeSmartContract").innerHTML = 'Staked in Contract: 0.0 ASIMI';
 			} 
 			else {
-				document.getElementById("UserBalanceStakeSmartContract").innerHTML = 'Staked in Contract: '+(Stakedbalance[0].value/100000000).toFixed(2)+' ASIMI';
+				document.getElementById("UserBalanceStakeSmartContract").innerHTML = 'Staked in Contract: '+Math.floor((Stakedbalance[0].value/100000000).toFixed(3)* 100) / 100.0+' ASIMI';
 			}
 				
 		});	
@@ -92,7 +92,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : 0.0 Troika';
 			 }
 			 else{
-				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : '+(GovernTokenBalance.value/100000000).toFixed(8)+' Troika';
+				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : '+Math.floor((GovernTokenBalance.value/100000000).toFixed(8)* 100) / 100.0+' Troika';
 			 }								
 				
 		});				
