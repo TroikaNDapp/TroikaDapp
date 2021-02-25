@@ -178,7 +178,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 
 										if (HighestPushAddress[0].value  != "" && (PrizeAmount[0].value > 0) )
 											console.log('PrizeHeight: ',PrizeHeight[0].value)
-											console.log('HeightBlockch: ',HeightBlockch[0].value)
+											console.log('HeightBlockch: ',HeightBlockch[0].height)
 											console.log('Delayblock: ', Delayblock[0].value)
 											document.getElementById("Rewarding").innerHTML = '<h1>Prize awarded ! <h1><p><h2> User push  '+HighestPushAddress[0].value.slice(0,4)+'..'+HighestPushAddress[0].value.slice(-4)+
 											                                                 ' was the highest </p><p> Winner has One day to withdraw Reward, After that and if Reward is not withdrawn, Users can Push again for the same reward</p> <h2>'
