@@ -183,8 +183,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 										if (HighestPushAddress[0].value  == "" )
 											document.getElementById("Rewarding").innerHTML = '<h1>Prize Unlocked ! <p>Waiting for Users to Push, be the first to push for the reward  </p> <h1>'
 
-										if (HighestPushAddress[0].value  != "" && (PrizeAmount[0].value > 0) )
-											RetrieveCountDown = (HeightBlockch[0].height-PrizeHeight[0].value-Delayblock[0].value)
+										if (HighestPushAddress[0].value  != "" && (PrizeAmount[0].value > 0) )											
 											RetrieveCountDown = (PrizeHeight[0].value+Delayblock[0].value-HeightBlockch[0].height)
 											if (RetrieveCountDown > 0)
 												console.log("Countdown: ", RetrieveCountDown)
