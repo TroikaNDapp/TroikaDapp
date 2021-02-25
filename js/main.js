@@ -167,15 +167,16 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							
 									if (( HighestPushAddress[0].value == Address) && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) )  {
 										// Show Retrieve reward GUI
-										RetrieveCountDown = (HeightBlockch[0].height-PrizeHeight[0].value-Delayblock[0].value)
-										console.log("Countdown: ", RetrieveCountDown)
-										Days  =  Math.trunc(RetrieveCountDown/1440)
-										Hours =  Math.trunc((RetrieveCountDown-Days*1440)/60)
-										Min   =  Math.trunc(RetrieveCountDown-Hours*60-Days*1440)
-
-										document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>Your push was the highest, and you won the reward prize <h1> <p> <h3> You have '+Days+' Day '+Hours+' H ' +Min+' min to withdraw the reward otherwise it will be re-played again ! <h3>'																						
-										document.getElementById("ClaimRewardButton").innerHTML ='<p id="WithdrawStakeButton" ><button class="round light" onclick="RetrieveReward()">Claim reward now</button></p>'+
-										'</div>'
+										RetrieveCountDown = (PrizeHeight[0].value+Delayblock[0].value-HeightBlockch[0].height)
+										if (RetrieveCountDown > 0)
+											console.log("Countdown: ", RetrieveCountDown)
+											Days  =  Math.trunc(RetrieveCountDown/1440)
+											Hours =  Math.trunc((RetrieveCountDown-Days*1440)/60)
+											Min   =  Math.trunc(RetrieveCountDown-Hours*60-Days*1440)
+											document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>Your push was the highest, and you won the reward prize <h1> <p> <h3> You have '+Days+' Day '+Hours+' H ' +Min+' min to withdraw the reward otherwise it will be re-played again ! <h3>'																						
+											document.getElementById("ClaimRewardButton").innerHTML ='<p id="WithdrawStakeButton" ><button class="round light" onclick="RetrieveReward()">Claim reward now</button></p>'+
+											'</div>'
+							
 						
 									} else {
 										
@@ -184,11 +185,13 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 
 										if (HighestPushAddress[0].value  != "" && (PrizeAmount[0].value > 0) )
 											RetrieveCountDown = (HeightBlockch[0].height-PrizeHeight[0].value-Delayblock[0].value)
-											console.log("Countdown: ", RetrieveCountDown)
-											Days  =  Math.trunc(RetrieveCountDown/1440)
-											Hours =  Math.trunc((RetrieveCountDown-Days*1440)/60)
-											Min   =  Math.trunc(RetrieveCountDown-Hours*60-Days*1440)
-											document.getElementById("Rewarding").innerHTML = '<h1>Prize awarded ! <h1><p><h2> User push  '+HighestPushAddress[0].value.slice(0,4)+'..'+HighestPushAddress[0].value.slice(-4)+
+											RetrieveCountDown = (PrizeHeight[0].value+Delayblock[0].value-HeightBlockch[0].height)
+											if (RetrieveCountDown > 0)
+												console.log("Countdown: ", RetrieveCountDown)
+												Days  =  Math.trunc(RetrieveCountDown/1440)
+												Hours =  Math.trunc((RetrieveCountDown-Days*1440)/60)
+												Min   =  Math.trunc(RetrieveCountDown-Hours*60-Days*1440)
+												document.getElementById("Rewarding").innerHTML = '<h1>Prize awarded ! <h1><p><h2> User push  '+HighestPushAddress[0].value.slice(0,4)+'..'+HighestPushAddress[0].value.slice(-4)+
 											                                                 ' was the highest </p><p> Winner has '+Days+' Day '+Hours+' H ' +Min+' min to withdraw Reward, After that and if Reward is not withdrawn, Users can Push again for the same reward</p> <h2>'
 										$.when(							      	      											
 											$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
