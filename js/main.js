@@ -180,9 +180,11 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 											console.log('PrizeHeight: ',PrizeHeight[0].value)											
 											console.log('HeightBlockch: ',HeightBlockch[0].height)
 											console.log('Delayblock: ', Delayblock[0].value)
-											console.log("Data: ", Math.trunc((HeightBlockch[0].height-PrizeHeight[0].value-Delayblock[0].value)/1440))
+											Days =  Math.trunc((HeightBlockch[0].height-PrizeHeight[0].value-Delayblock[0].value)/1440)
+											Hours = ((HeightBlockch[0].height-PrizeHeight[0].value-Delayblock[0].value)-Days*1440)/60
+											Min = (HeightBlockch[0].height-PrizeHeight[0].value-Delayblock[0].value)-Hours*60-Days*1440
 											document.getElementById("Rewarding").innerHTML = '<h1>Prize awarded ! <h1><p><h2> User push  '+HighestPushAddress[0].value.slice(0,4)+'..'+HighestPushAddress[0].value.slice(-4)+
-											                                                 ' was the highest </p><p> Winner has One day to withdraw Reward, After that and if Reward is not withdrawn, Users can Push again for the same reward</p> <h2>'
+											                                                 ' was the highest </p><p> Winner has '+Days+' Day '+Hours+' H ' +Min+' min to withdraw Reward, After that and if Reward is not withdrawn, Users can Push again for the same reward</p> <h2>'
 										$.when(							      	      											
 											$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
 											$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
