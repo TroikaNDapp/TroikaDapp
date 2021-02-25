@@ -75,8 +75,8 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 
 		// Stake Token Balance of the User's in Smart Contract
 		$.when(
-			$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+Address+'_Staking'),
-			$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+Address+'_UserLastStakeBlock'),
+			$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'/'+Address+'_Staking'),
+			$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'/'+Address+'_UserLastStakeBlock'),
 			$.getJSON("https://nodes.wavesplatform.com/blocks/height")
 			).done(function (Stakedbalance, UserLastBlock, HeightBlockch) {						
 				if (Stakedbalance.length == 0) {
