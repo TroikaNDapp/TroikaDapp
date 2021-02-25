@@ -83,7 +83,8 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 					document.getElementById("UserBalanceStakeSmartContract").innerHTML = 'Staked in Contract: 0.0 ASIMI';
 				} 
 				else {
-					console.log("Here: ", UserLastBlock)
+					console.log("Here: ", UserLastBlock[0].value)
+					console.log("Check: ", Math.trunc((HeightBlockch[0].height-UserLastBlock[0].value)/1440))
 					document.getElementById("UserBalanceStakeSmartContract").innerHTML = 'Staked in Contract: '+ Math.trunc((Stakedbalance[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI '+ 
 																						+'<p>'+Math.trunc((HeightBlockch[0].height-UserLastBlock[0].value)/1440)
 				}
