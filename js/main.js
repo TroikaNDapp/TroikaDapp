@@ -83,8 +83,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 					document.getElementById("UserBalanceStakeSmartContract").innerHTML = 'Staked in Contract: 0.0 ASIMI';
 				} 
 				else {
-					console.log("UserLastBlock: ", UserLastBlock[0])
-					console.log("UserLastBlock: ", UserLastBlock[0])
+				
 					StakingDays =  Math.trunc((HeightBlockch[0].height-UserLastBlock[0].value)/1440)
 					document.getElementById("UserBalanceStakeSmartContract").innerHTML = 'Staked in Contract: '+ Math.trunc((Stakedbalance[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI '+'<br> Stake Maturity: '+ StakingDays+' days'
 				}
@@ -161,35 +160,26 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/FundBox'),
 								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Push'),
 								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPush')
-								).done(function (HighestPushAddress,PrizeAmount,UserGovernToken,TroikaLastPush) {						
+								$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+"/PrizeHeight"),  
+								$.getJSON("https://nodes.wavesplatform.com/blocks/height"),
+								$.getJSON("https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/Delay"),								
+								).done(function (HighestPushAddress,PrizeAmount,UserGovernToken,TroikaLastPush,PrizeHeight,HeightBlockch,Delayblock) {						
 							
 									if (( HighestPushAddress[0].value == Address) && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) )  {
 										// Show Retrieve reward GUI
 										document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>Your push was the highest, and you won the reward prize <h1> <p> <h3> You have one day to withdraw the reward otherwise it will be re-played again ! <h3>'																						
 										document.getElementById("ClaimRewardButton").innerHTML ='<p id="WithdrawStakeButton" ><button class="round light" onclick="RetrieveReward()">Claim reward now</button></p>'+
 										'</div>'
-										// Managing Retrieve Reward
-										//clearInterval(interval)
-										//Swal.fire({
-										//title: 'Congrats ! You won the reward',
-										//text: "Do you wish to retrieve the reward to your wallet ? \n Please consider that your balance of deposited Troika in the Contract will be reinitalized to 0 Troika. \n Hence, if you want to keep a part of the earned Troika before claiming the rewrad proceed to withdraw the Troika you do not need to claim the reward. ",
-										//icon: 'warning',
-										//showCancelButton: true,
-										//confirmButtonColor: '#3085d6',
-										//cancelButtonColor: '#d33',
-										//confirmButtonText: 'Yes, Withdraw reward now!'
-										//}).then((result) => {
-										//if (result.isConfirmed) {				
-										//	RetrieveReward()											
-										//}
-										//})														
-									//document.getElementById("Rewarding").innerHTML = '<button class="round dark" onclick="RetrieveReward()" >Retrieve Reward</button>'
+						
 									} else {
 										
 										if (HighestPushAddress[0].value  == "" )
 											document.getElementById("Rewarding").innerHTML = '<h1>Prize Unlocked ! <p>Waiting for Users to Push, be the first to push for the reward  </p> <h1>'
 
 										if (HighestPushAddress[0].value  != "" && (PrizeAmount[0].value > 0) )
+											console.log('PrizeHeight: ',PrizeHeight)
+											console.log('HeightBlockch: ',HeightBlockch)
+											console.log('Delayblock: ', Delayblock)
 											document.getElementById("Rewarding").innerHTML = '<h1>Prize awarded ! <h1><p><h2> User push  '+HighestPushAddress[0].value.slice(0,4)+'..'+HighestPushAddress[0].value.slice(-4)+
 											                                                 ' was the highest </p><p> Winner has One day to withdraw Reward, After that and if Reward is not withdrawn, Users can Push again for the same reward</p> <h2>'
 										$.when(							      	      											
