@@ -86,8 +86,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 					console.log("UserLastBlock: ", UserLastBlock[0])
 					console.log("UserLastBlock: ", UserLastBlock[0])
 					StakingDays =  Math.trunc((HeightBlockch[0].height-UserLastBlock[0].value)/1440)
-					document.getElementById("UserBalanceStakeSmartContract").innerHTML = 'Staked in Contract: '+ Math.trunc((Stakedbalance[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI '+ 
-																						+'<br> Stake Maturityr: '+ StakingDays
+					document.getElementById("UserBalanceStakeSmartContract").innerHTML = 'Staked in Contract: '+ Math.trunc((Stakedbalance[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI '+'<br> Stake Maturityr: '+ StakingDays
 				}
 					
 			});	
