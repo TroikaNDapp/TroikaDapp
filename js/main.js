@@ -34,18 +34,18 @@ function UpdateBalanceContract (){
 		
 		// Smart Contract Balance
 		// ..................
-		console.log("1111:",nodeUrl+'/addresses/data/'+dAppAddress+'/HighestPush')
+
 		$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'/HighestPush',  
 		function (AuctionReward) {
-				console.log("gggg: ", AuctionReward)
+				
 				if (AuctionReward.length == 0) {
 					document.getElementById("Auction").innerHTML = 'Be First to Push';
-					console.log("Be First to Push: ", AuctionReward)
+				
 				}
 				else{
 					if (AuctionReward.value == 0) {
 						document.getElementById("Auction").innerHTML = 'Be First to Push';
-						console.log("Be First to Push: ", AuctionReward)
+						
 						}
 					else					
 						document.getElementById("Auction").innerHTML = 'Highest Push: '+Math.trunc((AuctionReward.value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' TROIKA';				
@@ -63,7 +63,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 		// Stake Token Balance of the User's Wallet.
 			$.getJSON(nodeUrl+'/assets/balance/'+Address+'/'+StakedToken,  
 			function (result) {
-				console.log("Staking: ", result)
+				
 				if (result.length == 0) {
 					document.getElementById("UserWalletStakeBalance").innerHTML = 'Balance Wallet: 0.0 ASIMI'
 				}else{
@@ -83,6 +83,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 					document.getElementById("UserBalanceStakeSmartContract").innerHTML = 'Staked in Contract: 0.0 ASIMI';
 				} 
 				else {
+					console.log("Here: ", UserLastBlock)
 					document.getElementById("UserBalanceStakeSmartContract").innerHTML = 'Staked in Contract: '+ Math.trunc((Stakedbalance[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI '+ 
 																						+'<p>'+Math.trunc((HeightBlockch[0].height-UserLastBlock[0].value)/1440)
 				}
@@ -127,7 +128,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 					else{									
 						r = HeightBlockch[0].height-(FundBoxHeight[0].value + delayblock[0].value)
 						if (r < 0) {		
-							console.log("r: ", r)
+							
 							Day = Math.trunc(-r/1440)
 							Hours = Math.trunc( (-r-1440*Day)/60 )
 							Minutes = Math.trunc(-r-1440*Day-60*Hours)
@@ -139,7 +140,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							if (HighestPushAddress[0].value == Address) {
 								document.getElementById("Rewarding").innerHTML = '<h1>'+Days+' Days '+Hours+' Hours '+ Minutes+' minutes before reward is released</h1> <br> Your Push is actually the highest, if reward is released you would be the winner'
 							}else{
-								console.log("Hours, Minutes: ", Hours,Minutes)
+							
 								document.getElementById("Rewarding").innerHTML = '<h1>'+Days+' Days '+Hours+' Hours '+ Minutes+' minutes before reward is released</h1>User '+HighestPushAddress[0].value.substring(0,4)+'...'+HighestPushAddress[0].value.slice(-4)+' has the highest Push for reward right now'
 							}
 							$.when(							      	      											
@@ -147,7 +148,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
 								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
 								).done(function (UserAPY,LastWinner,LastPrize) {
-									console.log("UserAPY11: ", UserAPY)
+								
 									document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
 									
 								})
@@ -160,10 +161,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Push'),
 								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPush')
 								).done(function (HighestPushAddress,PrizeAmount,UserGovernToken,TroikaLastPush) {						
-									console.log(HighestPushAddress)
-									console.log(PrizeAmount)
-									console.log(UserGovernToken)
-									console.log(TroikaLastPush)
+							
 									if (( HighestPushAddress[0].value == Address) && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) )  {
 										// Show Retrieve reward GUI
 										document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>Your push was the highest, and you won the reward prize <h1> <p> <h3> You have one day to withdraw the reward otherwise it will be re-played again ! <h3>'																						
@@ -186,7 +184,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 										//})														
 									//document.getElementById("Rewarding").innerHTML = '<button class="round dark" onclick="RetrieveReward()" >Retrieve Reward</button>'
 									} else {
-										console.log('NO WINNER')
+										
 										if (HighestPushAddress[0].value  == "" )
 											document.getElementById("Rewarding").innerHTML = '<h1>Prize Unlocked ! <p>Waiting for Users to Push, be the first to push for the reward  </p> <h1>'
 
@@ -198,7 +196,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 											$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
 											$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize'),
 											).done(function (UserAPY,LastWinner,LastPrize) {
-												console.log("UserAPY21: ", UserAPY)
+											
 												document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
 											})
 		
