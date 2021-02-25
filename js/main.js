@@ -74,19 +74,23 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 
 
 		// Stake Token Balance of the User's in Smart Contract
-		$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+Address+'_Staking',  
-		function (Stakedbalance) {						
-			 if (Stakedbalance.length == 0) {
-				document.getElementById("UserBalanceStakeSmartContract").innerHTML = 'Staked in Contract: 0.0 ASIMI';
-			} 
-			else {
-				document.getElementById("UserBalanceStakeSmartContract").innerHTML = 'Staked in Contract: '+ Math.trunc((Stakedbalance[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI';
-			}
-				
-		});	
+		$.when(
+			$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+Address+'_Staking'),
+			$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'?matches='+Address+'_UserLastStakeBlock'),
+			$.getJSON("https://nodes.wavesplatform.com/blocks/height")
+			).done(function (Stakedbalance, UserLastBlock, HeightBlockch) {						
+				if (Stakedbalance.length == 0) {
+					document.getElementById("UserBalanceStakeSmartContract").innerHTML = 'Staked in Contract: 0.0 ASIMI';
+				} 
+				else {
+					document.getElementById("UserBalanceStakeSmartContract").innerHTML = 'Staked in Contract: '+ Math.trunc((Stakedbalance[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI '+ 
+																						+'<p>'+Math.trunc((HeightBlockch[0].height-UserLastBlock[0].value)/1440)
+				}
+					
+			});	
 
 		// Govern Token Balance of the User's in Smart Contract
-		$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Earnings',    
+		$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'/'+Address+'_Earnings',    
 		function (GovernTokenBalance) {				
 			 if (GovernTokenBalance.length == 0) {
 				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : 0.0 Troika';
