@@ -168,6 +168,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 									if (( HighestPushAddress[0].value == Address) && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) )  {
 										// Show Retrieve reward GUI
 										RetrieveCountDown = (PrizeHeight[0].value+Delayblock[0].value-HeightBlockch[0].height)
+										console.log('CountDown: ', RetrieveCountDown)
+										console.log('PrizeHeight[0].value+Delayblock[0].value: ', PrizeHeight[0].value+Delayblock[0].value)
+										console.log('Height: ', HeightBlockch[0].height)
 										if (RetrieveCountDown > 0)
 											console.log("Countdown: ", RetrieveCountDown)
 											Days  =  Math.trunc(RetrieveCountDown/1440)
