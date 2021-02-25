@@ -171,7 +171,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 										console.log('CountDown: ', RetrieveCountDown)
 										console.log('PrizeHeight[0].value+Delayblock[0].value: ', PrizeHeight[0].value+Delayblock[0].value)
 										console.log('Height: ', HeightBlockch[0].height)
-										if (RetrieveCountDown > 0)
+										if (RetrieveCountDown > 0) {
 											console.log("Countdown: ", RetrieveCountDown)
 											Days  =  Math.trunc(RetrieveCountDown/1440)
 											Hours =  Math.trunc((RetrieveCountDown-Days*1440)/60)
@@ -179,7 +179,10 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 											document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>Your push was the highest, and you won the reward prize <h1> <p> <h3> You have '+Days+' Day '+Hours+' H ' +Min+' min to withdraw the reward otherwise it will be re-played again ! <h3>'																						
 											document.getElementById("ClaimRewardButton").innerHTML ='<p id="WithdrawStakeButton" ><button class="round light" onclick="RetrieveReward()">Claim reward now</button></p>'+
 											'</div>'
-							
+										}
+										else{
+											document.getElementById("Rewarding").innerHTML = '<h1> Reward is available for pushing again, try your chance and push higher than the last higher push<h1>'
+										}							
 						
 									} else {
 										
@@ -188,13 +191,17 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 
 										if (HighestPushAddress[0].value  != "" && (PrizeAmount[0].value > 0) )											
 											RetrieveCountDown = (PrizeHeight[0].value+Delayblock[0].value-HeightBlockch[0].height)
-											if (RetrieveCountDown > 0)
+											if (RetrieveCountDown > 0){
 												console.log("Countdown: ", RetrieveCountDown)
 												Days  =  Math.trunc(RetrieveCountDown/1440)
 												Hours =  Math.trunc((RetrieveCountDown-Days*1440)/60)
 												Min   =  Math.trunc(RetrieveCountDown-Hours*60-Days*1440)
 												document.getElementById("Rewarding").innerHTML = '<h1>Prize awarded ! <h1><p><h2> User push  '+HighestPushAddress[0].value.slice(0,4)+'..'+HighestPushAddress[0].value.slice(-4)+
 											                                                 ' was the highest </p><p> Winner has '+Days+' Day '+Hours+' H ' +Min+' min to withdraw Reward, After that and if Reward is not withdrawn, Users can Push again for the same reward</p> <h2>'
+											}
+											else{
+												document.getElementById("Rewarding").innerHTML = '<h1> Reward is available for pushing again, try your chance and push higher than the last higher push<h1>'
+											}																							 
 										$.when(							      	      											
 											$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
 											$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
