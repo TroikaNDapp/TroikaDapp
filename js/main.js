@@ -297,7 +297,7 @@ function RetrieveReward(){
 			 type: 16,
 			 data: {
 			      fee: {
-				   "tokens": "0.05",
+				   "tokens":  "0.0001",
 				   "assetId": "WAVES"
 			      },
 			      dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
@@ -340,7 +340,7 @@ document.getElementById('stake-form').onsubmit = function() {
 			 type: 16,
 			 data: {
 			      fee: {
-				   "tokens": "0.05",
+				   "tokens":  "0.0001",
 				   "assetId": "WAVES"
 			      },
 			      dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
@@ -384,7 +384,7 @@ document.getElementById('withdraw-form').onsubmit = function() {
 			 type: 16,
 			 data: {
 			      fee: {
-				   "tokens": "0.05",
+				   "tokens":  "0.0001",
 				   "assetId": "WAVES"
 			      },
 			      dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
@@ -430,7 +430,7 @@ document.getElementById('deposit-form').onsubmit = function() {
 			 type: 16,
 			 data: {
 			      fee: {
-				   "tokens": "0.05",
+				   "tokens":  "0.0001",
 				   "assetId": "WAVES"
 			      },
 			      dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
@@ -474,7 +474,7 @@ document.getElementById('withdraw-troika-form').onsubmit = function() {
 			 type: 16,
 			 data: {
 			      fee: {
-				   "tokens": "0.05",
+				   "tokens":  "0.0001",
 				   "assetId": "WAVES"
 			      },
 			      dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
@@ -567,7 +567,7 @@ function PushReward(){
 				type: 16,
 				data: {
 					 fee: {
-					  "tokens": "0.05",
+					  "tokens":  "0.0001",
 					  "assetId": "WAVES"
 					 },
 					 dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
@@ -627,7 +627,7 @@ function DelayReward(){
 						type: 16,
 						data: {
 							 fee: {
-							  "tokens": "0.05",
+							  "tokens":  "0.0001",
 							  "assetId": "WAVES"
 							 },
 							 dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
