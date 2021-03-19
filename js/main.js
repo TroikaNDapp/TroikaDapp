@@ -158,8 +158,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							$.when(							      	      
 								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPushAddress'),
 								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/FundBox'),
-								//$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Push'),
-								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/3P2j7DsDTbPNK2jD4m5SoCazeiC4hhEPcBk_Push'),
+								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Push'),								
 								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPush'),
 								$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+"/PrizeHeight"),  
 								$.getJSON("https://nodes.wavesplatform.com/blocks/height"),
