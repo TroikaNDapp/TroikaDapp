@@ -164,7 +164,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								$.getJSON("https://nodes.wavesplatform.com/blocks/height"),
 								$.getJSON("https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/Delay"),								
 								).done(function (HighestPushAddress,PrizeAmount,UserGovernToken,TroikaLastPush,PrizeHeight,HeightBlockch,Delayblock) {
-									console.log(HighestPushAddress[0].value)						
+									console.log('TEST AGAIn: ',HighestPushAddress[0].value)						
 									console.log(PrizeAmount[0].value)
 									console.log(TroikaLastPush[0].value)
 									console.log(Address)
