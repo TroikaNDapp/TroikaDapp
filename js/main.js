@@ -179,9 +179,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 										console.log('Height: ', HeightBlockch[0].height)
 										if (RetrieveCountDown < 0) {
 											console.log("Countdown: ", RetrieveCountDown)
-											Days  =  Math.trunc(RetrieveCountDown/1440)
-											Hours =  Math.trunc((RetrieveCountDown-Days*1440)/60)
-											Min   =  Math.trunc(RetrieveCountDown-Hours*60-Days*1440)
+											Days  =  Math.trunc(-RetrieveCountDown/1440)
+											Hours =  Math.trunc((-RetrieveCountDown-Days*1440)/60)
+											Min   =  Math.trunc(-RetrieveCountDown-Hours*60-Days*1440)
 											document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>Your push was the highest, and you won the reward prize <h1> <p> <h3> You have '+Days+' Day '+Hours+' H ' +Min+' min to withdraw the reward otherwise it will be re-played again ! <h3>'																						
 											document.getElementById("ClaimRewardButton").innerHTML ='<p id="WithdrawStakeButton" ><button class="round light" onclick="RetrieveReward()">Claim reward now</button></p>'+
 											'</div>'
