@@ -202,7 +202,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 
 										if (HighestPushAddress[0].value  != "" && (PrizeAmount[0].value > 0) )											
 											RetrieveCountDown = (PrizeHeight[0].value+Delayblock[0].value-HeightBlockch[0].height)
-											if (RetrieveCountDown > 0){
+											if (RetrieveCountDown < 0){
 												console.log("Countdown: ", RetrieveCountDown)
 												Days  =  Math.trunc(RetrieveCountDown/1440)
 												Hours =  Math.trunc((RetrieveCountDown-Days*1440)/60)
