@@ -169,8 +169,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 									console.log('TroikaLastPush',TroikaLastPush[0].value)
 									//console.log(Address)
 							
-									//if (( HighestPushAddress[0].value == Address) && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) )  {
-										if ((PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) )  {
+									if (( HighestPushAddress[0].value == Address) && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) )  {									
 										// Show Retrieve reward GUI
 										RetrieveCountDown = (PrizeHeight[0].value+Delayblock[0].value-HeightBlockch[0].height)
 										console.log('CountDown: ', RetrieveCountDown)
