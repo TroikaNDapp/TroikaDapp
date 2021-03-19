@@ -163,7 +163,11 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+"/PrizeHeight"),  
 								$.getJSON("https://nodes.wavesplatform.com/blocks/height"),
 								$.getJSON("https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/Delay"),								
-								).done(function (HighestPushAddress,PrizeAmount,UserGovernToken,TroikaLastPush,PrizeHeight,HeightBlockch,Delayblock) {						
+								).done(function (HighestPushAddress,PrizeAmount,UserGovernToken,TroikaLastPush,PrizeHeight,HeightBlockch,Delayblock) {
+									console.log(HighestPushAddress[0].value)						
+									console.log(PrizeAmount[0].value)
+									console.log(TroikaLastPush[0].value)
+									console.log(Address)
 							
 									if (( HighestPushAddress[0].value == Address) && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) )  {
 										// Show Retrieve reward GUI
