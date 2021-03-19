@@ -158,16 +158,17 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							$.when(							      	      
 								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPushAddress'),
 								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/FundBox'),
-								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Push'),
+								//$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Push'),
+								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/3P2j7DsDTbPNK2jD4m5SoCazeiC4hhEPcBk_Push'),
 								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPush'),
 								$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+"/PrizeHeight"),  
 								$.getJSON("https://nodes.wavesplatform.com/blocks/height"),
 								$.getJSON("https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/Delay"),								
 								).done(function (HighestPushAddress,PrizeAmount,UserGovernToken,TroikaLastPush,PrizeHeight,HeightBlockch,Delayblock) {
-									console.log('TEST AGAIn: ',HighestPushAddress[0].value)						
+									console.log('HighestPushAddress: ',HighestPushAddress[0].value)						
 									console.log(PrizeAmount[0].value)
-									console.log(TroikaLastPush[0].value)
-									console.log(Address)
+									console.log('TroikaLastPush',TroikaLastPush[0].value)
+									//console.log(Address)
 							
 									//if (( HighestPushAddress[0].value == Address) && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) )  {
 										if ((PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) )  {
