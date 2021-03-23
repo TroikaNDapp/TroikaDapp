@@ -103,16 +103,16 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 						document.getElementById("UserLastPush").innerHTML = 'Your Actual Push : 0.0 Troika';
 					}
 					else{
-						document.getElementById("UserLastPush").innerHTML = 'Your Actual Push : '+Math.trunc((UserPush[0].value/100000000) * Math.pow(10, 8)) / Math.pow(10, 8)+' Troika';
+						document.getElementById("UserLastPush").innerHTML = 'Your Actual Push : '+Math.trunc((UserPush[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' Troika';
 					}						
 				}
 				else{
-					document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : '+Math.trunc((GovernTokenBalance[0].value/100000000) * Math.pow(10, 8)) / Math.pow(10, 8)+' Troika';
+					document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : '+Math.trunc((GovernTokenBalance[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' Troika';
 					if (UserPush[0].length == 0) {
 						document.getElementById("UserLastPush").innerHTML = 'Your Actual Push : 0.0 Troika';
 					}
 					else{
-						document.getElementById("UserLastPush").innerHTML = 'Your Actual Push : '+Math.trunc((UserPush[0].value/100000000) * Math.pow(10, 8)) / Math.pow(10, 8)+' Troika';
+						document.getElementById("UserLastPush").innerHTML = 'Your Actual Push : '+Math.trunc((UserPush[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' Troika';
 					}						
 				}	
 														
