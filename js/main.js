@@ -65,8 +65,8 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 			$.getJSON(nodeUrl+'/assets/balance/'+Address+'/'+StakedToken),
 			$.getJSON(nodeUrl+'/assets/balance/'+Address+'/'+GovernToken)
 			).done(function (ASIMIBalance, TroikanBalance) {
-				console.log('ASIMIBalance: ', ASIMIBalance)
-				console.log('TroikanBalance: ', TroikanBalance)
+				console.log('ASIMIBalance: ', ASIMIBalance[0])
+				console.log('TroikanBalance: ', TroikanBalance[0])
 				if (ASIMIBalance.length == 0) {
 					document.getElementById("UserWalletStakeBalance").innerHTML = 'Balance Wallet: 0.0 ASIMI'
 					if (TroikanBalance.length == 0) {
@@ -108,9 +108,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 		$.when(
 			$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'/'+Address+'_Earnings'),  
 			$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Push'),	  
-			).done(function (EarnedGovernTokenBalance, UserPush) {				
-				console.log('GovernTokenBalance: ',EarnedGovernTokenBalance[0])
-				console.log('UserPush: ', UserPush[0])
+			).done(function (EarnedGovernTokenBalance, UserPush) {							
 				if (EarnedGovernTokenBalance.length == 0) {
 					document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : 0.0 Troika';
 					if (UserPush.length == 0) {
@@ -195,19 +193,11 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								$.getJSON("https://nodes.wavesplatform.com/blocks/height"),
 								$.getJSON("https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/Delay"),								
 								).done(function (HighestPushAddress,PrizeAmount,UserGovernToken,TroikaLastPush,PrizeHeight,HeightBlockch,Delayblock) {
-									console.log('HighestPushAddress: ',HighestPushAddress[0].value)						
-									console.log(PrizeAmount[0].value)
-									console.log('TroikaLastPush',TroikaLastPush[0].value)
-									//console.log(Address)
-							
+
 									if (( HighestPushAddress[0].value == Address) && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) )  {									
 										// Show Retrieve reward GUI
 										RetrieveCountDown = (PrizeHeight[0].value+Delayblock[0].value-HeightBlockch[0].height)
-										console.log('CountDown: ', RetrieveCountDown)
-										console.log('PrizeHeight[0].value+Delayblock[0].value: ', PrizeHeight[0].value+Delayblock[0].value)
-										console.log('Height: ', HeightBlockch[0].height)
 										if (RetrieveCountDown < 0) {
-											console.log("Countdown: ", RetrieveCountDown)
 											Days  =  Math.trunc(-RetrieveCountDown/1440)
 											Hours =  Math.trunc((-RetrieveCountDown-Days*1440)/60)
 											Min   =  Math.trunc(-RetrieveCountDown-Hours*60-Days*1440)
@@ -234,7 +224,6 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 										if (HighestPushAddress[0].value  != "" && (PrizeAmount[0].value > 0) )											
 											RetrieveCountDown = (PrizeHeight[0].value+Delayblock[0].value-HeightBlockch[0].height)
 											if (RetrieveCountDown < 0){
-												console.log("Countdown: ", RetrieveCountDown)
 												Days  =  Math.trunc(-RetrieveCountDown/1440)
 												Hours =  Math.trunc((-RetrieveCountDown-Days*1440)/60)
 												Min   =  Math.trunc(-RetrieveCountDown-Hours*60-Days*1440)
