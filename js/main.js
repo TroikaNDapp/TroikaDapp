@@ -66,19 +66,19 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 			$.getJSON(nodeUrl+'/assets/balance/'+Address+'/'+GovernToken)
 			).done(function (ASIMIBalance, TroikanBalance) {
 				
-				if (ASIMIBalance.length == 0) {
+				if (ASIMIBalance[0].length == 0) {
 					document.getElementById("UserWalletStakeBalance").innerHTML = 'Balance Wallet: 0.0 ASIMI'
-					if (TroikanBalance.length == 0) {
+					if (TroikanBalance[0].length == 0) {
 						document.getElementById("UserWalletGovernBalance").innerHTML = 'Balance Wallet: 0.0 Troikan'
 					}else{
-						document.getElementById("UserWalletGovernBalance").innerHTML = 'Balance Wallet: '+Math.trunc((TroikanBalance.balance/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' Troikan'
+						document.getElementById("UserWalletGovernBalance").innerHTML = 'Balance Wallet: '+Math.trunc((TroikanBalance[0].balance/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' Troikan'
 					}
 				}else{
-					document.getElementById("UserWalletStakeBalance").innerHTML = 'Balance Wallet: '+Math.trunc((ASIMIBalance.balance/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI'
-					if (TroikanBalance.length == 0) {
+					document.getElementById("UserWalletStakeBalance").innerHTML = 'Balance Wallet: '+Math.trunc((ASIMIBalance[0].balance/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI'
+					if (TroikanBalance[0].length == 0) {
 						document.getElementById("UserWalletGovernBalance").innerHTML = 'Balance Wallet: 0.0 Troikan'
 					}else{
-						document.getElementById("UserWalletGovernBalance").innerHTML = 'Balance Wallet: '+Math.trunc((TroikanBalance.balance/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' Troikan'
+						document.getElementById("UserWalletGovernBalance").innerHTML = 'Balance Wallet: '+Math.trunc((TroikanBalance[0].balance/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' Troikan'
 					}
 				}
 
