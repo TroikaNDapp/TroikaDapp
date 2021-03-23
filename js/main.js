@@ -95,6 +95,8 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 			$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'/'+Address+'_Earnings'),  
 			$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Push'),	  
 			).done(function (GovernTokenBalance, UserPush) {				
+				console.log('GovernTokenBalance: ',GovernTokenBalance.length)
+				console.log('UserPush: ', UserPush.length)
 				if (GovernTokenBalance.length == 0) {
 					document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : 0.0 Troika';
 				}
