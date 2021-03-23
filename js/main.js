@@ -151,7 +151,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
 							$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
 							).done(function (UserAPY,LastWinner,LastPrize) {							
-								document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'								
+								document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((astPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+'</p>'								
 							})
 						
 					}
@@ -179,7 +179,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
 								).done(function (UserAPY,LastWinner,LastPrize) {
 								
-									document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
+									document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((astPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+'</p>'
 									
 								})
 						}							
@@ -212,7 +212,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 												$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
 												$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
 												).done(function (UserAPY,LastWinner,LastPrize) {							
-													document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'								
+													document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((astPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+'</p>'								
 												})											
 											document.getElementById("Rewarding").innerHTML = '<h1> Reward is available for pushing again, try your chance and push higher than the last higher push<h1>'
 										}							
@@ -237,7 +237,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 													$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
 													$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
 													).done(function (UserAPY,LastWinner,LastPrize) {							
-														document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'								
+														document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((astPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+'</p>'								
 													})
 												document.getElementById("Rewarding").innerHTML = '<h1> Reward is available for pushing again, try your chance and push higher than the last higher push<h1>'
 											}																							 
@@ -247,7 +247,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 											$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize'),
 											).done(function (UserAPY,LastWinner,LastPrize) {
 											
-												document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+LastPrize[0].value/100000000+'</p>'
+												document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((astPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+'</p>'
 											})
 		
 									}									
