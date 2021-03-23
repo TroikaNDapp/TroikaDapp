@@ -102,10 +102,10 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 					document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : '+Math.trunc((GovernTokenBalance.value/100000000) * Math.pow(10, 8)) / Math.pow(10, 8)+' Troika';
 				}	
 				if (UserPush.length == 0) {
-					document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Your Actual Push : 0.0 Troika';
+					document.getElementById("UserLastPush").innerHTML = 'Your Actual Push : 0.0 Troika';
 				}
 				else{
-					document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Your Actual Push : '+Math.trunc((UserPush.value/100000000) * Math.pow(10, 8)) / Math.pow(10, 8)+' Troika';
+					document.getElementById("UserLastPush").innerHTML = 'Your Actual Push : '+Math.trunc((UserPush.value/100000000) * Math.pow(10, 8)) / Math.pow(10, 8)+' Troika';
 				}											
 					
 			});				
