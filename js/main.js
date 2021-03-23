@@ -95,20 +95,27 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 			$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'/'+Address+'_Earnings'),  
 			$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Push'),	  
 			).done(function (GovernTokenBalance, UserPush) {				
-				console.log('GovernTokenBalance: ',GovernTokenBalance.length)
-				console.log('UserPush: ', UserPush.length)
+				console.log('GovernTokenBalance: ',GovernTokenBalance)
+				console.log('UserPush: ', UserPush)
 				if (GovernTokenBalance.length == 0) {
 					document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : 0.0 Troika';
+					if (UserPush.length == 0) {
+						document.getElementById("UserLastPush").innerHTML = 'Your Actual Push : 0.0 Troika';
+					}
+					else{
+						document.getElementById("UserLastPush").innerHTML = 'Your Actual Push : '+Math.trunc((UserPush.value/100000000) * Math.pow(10, 8)) / Math.pow(10, 8)+' Troika';
+					}						
 				}
 				else{
 					document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : '+Math.trunc((GovernTokenBalance.value/100000000) * Math.pow(10, 8)) / Math.pow(10, 8)+' Troika';
+					if (UserPush.length == 0) {
+						document.getElementById("UserLastPush").innerHTML = 'Your Actual Push : 0.0 Troika';
+					}
+					else{
+						document.getElementById("UserLastPush").innerHTML = 'Your Actual Push : '+Math.trunc((UserPush.value/100000000) * Math.pow(10, 8)) / Math.pow(10, 8)+' Troika';
+					}						
 				}	
-				if (UserPush.length == 0) {
-					document.getElementById("UserLastPush").innerHTML = 'Your Actual Push : 0.0 Troika';
-				}
-				else{
-					document.getElementById("UserLastPush").innerHTML = 'Your Actual Push : '+Math.trunc((UserPush.value/100000000) * Math.pow(10, 8)) / Math.pow(10, 8)+' Troika';
-				}											
+														
 					
 			});				
 		// Timer for Reward Retrieve
