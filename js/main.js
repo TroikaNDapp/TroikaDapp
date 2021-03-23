@@ -91,16 +91,24 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 			});	
 
 		// Govern Token Balance of the User's in Smart Contract
-		$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'/'+Address+'_Earnings',    
-		function (GovernTokenBalance) {				
-			 if (GovernTokenBalance.length == 0) {
-				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : 0.0 Troika';
-			 }
-			 else{
-				 document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : '+Math.trunc((GovernTokenBalance.value/100000000) * Math.pow(10, 8)) / Math.pow(10, 8)+' Troika';
-			 }								
-				
-		});				
+		$.when(
+			$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'/'+Address+'_Earnings'),  
+			$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Push'),	  
+			).done(function (GovernTokenBalance, UserPush) {				
+				if (GovernTokenBalance.length == 0) {
+					document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : 0.0 Troika';
+				}
+				else{
+					document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : '+Math.trunc((GovernTokenBalance.value/100000000) * Math.pow(10, 8)) / Math.pow(10, 8)+' Troika';
+				}	
+				if (UserPush.length == 0) {
+					document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Your Actual Push : 0.0 Troika';
+				}
+				else{
+					document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Your Actual Push : '+Math.trunc((UserPush.value/100000000) * Math.pow(10, 8)) / Math.pow(10, 8)+' Troika';
+				}											
+					
+			});				
 		// Timer for Reward Retrieve
 		$.when(
 			$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+"/PrizeHeight"),  
