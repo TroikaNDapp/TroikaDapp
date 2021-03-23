@@ -67,7 +67,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 			).done(function (ASIMIBalance, TroikanBalance) {
 				console.log('ASIMIBalance: ', ASIMIBalance)
 				console.log('TroikanBalance: ', TroikanBalance)
-				if (ASIMIBalance[0].length == 0) {
+				if (ASIMIBalance.length == 0) {
 					document.getElementById("UserWalletStakeBalance").innerHTML = 'Balance Wallet: 0.0 ASIMI'
 					if (TroikanBalance[0].length == 0) {
 						document.getElementById("UserWalletGovernBalance").innerHTML = 'Balance Wallet: 0.0 Troikan'
@@ -76,7 +76,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 					}
 				}else{
 					document.getElementById("UserWalletStakeBalance").innerHTML = 'Balance Wallet: '+Math.trunc((ASIMIBalance[0].balance/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI'
-					if (TroikanBalance[0].length == 0) {
+					if (TroikanBalance.length == 0) {
 						document.getElementById("UserWalletGovernBalance").innerHTML = 'Balance Wallet: 0.0 Troikan'
 					}else{
 						document.getElementById("UserWalletGovernBalance").innerHTML = 'Balance Wallet: '+Math.trunc((TroikanBalance[0].balance/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' Troikan'
@@ -111,9 +111,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 			).done(function (GovernTokenBalance, UserPush) {				
 				console.log('GovernTokenBalance: ',GovernTokenBalance[0])
 				console.log('UserPush: ', UserPush[0])
-				if (GovernTokenBalance[0].length == 0) {
+				if (GovernTokenBalance.length == 0) {
 					document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : 0.0 Troika';
-					if (UserPush[0].length == 0) {
+					if (UserPush.length == 0) {
 						document.getElementById("UserLastPush").innerHTML = 'Your Actual Push : 0.0 Troika';
 					}
 					else{
@@ -122,7 +122,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 				}
 				else{
 					document.getElementById("UserBalanceGovernSmartContract").innerHTML = 'Earned : '+Math.trunc((GovernTokenBalance[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' Troika';
-					if (UserPush[0].length == 0) {
+					if (UserPush.length == 0) {
 						document.getElementById("UserLastPush").innerHTML = 'Your Actual Push : 0.0 Troika';
 					}
 					else{
