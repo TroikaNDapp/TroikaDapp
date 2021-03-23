@@ -65,7 +65,8 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 			$.getJSON(nodeUrl+'/assets/balance/'+Address+'/'+StakedToken),
 			$.getJSON(nodeUrl+'/assets/balance/'+Address+'/'+GovernToken)
 			).done(function (ASIMIBalance, TroikanBalance) {
-				
+				console.log('ASIMIBalance: ', ASIMIBalance)
+				console.log('TroikanBalance: ', TroikanBalance)
 				if (ASIMIBalance[0].length == 0) {
 					document.getElementById("UserWalletStakeBalance").innerHTML = 'Balance Wallet: 0.0 ASIMI'
 					if (TroikanBalance[0].length == 0) {
