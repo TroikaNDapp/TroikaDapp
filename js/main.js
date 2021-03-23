@@ -61,17 +61,30 @@ var interval = setInterval(function () { UpdateBalanceContract(); }, 3000);
 function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){	
 
 		// Stake Token Balance of the User's Wallet.
-			$.getJSON(nodeUrl+'/assets/balance/'+Address+'/'+StakedToken,  
-			function (result) {
+		$.when(
+			$.getJSON(nodeUrl+'/assets/balance/'+Address+'/'+StakedToken),
+			$.getJSON(nodeUrl+'/assets/balance/'+Address+'/'+GovernToken)
+			).done(function (ASIMIBalance, TroikanBalance) {
 				
-				if (result.length == 0) {
+				if (ASIMIBalance.length == 0) {
 					document.getElementById("UserWalletStakeBalance").innerHTML = 'Balance Wallet: 0.0 ASIMI'
+					if (TroikanBalance.length == 0) {
+						document.getElementById("UserWalletStakeBalance").innerHTML = 'Balance Wallet: 0.0 Troikan'
+					}else{
+						document.getElementById("UserWalletStakeBalance").innerHTML = 'Balance Wallet: '+Math.trunc((TroikanBalance.balance/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' Troikan'
+					}
 				}else{
-					document.getElementById("UserWalletStakeBalance").innerHTML = 'Balance Wallet: '+Math.trunc((result.balance/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI'
+					document.getElementById("UserWalletStakeBalance").innerHTML = 'Balance Wallet: '+Math.trunc((ASIMIBalance.balance/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI'
+					if (TroikanBalance.length == 0) {
+						document.getElementById("UserWalletStakeBalance").innerHTML = 'Balance Wallet: 0.0 Troikan'
+					}else{
+						document.getElementById("UserWalletStakeBalance").innerHTML = 'Balance Wallet: '+Math.trunc((TroikanBalance.balance/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' Troikan'
+					}
 				}
 
 			});		
 
+			//http://nodes.wavesplatform.com/assets/balance/3P74buHt98BnojFcaREJZtb98KDyUmZGemJ/DHZVHe6JzD61zTwH4ZnHnmo3w7oKGABXwgBt4S8KkzUP
 
 		// Stake Token Balance of the User's in Smart Contract
 		$.when(
