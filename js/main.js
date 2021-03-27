@@ -551,7 +551,8 @@ function UnlockMyWallet(){
 	     setTimeout(() => {
 			document.getElementById("UnlockWallet").hidden = true;	  
 			document.getElementById("UtilityUse").innerHTML = '<button class="round dark" onclick="PushReward()" id="PushReward">Push for Reward</button> '+
-															  ' <button class="round dark" onclick="DelayReward()" id="DelayReward">Postpone the Reward Release</button>'		       
+															  ' <button class="round dark" onclick="DelayReward()" id="DelayReward">Postpone the Reward Release</button>'+
+															  '<p><button class="round dark" onclick="AddMentor()" id="MentorButton"> Add My Mentor Address</button></p>'
 			document.getElementById("WalletInfo").innerHTML = 
 			'<button class="round dark" >  '+auth.address.substring(0,4)+'...'+auth.address.slice(-4)+'</button>';	
 		})			 
