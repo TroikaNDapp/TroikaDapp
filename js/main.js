@@ -685,3 +685,48 @@ function DelayReward(){
 		}
 	});	
 };
+
+function AddMentor(){
+	Swal.fire({
+		title: "My Mentor information!",
+		text: "Please indicate the Waves Address of your mentor for the TroikaNdApp, please make sure the address is the same your mentor uses for TroikaNdApp",
+		input: 'text',
+		inputValue: MentorAddress,
+		showCancelButton: true        
+	}).then((result) => {
+		if (result.value) {
+			WavesKeeper.signAndPublishTransaction({
+				type: 16,
+				data: {
+					 fee: {
+					  "tokens":  "0.05",
+					  "assetId": "WAVES"
+					 },
+					 dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
+					 call: {
+							 function: 'AddMentor',
+							 args: []
+						 }, payment: [{}]
+				}
+			  }).then((tx) => {
+			   
+			   Swal.fire({
+				 position: 'center',
+				 icon: 'success',
+				 title: 'Thanks for your collaboration, your mentor will increase his earnings thanks to you ! you can do same if you invite more people to use TroikaNdApp !',
+				 showConfirmButton: false,
+				 timer: 3000
+			   })
+										  
+				
+			  }).catch((error) => {
+				Swal.fire({
+					 icon: 'error',
+					 title: 'Oops...',
+					 text: error.data ,
+					 footer: ''
+				   })
+			  });	
+		}
+	});	
+}
