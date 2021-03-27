@@ -706,7 +706,10 @@ function AddMentor(){
 					 dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
 					 call: {
 							 function: 'AddMentor',
-							 args: []
+							 args: [{
+								"type": "string",
+								"value": result.value
+							  }]
 						 }, payment: [{}]
 				}
 			  }).then((tx) => {
