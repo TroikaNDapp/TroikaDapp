@@ -551,8 +551,8 @@ function UnlockMyWallet(){
 	     setTimeout(() => {
 			document.getElementById("UnlockWallet").hidden = true;	  
 			document.getElementById("UtilityUse").innerHTML = '<button class="round dark" onclick="PushReward()" id="PushReward">Push for Reward</button> '+
-															  ' <button class="round dark" onclick="DelayReward()" id="DelayReward">Postpone the Reward Release</button>'+
-															  '<p><button class="round dark" onclick="AddMentor()" id="MentorButton"> Add My Mentor Address</button></p>'
+															  ' <button class="round dark" onclick="DelayReward()" id="DelayReward">+1 Day delay to unlock Prize</button>'+
+															  '<button class="round dark" onclick="AddMentor()" id="MentorButton"> Add My Mentor Address</button>'
 			document.getElementById("WalletInfo").innerHTML = 
 			'<button class="round dark" >  '+auth.address.substring(0,4)+'...'+auth.address.slice(-4)+'</button>';	
 		})			 
@@ -692,7 +692,7 @@ function AddMentor(){
 		title: "My Mentor information!",
 		text: "Please indicate the Waves Address of your mentor for the TroikaNdApp, please make sure the address is the same your mentor uses for TroikaNdApp",
 		input: 'text',
-		inputValue: MentorAddress,
+		inputValue: 'Your Mentor Address, Make sure it is the same your mentor uses for TroikaNdapp',
 		showCancelButton: true        
 	}).then((result) => {
 		if (result.value) {
