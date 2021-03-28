@@ -705,7 +705,7 @@ function AddMentor(){
 					 },
 					 dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
 					 call: {
-							 function: 'AddMentor',
+							 function: 'Addmentor',
 							 args: [{
 								"type": "string",
 								"value": result.value
@@ -724,6 +724,7 @@ function AddMentor(){
 										  
 				
 			  }).catch((error) => {
+				  console.log("result.value: ", result.value)
 				Swal.fire({
 					 icon: 'error',
 					 title: 'Oops...',
