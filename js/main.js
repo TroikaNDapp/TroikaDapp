@@ -695,7 +695,7 @@ function AddMentor(){
 		inputValue: 'Your Mentor Address, Make sure it is the same your mentor uses for TroikaNdapp',
 		showCancelButton: true        
 	}).then((result) => {
-		if (result.value) {
+		if (result.value != '') {
 			WavesKeeper.signAndPublishTransaction({
 				type: 16,
 				data: {
