@@ -695,7 +695,7 @@ function AddMentor(){
 		//inputValue: 'Your Mentor Address, Make sure it is the same your mentor uses for TroikaNdapp',
 		showCancelButton: true        
 	}).then((result) => {
-		if (result.value != '') {
+		if (result) {
 			WavesKeeper.signAndPublishTransaction({
 				type: 16,
 				data: {
@@ -720,11 +720,9 @@ function AddMentor(){
 				 title: 'Thanks for your collaboration, your mentor will increase his earnings thanks to you ! you can do same if you invite more people to use TroikaNdApp !',
 				 showConfirmButton: false,
 				 timer: 3000
-			   })
-										  
-				
+			   })										  				
 			  }).catch((error) => {
-				  console.log("result.value: ", result.value)
+				  console.log("result.value: ", result.value, 'Check: ', error)
 				Swal.fire({
 					 icon: 'error',
 					 title: 'Oops...',
