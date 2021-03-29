@@ -710,7 +710,7 @@ function AddMentor(){
 								"type": "string",
 								"value": "result.value"
 							  }]
-						 }, payment: [{}]
+						 }, payment: [{assetId: "DHZVHe6JzD61zTwH4ZnHnmo3w7oKGABXwgBt4S8KkzUP", tokens: 0}]
 				}
 			  }).then((tx) => {
 			   
