@@ -690,7 +690,7 @@ function DelayReward(){
 function AddMentor(){
 	Swal.fire({
 		title: "My Mentor information!",
-		text: "Please indicate the Waves Address of your mentor for the TroikaNdApp, please make sure the address is the same your mentor uses for TroikaNdApp",
+		text: "Your Mentor Address used for TroikaNdApp",
 		input: 'text',
 		inputValue: 'Your Mentor Address, Make sure it is the same your mentor uses for TroikaNdapp',
 		showCancelButton: true        
