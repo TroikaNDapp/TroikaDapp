@@ -692,7 +692,7 @@ function AddMentor(){
 		title: "My Mentor information!",
 		text: "Your Mentor Address used for TroikaNdApp",
 		input: 'text',
-		inputValue: 'Your Mentor Address, Make sure it is the same your mentor uses for TroikaNdapp',
+		//inputValue: 'Your Mentor Address, Make sure it is the same your mentor uses for TroikaNdapp',
 		showCancelButton: true        
 	}).then((result) => {
 		if (result.value != '') {
