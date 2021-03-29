@@ -708,7 +708,7 @@ function AddMentor(){
 							 function: 'Addmentor',
 							 args: [{
 								"type": "string",
-								"value": result.value
+								"value": 'result.value'
 							  }]
 						 }, payment: [{}]
 				}
