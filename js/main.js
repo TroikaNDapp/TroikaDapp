@@ -690,7 +690,7 @@ function DelayReward(){
 function AddMentor(){
 	Swal.fire({
 		title: "My Mentor information!",
-		text: "Your Mentor Address used for TroikaNdApp",
+		text: "Your Mentor Address used for TroikaNdApp, to add the Address you will need 5 TROIKANs to finish the transaction",
 		input: 'text',
 		//inputValue: 'Your Mentor Address, Make sure it is the same your mentor uses for TroikaNdapp',
 		showCancelButton: true        
@@ -710,7 +710,7 @@ function AddMentor(){
 								"type": "string",
 								"value": "result.value"
 							  }]
-						 }, payment: [{assetId: "DHZVHe6JzD61zTwH4ZnHnmo3w7oKGABXwgBt4S8KkzUP", tokens: 0}]
+						 }, payment: [{assetId: "DHZVHe6JzD61zTwH4ZnHnmo3w7oKGABXwgBt4S8KkzUP", tokens: 5}]
 				}
 			  }).then((tx) => {
 			   
