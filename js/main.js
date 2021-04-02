@@ -708,7 +708,7 @@ function AddMentor(){
 							 function: 'Addmentor',
 							 args: [{
 								"type": "string",
-								"value": "result.value"
+								"value": result.value
 							  }]
 						 }, payment: [{assetId: "DHZVHe6JzD61zTwH4ZnHnmo3w7oKGABXwgBt4S8KkzUP", tokens: 5}]
 				}
