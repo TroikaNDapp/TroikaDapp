@@ -64,9 +64,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 		$.when(
 			$.getJSON(nodeUrl+'/assets/balance/'+Address+'/'+StakedToken),
 			$.getJSON(nodeUrl+'/assets/balance/'+Address+'/'+GovernToken)
-			).done(function (ASIMIBalance, TroikanBalance) {
-				console.log('ASIMIBalance: ', ASIMIBalance[0])
-				console.log('TroikanBalance: ', TroikanBalance[0])
+			).done(function (ASIMIBalance, TroikanBalance) {		
 				if (ASIMIBalance.length == 0) {
 					document.getElementById("UserWalletStakeBalance").innerHTML = 'Balance Wallet: 0.0 ASIMI'
 					if (TroikanBalance.length == 0) {
@@ -238,6 +236,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 										if (RetrieveCountDown < 0){
 											RetrieveWait = (PrizeHeight[0].value+Delayblock[0].value+1140-HeightBlockch[0].height) // CountDown for Winner to retrieve the reward ONE DAY after winning
 											console.log('Check Timer: ', RetrieveWait)
+											console.log('PrizeHeight[0].value: ', PrizeHeight[0].value)
+											console.log('Delayblock[0].value: ', Delayblock[0].value)
+											console.log('HeightBlockch[0].height: ', HeightBlockch[0].height)
 											if (RetrieveWait > 0) {
 												Days  =  Math.trunc(-RetrieveWait/1440)
 												Hours =  Math.trunc((-RetrieveWait-Days*1440)/60)
@@ -745,8 +746,7 @@ function AddMentor(){
 				 showConfirmButton: false,
 				 timer: 3000
 			   })										  				
-			  }).catch((error) => {
-				  console.log("result.value: ", result.value, 'Check: ', error)
+			  }).catch((error) => {				  
 				Swal.fire({
 					 icon: 'error',
 					 title: 'Oops...',
