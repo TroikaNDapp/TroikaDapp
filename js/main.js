@@ -224,9 +224,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 										RetrieveCountDown = (PrizeHeight[0].value+Delayblock[0].value-HeightBlockch[0].height)
 										if (RetrieveCountDown < 0){
 											RetrieveWait = (PrizeHeight[0].value+Delayblock[0].value+1140-HeightBlockch[0].height) // CountDown for Winner to retrieve the reward ONE DAY after winning
-											Days  =  Math.trunc(-RetrieveCountDown/1440)
-											Hours =  Math.trunc((-RetrieveCountDown-Days*1440)/60)
-											Min   =  Math.trunc(-RetrieveCountDown-Hours*60-Days*1440)
+											Days  =  Math.trunc(-RetrieveWait/1440)
+											Hours =  Math.trunc((-RetrieveWait-Days*1440)/60)
+											Min   =  Math.trunc(-RetrieveWait-Hours*60-Days*1440)
 											document.getElementById("Rewarding").innerHTML = '<h1>Prize awarded ** ! <h1><p><h2> User push  '+HighestPushAddress[0].value.slice(0,4)+'..'+HighestPushAddress[0].value.slice(-4)+
 																							' was the highest </p><p> Winner has '+Days+' Day '+Hours+' H ' +Min+' min to withdraw Reward, After that and if Reward is not withdrawn, Users can Push again for the same reward</p> <h2>'
 										}
