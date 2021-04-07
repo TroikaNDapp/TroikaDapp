@@ -237,6 +237,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 										RetrieveCountDown = (PrizeHeight[0].value+Delayblock[0].value-HeightBlockch[0].height)
 										if (RetrieveCountDown < 0){
 											RetrieveWait = (PrizeHeight[0].value+Delayblock[0].value+1140-HeightBlockch[0].height) // CountDown for Winner to retrieve the reward ONE DAY after winning
+											console.log('Check Timer: ', RetrieveWait)
 											if (RetrieveWait > 0) {
 												Days  =  Math.trunc(-RetrieveWait/1440)
 												Hours =  Math.trunc((-RetrieveWait-Days*1440)/60)
