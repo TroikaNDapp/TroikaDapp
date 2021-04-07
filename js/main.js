@@ -197,12 +197,25 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 									RetrieveCountDown = (PrizeHeight[0].value+Delayblock[0].value-HeightBlockch[0].height) // CountDown for Users to Push
 									if (RetrieveCountDown < 0) {
 										RetrieveWait = (PrizeHeight[0].value+Delayblock[0].value+1140-HeightBlockch[0].height) // CountDown for Winner to retrieve the reward ONE DAY after winning
-										Days  =  Math.trunc(-RetrieveWait/1440)
-										Hours =  Math.trunc((-RetrieveWait-Days*1440)/60)
-										Min   =  Math.trunc(-RetrieveWait-Hours*60-Days*1440)
-										document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>Your push was the highest, and you won the reward prize <h1> <p> <h3> You have '+Days+' Day '+Hours+' H ' +Min+' min to withdraw the reward otherwise it will be re-played again ! <h3>'																						
-										document.getElementById("ClaimRewardButton").innerHTML ='<p id="WithdrawStakeButton" ><button class="round light" onclick="RetrieveReward()">Claim reward now</button></p>'+
-										'</div>'
+										if (RetrieveWait > 0){
+											Days  =  Math.trunc(-RetrieveWait/1440)
+											Hours =  Math.trunc((-RetrieveWait-Days*1440)/60)
+											Min   =  Math.trunc(-RetrieveWait-Hours*60-Days*1440)
+											document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>Your push was the highest, and you won the reward prize <h1> <p> <h3> You have '+Days+' Day '+Hours+' H ' +Min+' min to withdraw the reward otherwise it will be re-played again ! <h3>'																						
+											document.getElementById("ClaimRewardButton").innerHTML ='<p id="WithdrawStakeButton" ><button class="round light" onclick="RetrieveReward()">Claim reward now</button></p>'+
+											'</div>'
+										}
+										else{
+											$.when(							      	      											
+												$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
+												$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
+												$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
+												).done(function (UserAPY,LastWinner,LastPrize) {							
+													document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((LastPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI</p>'								
+												})											
+											document.getElementById("Rewarding").innerHTML = '<h1> Sorry, a day passed after you won the reward and have not withdrawn. The reward is played again, you can push for it again as others user<h1>'											
+
+										}
 									}
 									else{
 										$.when(							      	      											
@@ -224,11 +237,22 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 										RetrieveCountDown = (PrizeHeight[0].value+Delayblock[0].value-HeightBlockch[0].height)
 										if (RetrieveCountDown < 0){
 											RetrieveWait = (PrizeHeight[0].value+Delayblock[0].value+1140-HeightBlockch[0].height) // CountDown for Winner to retrieve the reward ONE DAY after winning
-											Days  =  Math.trunc(-RetrieveWait/1440)
-											Hours =  Math.trunc((-RetrieveWait-Days*1440)/60)
-											Min   =  Math.trunc(-RetrieveWait-Hours*60-Days*1440)
-											document.getElementById("Rewarding").innerHTML = '<h1>Prize awarded ** ! <h1><p><h2> User push  '+HighestPushAddress[0].value.slice(0,4)+'..'+HighestPushAddress[0].value.slice(-4)+
-																							' was the highest </p><p> Winner has '+Days+' Day '+Hours+' H ' +Min+' min to withdraw Reward, After that and if Reward is not withdrawn, Users can Push again for the same reward</p> <h2>'
+											if (RetrieveWait > 0) {
+												Days  =  Math.trunc(-RetrieveWait/1440)
+												Hours =  Math.trunc((-RetrieveWait-Days*1440)/60)
+												Min   =  Math.trunc(-RetrieveWait-Hours*60-Days*1440)
+												document.getElementById("Rewarding").innerHTML = '<h1>Prize awarded ! <h1><p><h2> User push  '+HighestPushAddress[0].value.slice(0,4)+'..'+HighestPushAddress[0].value.slice(-4)+
+																								' was the highest </p><p> Winner has '+Days+' Day '+Hours+' H ' +Min+' min to withdraw Reward, After that and if Reward is not withdrawn, Users can Push again for the same reward</p> <h2>'
+											} else{
+												$.when(							      	      											
+													$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
+													$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
+													$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
+													).done(function (UserAPY,LastWinner,LastPrize) {							
+														document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((LastPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI</p>'								
+													})											
+												document.getElementById("Rewarding").innerHTML = '<h1> Here we go again, a day passed after reward has been won, but winner has not withdrawn. The reward is played again, you can push for it user<h1>'																							
+											}
 										}
 										else{
 											$.when(							      	      											
