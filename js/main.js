@@ -138,73 +138,97 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 			$.getJSON("https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/Delay"),
 			$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPushAddress')
 			).done(function (FundBoxHeight,HeightBlockch,delayblock, HighestPushAddress) {	
-
-					if (FundBoxHeight[0].value == 0 ) {																	
-						if (HighestPushAddress[0].value == Address) {
-							document.getElementById("Rewarding").innerHTML = '<h1>Waiting for Reward to be received <br> Your Push is actually the highest, if reward is released you would be the winner</h1>'
-						}else{
-							document.getElementById("Rewarding").innerHTML = '<h1>Waiting for Reward to be received</h1>'	
-						}
+				if (FundBoxHeight[0].value == 0 ) {																	
+					if (HighestPushAddress[0].value == Address) {
+						document.getElementById("Rewarding").innerHTML = '<h1>Waiting for Reward to be received <br> Your Push is actually the highest, if reward is released you would be the winner</h1>'
+					}else{
+						document.getElementById("Rewarding").innerHTML = '<h1>Waiting for Reward to be received</h1>'	
+					}
+					
+					$.when(							      	      											
+						$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
+						$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
+						$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
+						).done(function (UserAPY,LastWinner,LastPrize) {							
+							document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((LastPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI</p>'								
+						})
+					
+				}
+				else{									
+					r = HeightBlockch[0].height-(FundBoxHeight[0].value + delayblock[0].value)
+					if (r < 0) {								
+						Day = Math.trunc(-r/1440)
+						Hours = Math.trunc( (-r-1440*Day)/60 )
+						Minutes = Math.trunc(-r-1440*Day-60*Hours)
+						if ( Day < 10) Days ='0'+ Day; else Days = Day			
+						if (Hours < 10) Hours ='0'+Hours; else Hours = Hours
+						if (Minutes < 10) Minutes = '0'+Minutes; else Minutes =  Minutes
 						
+						if (HighestPushAddress[0].value == Address) {
+							document.getElementById("Rewarding").innerHTML = '<h1>'+Days+' Days '+Hours+' Hours '+ Minutes+' minutes before reward is released</h1> <br> Your Push is actually the highest, if reward is released you would be the winner'
+						}else{
+						
+							document.getElementById("Rewarding").innerHTML = '<h1>'+Days+' Days '+Hours+' Hours '+ Minutes+' minutes before reward is released</h1>User '+HighestPushAddress[0].value.substring(0,4)+'...'+HighestPushAddress[0].value.slice(-4)+' has the highest Push for reward right now'
+						}
 						$.when(							      	      											
 							$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
 							$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
 							$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
-							).done(function (UserAPY,LastWinner,LastPrize) {							
-								document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((LastPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI</p>'								
-							})
-						
-					}
-					else{									
-						r = HeightBlockch[0].height-(FundBoxHeight[0].value + delayblock[0].value)
-						if (r < 0) {		
+							).done(function (UserAPY,LastWinner,LastPrize) {
 							
-							Day = Math.trunc(-r/1440)
-							Hours = Math.trunc( (-r-1440*Day)/60 )
-							Minutes = Math.trunc(-r-1440*Day-60*Hours)
-
-							if ( Day < 10) Days ='0'+ Day; else Days = Day			
-							if (Hours < 10) Hours ='0'+Hours; else Hours = Hours
-							if (Minutes < 10) Minutes = '0'+Minutes; else Minutes =  Minutes
-							
-							if (HighestPushAddress[0].value == Address) {
-								document.getElementById("Rewarding").innerHTML = '<h1>'+Days+' Days '+Hours+' Hours '+ Minutes+' minutes before reward is released</h1> <br> Your Push is actually the highest, if reward is released you would be the winner'
-							}else{
-							
-								document.getElementById("Rewarding").innerHTML = '<h1>'+Days+' Days '+Hours+' Hours '+ Minutes+' minutes before reward is released</h1>User '+HighestPushAddress[0].value.substring(0,4)+'...'+HighestPushAddress[0].value.slice(-4)+' has the highest Push for reward right now'
-							}
-							$.when(							      	      											
-								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
-								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
-								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
-								).done(function (UserAPY,LastWinner,LastPrize) {
+								document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((LastPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI</p>'
 								
-									document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((LastPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI</p>'
-									
-								})
-						}							
-						else{
-							// Check if User is winner and withdraw in case he is	
-							$.when(							      	      
-								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPushAddress'),
-								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/FundBox'),
-								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Push'),								
-								$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPush'),
-								$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+"/PrizeHeight"),  
-								$.getJSON("https://nodes.wavesplatform.com/blocks/height"),
-								$.getJSON("https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/Delay"),								
-								).done(function (HighestPushAddress,PrizeAmount,UserGovernToken,TroikaLastPush,PrizeHeight,HeightBlockch,Delayblock) {
+							})
+					}							
+					else{
+						// Check if User is winner and withdraw in case he is	
+						$.when(							      	      
+							$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPushAddress'),
+							$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/FundBox'),
+							$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Push'),								
+							$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPush'),
+							$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+"/PrizeHeight"),  
+							$.getJSON("https://nodes.wavesplatform.com/blocks/height"),
+							$.getJSON("https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/Delay"),								
+							).done(function (HighestPushAddress,PrizeAmount,UserGovernToken,TroikaLastPush,PrizeHeight,HeightBlockch,Delayblock) {
 
-									if (( HighestPushAddress[0].value == Address) && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) )  {									
-										// Show Retrieve reward GUI
+								if (( HighestPushAddress[0].value == Address) && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) )  {									
+									// Show Retrieve reward GUI
+									RetrieveCountDown = (PrizeHeight[0].value+Delayblock[0].value-HeightBlockch[0].height) // CountDown for Users to Push
+									if (RetrieveCountDown < 0) {
+										RetrieveWait = (PrizeHeight[0].value+Delayblock[0].value+1140-HeightBlockch[0].height) // CountDown for Winner to retrieve the reward ONE DAY after winning
+										Days  =  Math.trunc(-RetrieveWait/1440)
+										Hours =  Math.trunc((-RetrieveWait-Days*1440)/60)
+										Min   =  Math.trunc(-RetrieveWait-Hours*60-Days*1440)
+										document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>Your push was the highest, and you won the reward prize <h1> <p> <h3> You have '+Days+' Day '+Hours+' H ' +Min+' min to withdraw the reward otherwise it will be re-played again ! <h3>'																						
+										document.getElementById("ClaimRewardButton").innerHTML ='<p id="WithdrawStakeButton" ><button class="round light" onclick="RetrieveReward()">Claim reward now</button></p>'+
+										'</div>'
+									}
+									else{
+										$.when(							      	      											
+											$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
+											$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
+											$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
+											).done(function (UserAPY,LastWinner,LastPrize) {							
+												document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((LastPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI</p>'								
+											})											
+										document.getElementById("Rewarding").innerHTML = '<h1> Reward is available for pushing again, try your chance and push higher than the last higher push<h1>'
+									}							
+					
+								} else {
+									
+									if (HighestPushAddress[0].value  == "" )
+										document.getElementById("Rewarding").innerHTML = '<h1>Prize Unlocked ! <p>Waiting for Users to Push, be the first to push for the reward  </p> <h1>'
+
+									if (HighestPushAddress[0].value  != "" && (PrizeAmount[0].value > 0) )											
 										RetrieveCountDown = (PrizeHeight[0].value+Delayblock[0].value-HeightBlockch[0].height)
-										if (RetrieveCountDown < 0) {
+										if (RetrieveCountDown < 0){
+											RetrieveWait = (PrizeHeight[0].value+Delayblock[0].value+1140-HeightBlockch[0].height) // CountDown for Winner to retrieve the reward ONE DAY after winning
 											Days  =  Math.trunc(-RetrieveCountDown/1440)
 											Hours =  Math.trunc((-RetrieveCountDown-Days*1440)/60)
 											Min   =  Math.trunc(-RetrieveCountDown-Hours*60-Days*1440)
-											document.getElementById("Rewarding").innerHTML = '<h1>Congratulations ! <br>Your push was the highest, and you won the reward prize <h1> <p> <h3> You have '+Days+' Day '+Hours+' H ' +Min+' min to withdraw the reward otherwise it will be re-played again ! <h3>'																						
-											document.getElementById("ClaimRewardButton").innerHTML ='<p id="WithdrawStakeButton" ><button class="round light" onclick="RetrieveReward()">Claim reward now</button></p>'+
-											'</div>'
+											document.getElementById("Rewarding").innerHTML = '<h1>Prize awarded ! <h1><p><h2> User push  '+HighestPushAddress[0].value.slice(0,4)+'..'+HighestPushAddress[0].value.slice(-4)+
+																							' was the highest </p><p> Winner has '+Days+' Day '+Hours+' H ' +Min+' min to withdraw Reward, After that and if Reward is not withdrawn, Users can Push again for the same reward</p> <h2>'
 										}
 										else{
 											$.when(							      	      											
@@ -213,47 +237,22 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 												$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
 												).done(function (UserAPY,LastWinner,LastPrize) {							
 													document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((LastPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI</p>'								
-												})											
+												})
 											document.getElementById("Rewarding").innerHTML = '<h1> Reward is available for pushing again, try your chance and push higher than the last higher push<h1>'
-										}							
-						
-									} else {
+										}																							 
+									$.when(							      	      											
+										$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
+										$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
+										$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize'),
+										).done(function (UserAPY,LastWinner,LastPrize) {
 										
-										if (HighestPushAddress[0].value  == "" )
-											document.getElementById("Rewarding").innerHTML = '<h1>Prize Unlocked ! <p>Waiting for Users to Push, be the first to push for the reward  </p> <h1>'
-
-										if (HighestPushAddress[0].value  != "" && (PrizeAmount[0].value > 0) )											
-											RetrieveCountDown = (PrizeHeight[0].value+Delayblock[0].value-HeightBlockch[0].height)
-											if (RetrieveCountDown < 0){
-												Days  =  Math.trunc(-RetrieveCountDown/1440)
-												Hours =  Math.trunc((-RetrieveCountDown-Days*1440)/60)
-												Min   =  Math.trunc(-RetrieveCountDown-Hours*60-Days*1440)
-												document.getElementById("Rewarding").innerHTML = '<h1>Prize awarded ! <h1><p><h2> User push  '+HighestPushAddress[0].value.slice(0,4)+'..'+HighestPushAddress[0].value.slice(-4)+
-											                                                 ' was the highest </p><p> Winner has '+Days+' Day '+Hours+' H ' +Min+' min to withdraw Reward, After that and if Reward is not withdrawn, Users can Push again for the same reward</p> <h2>'
-											}
-											else{
-												$.when(							      	      											
-													$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
-													$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
-													$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
-													).done(function (UserAPY,LastWinner,LastPrize) {							
-														document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((LastPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI</p>'								
-													})
-												document.getElementById("Rewarding").innerHTML = '<h1> Reward is available for pushing again, try your chance and push higher than the last higher push<h1>'
-											}																							 
-										$.when(							      	      											
-											$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
-											$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
-											$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize'),
-											).done(function (UserAPY,LastWinner,LastPrize) {
-											
-												document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((LastPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI</p>'
-											})
-		
-									}									
-								});	
-							}
-					}					
+											document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((LastPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI</p>'
+										})
+	
+								}									
+							});	
+						}
+				}					
 						
 				});
 	
