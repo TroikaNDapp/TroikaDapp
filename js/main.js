@@ -284,12 +284,12 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 						
 				});
 		// BigStaker panel
-		$.when(
-			Address = '3P2pPVzGrQkHpbZgLvb4sEBkEYfB7McvQGG'
+		Address = '3P2pPVzGrQkHpbZgLvb4sEBkEYfB7McvQGG'
+		$.when(			
 			$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_BigStaker'),
 			$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastASIMIRewardBigStaker'),
 			$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/BigStakerAmount'),
-			$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Staking'),
+			$.getJSON('https://nodes.wavesplatform.com/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Staking')
 			).done(function (UserBigStaker,LastASIMIRewardBigStaker,BigStakerAmount, UserStaking) {
 				console.log(UserBigStaker)	
 				console.log(LastASIMIRewardBigStaker)	
