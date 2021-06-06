@@ -12,18 +12,18 @@
 <body>
     <header>
         <img id="logo" src="icons/logo.png" />
-        <h2 id="title">TroikaNdApp</h2> 
-        <nav>        
-            <p  id="Auction"></p>     
+        <h2 id="title">TroikaNdApp</h2>
+        <nav>
+            <p  id="Auction"></p>
             <p id ="ContractStaked">Total ASIMI in SmartContract</p>
             <p id ="ContractReward">Reward Vaialble Amount</p>
         <p id="UtilityUse"></p>
-        <p id="WalletInfo"><button class="round dark" onclick="UnlockMyWallet()" id="UnlockWallet">  Unlock My Wallet</button></p>                
-        </nav>  
-        
-    </header> 
-     
-    <div class="spacer" ></div>    
+        <p id="WalletInfo"><button class="round dark" onclick="UnlockMyWallet()" id="UnlockWallet">  Unlock My Wallet</button></p>
+        </nav>
+
+    </header>
+
+    <div class="spacer" ></div>
     <p id="Rewarding"></p>
     <div id="funds-container" >
         <div class="fund-item" hidden>
@@ -49,11 +49,17 @@
         </div>
         <div class="fund-item" id ="RetrieveReward">
                 <img draggable="false" src="icons/tag.svg" />
-                <h2>Claim reward !</h2>	    
-                <span class="desc" id="ClaimRewardButton"> </span>            			                
+                <h2>Claim reward !</h2>
+                <span class="desc" id="ClaimRewardButton"> </span>
                 </div>
-            <span class="desc" id="RetrieveReward"> </span>            			                
-        </div>            
+            <span class="desc" id="RetrieveReward"> </span>
+            <div class="fund-item" id ="BigStaker">
+                <img draggable="false" src="icons/tag.svg" />
+                <h2>Big Staker Area !</h2>
+                <span class="desc" id="BigStakerButton"> </span>
+                </div>
+            <span class="desc" id="RetrieveReward"> </span>
+        </div>
     </div>
     <a name="form"></a>
     <form id="stake-form" hidden>
@@ -76,7 +82,7 @@
         <h4>Troika to withdraw</h4>
         <input type="text" placeholder="Troika to withdraw" id="HarvestTroika"/>
         <span class="msg"></span>
-        <button class="block dark" onclick="HarvestGovernToiken()">Harvest Troika</button> 
+        <button class="block dark" onclick="HarvestGovernToiken()">Harvest Troika</button>
     </form>
 	<iframe width="1280" height="737" src="https://www.youtube.com/embed/TO7onW02xiU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <footer>
