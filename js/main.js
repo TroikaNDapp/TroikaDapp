@@ -1,5 +1,5 @@
 // Staked Tokens the Smart Contract
-const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
+const nodeUrl = 'https://nodes.wavesplatform.com';
 let dAppAddress = "3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE"
 let StakedToken = "EbLVSrAi6vS3AkLwBinzZCvAXP2yYiFJEzj1MBVHcwZ5"
 //let FundBox     = "3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n"
