@@ -1,9 +1,9 @@
 // Staked Tokens the Smart Contract
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
-let dAppAddress = "3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK"
-let StakedToken = "DEjmrvdViZH7trtuAqaKQFjNjfbK6D7yMHm18UQ8Hj21"
+let dAppAddress = "3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE"
+let StakedToken = "EbLVSrAi6vS3AkLwBinzZCvAXP2yYiFJEzj1MBVHcwZ5"
 //let FundBox     = "3MsH5Hr1qQYUnwq4HTpiaGpXQi6cGPUsa5n"
-let GovernToken = "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA"
+let GovernToken = "DHZVHe6JzD61zTwH4ZnHnmo3w7oKGABXwgBt4S8KkzUP"
 
 // Smart Contract Balance
 function UpdateBalanceContract (){
@@ -84,7 +84,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 
 			});		
 
-			//http://nodes.wavesplatform.com/assets/balance/3P74buHt98BnojFcaREJZtb98KDyUmZGemJ/27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA
+			//http://nodes.wavesplatform.com/assets/balance/3P74buHt98BnojFcaREJZtb98KDyUmZGemJ/DHZVHe6JzD61zTwH4ZnHnmo3w7oKGABXwgBt4S8KkzUP
 
 		// Stake Token Balance of the User's in Smart Contract
 		$.when(
@@ -107,7 +107,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 		// Govern Token Balance of the User's in Smart Contract
 		$.when(
 			$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+'/'+Address+'_Earnings'),  
-			$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/'+Address+'_Push'),	  
+			$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Push'),	  
 			).done(function (EarnedGovernTokenBalance, UserPush) {
 				
 				if (EarnedGovernTokenBalance.length == 0) {
@@ -135,8 +135,8 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 		$.when(
 			$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+"/PrizeHeight"),  
 			$.getJSON(nodeUrl+"/blocks/height"),
-			$.getJSON(nodeUrl+"/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/Delay"),
-			$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/HighestPushAddress')
+			$.getJSON(nodeUrl+"/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/Delay"),
+			$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPushAddress')
 			).done(function (FundBoxHeight,HeightBlockch,delayblock, HighestPushAddress) {	
 				if (FundBoxHeight[0].value == 0 ) {																	
 					if (HighestPushAddress[0].value == Address) {
@@ -146,9 +146,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 					}
 					
 					$.when(							      	      											
-						$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/'+Address+'_APY'),
-						$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/LastWinner'),
-						$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/LastPrize')
+						$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
+						$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
+						$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
 						).done(function (UserAPY,LastWinner,LastPrize) {							
 							document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((LastPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI</p>'								
 						})
@@ -171,9 +171,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 							document.getElementById("Rewarding").innerHTML = '<h1>'+Days+' Days '+Hours+' Hours '+ Minutes+' minutes before reward is released</h1>User '+HighestPushAddress[0].value.substring(0,4)+'...'+HighestPushAddress[0].value.slice(-4)+' has the highest Push for reward right now'
 						}
 						$.when(							      	      											
-							$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/'+Address+'_APY'),
-							$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/LastWinner'),
-							$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/LastPrize')
+							$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
+							$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
+							$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
 							).done(function (UserAPY,LastWinner,LastPrize) {
 							
 								document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((LastPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI</p>'
@@ -183,13 +183,13 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 					else{
 						// Check if User is winner and withdraw in case he is	
 						$.when(							      	      
-							$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/HighestPushAddress'),
-							$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/FundBox'),
-							$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/'+Address+'_Push'),								
-							$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/HighestPush'),
+							$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPushAddress'),
+							$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/FundBox'),
+							$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Push'),								
+							$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/HighestPush'),
 							$.getJSON(nodeUrl+'/addresses/data/'+dAppAddress+"/PrizeHeight"),  
 							$.getJSON(nodeUrl+"/blocks/height"),
-							$.getJSON(nodeUrl+"/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/Delay"),								
+							$.getJSON(nodeUrl+"/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/Delay"),								
 							).done(function (HighestPushAddress,PrizeAmount,UserGovernToken,TroikaLastPush,PrizeHeight,HeightBlockch,Delayblock) {
 
 								if (( HighestPushAddress[0].value == Address) && (PrizeAmount[0].value > 0) && (UserGovernToken[0].value >= TroikaLastPush[0].value) )  {									
@@ -208,9 +208,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 										}
 										else{
 											$.when(							      	      											
-												$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/'+Address+'_APY'),
-												$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/LastWinner'),
-												$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/LastPrize')
+												$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
+												$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
+												$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
 												).done(function (UserAPY,LastWinner,LastPrize) {							
 													document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((LastPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI</p>'								
 												})											
@@ -220,9 +220,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 									}
 									else{
 										$.when(							      	      											
-											$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/'+Address+'_APY'),
-											$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/LastWinner'),
-											$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/LastPrize')
+											$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
+											$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
+											$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
 											).done(function (UserAPY,LastWinner,LastPrize) {							
 												document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((LastPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI</p>'								
 											})											
@@ -247,9 +247,9 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 																								' was the highest </p><p> Winner has '+Days+' Day '+Hours+' H ' +Min+' min to withdraw Reward, After that and if Reward is not withdrawn, Users can Push again for the same reward</p> <h2>'
 											} else{
 												$.when(							      	      											
-													$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/'+Address+'_APY'),
-													$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/LastWinner'),
-													$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/LastPrize')
+													$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
+													$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
+													$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
 													).done(function (UserAPY,LastWinner,LastPrize) {							
 														document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((LastPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI</p>'								
 													})											
@@ -258,18 +258,18 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 										}
 										else{
 											$.when(							      	      											
-												$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/'+Address+'_APY'),
-												$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/LastWinner'),
-												$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/LastPrize')
+												$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
+												$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
+												$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize')
 												).done(function (UserAPY,LastWinner,LastPrize) {							
 													document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((LastPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI</p>'								
 												})
 											document.getElementById("Rewarding").innerHTML = '<h1> Reward is available for pushing again, try your chance and push higher than the last higher push<h1>'
 										}																							 
 									$.when(							      	      											
-										$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/'+Address+'_APY'),
-										$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/LastWinner'),
-										$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/LastPrize'),
+										$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_APY'),
+										$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastWinner'),
+										$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastPrize'),
 										).done(function (UserAPY,LastWinner,LastPrize) {
 										
 											document.getElementById("ClaimRewardButton").innerHTML ='Your APY : '+UserAPY[0].value+' % <p> Last winner: '+LastWinner[0].value.slice(0,4)+'..'+LastWinner[0].value.slice(-4)+'</p><p> Last reward: '+Math.trunc((LastPrize[0].value/100000000) * Math.pow(10, 2)) / Math.pow(10, 2)+' ASIMI</p>'
@@ -284,10 +284,10 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 		// BigStaker panel
 		
 		$.when(			
-			$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/'+Address+'_Staking'),
-			$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/LastASIMIRewardBigStaker'),
-			$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/BigStakersBalance'),
-			$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/'+Address+'_BigStaker')
+			$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_Staking'),
+			$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/LastASIMIRewardBigStaker'),
+			$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/BigStakersBalance'),
+			$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/'+Address+'_BigStaker')
 			).done(function (UserStake,LastASIMIRewardBigStaker,BigStakerAmount, BigStakerReward) {
 				
 				if (BigStakerReward.length != 0) {
@@ -371,7 +371,7 @@ function ClaimASIMIReward(){
 				   "tokens":  "0.05",
 				   "assetId": "WAVES"
 			      },
-			      dApp: '3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK',
+			      dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
 			      call: {
 			      		function: 'WithdrawBigStakeReward',
 			      		args: []
@@ -397,7 +397,6 @@ function ClaimASIMIReward(){
     return false;
 };	
 
-/////////////////
 
 function RetrieveReward(){
     
@@ -409,7 +408,7 @@ function RetrieveReward(){
 				   "tokens":  "0.05",
 				   "assetId": "WAVES"
 			      },
-			      dApp: '3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK',
+			      dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
 			      call: {
 			      		function: 'ClaimPrize',
 			      		args: []
@@ -452,11 +451,11 @@ document.getElementById('stake-form').onsubmit = function() {
 				   "tokens":  "0.05",
 				   "assetId": "WAVES"
 			      },
-			      dApp: '3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK',
+			      dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
 			      call: {
 			      		function: 'Stake',
 			      		args: []
-			      	}, payment: [{assetId: "DEjmrvdViZH7trtuAqaKQFjNjfbK6D7yMHm18UQ8Hj21", tokens: StakeAmount}]
+			      	}, payment: [{assetId: "EbLVSrAi6vS3AkLwBinzZCvAXP2yYiFJEzj1MBVHcwZ5", tokens: StakeAmount}]
 			 }
 		   }).then((tx) => {
 			
@@ -496,7 +495,7 @@ document.getElementById('withdraw-form').onsubmit = function() {
 				   "tokens":  "0.05",
 				   "assetId": "WAVES"
 			      },
-			      dApp: '3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK',
+			      dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
 			      call: {
 			      		function: 'WithdrawStakedFunds',
 			      		args: [ {
@@ -542,11 +541,11 @@ document.getElementById('deposit-form').onsubmit = function() {
 				   "tokens":  "0.05",
 				   "assetId": "WAVES"
 			      },
-			      dApp: '3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK',
+			      dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
 			      call: {
 			      		function: 'DepositGovernToken',
 			      		args: []
-			      	}, payment: [{assetId: "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA", tokens: DespoitTroika}]
+			      	}, payment: [{assetId: "DHZVHe6JzD61zTwH4ZnHnmo3w7oKGABXwgBt4S8KkzUP", tokens: DespoitTroika}]
 			 }
 		   }).then((tx) => {
 			
@@ -586,7 +585,7 @@ document.getElementById('withdraw-troika-form').onsubmit = function() {
 				   "tokens":  "0.05",
 				   "assetId": "WAVES"
 			      },
-			      dApp: '3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK',
+			      dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
 			      call: {
 			      		function: 'HarvestGovernToiken',
 			      		args: [ {
@@ -644,9 +643,9 @@ function UnlockMyWallet(){
 	     /*Update UserBalace Txt*/
 	     
 	     //const nodeUrl = nodeUrl+'';
-	     let StakedToken = "DEjmrvdViZH7trtuAqaKQFjNjfbK6D7yMHm18UQ8Hj21"
-	     let GovernToken = "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA"
-		 let dAppAddress = "3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK"
+	     let StakedToken = "EbLVSrAi6vS3AkLwBinzZCvAXP2yYiFJEzj1MBVHcwZ5"
+	     let GovernToken = "DHZVHe6JzD61zTwH4ZnHnmo3w7oKGABXwgBt4S8KkzUP"
+		 let dAppAddress = "3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE"
 		 
 		 var interval = setInterval(function () { UpdateBalance(dAppAddress,auth.address,StakedToken,GovernToken); }, 3000);
 	     		 
@@ -683,11 +682,11 @@ function PushReward(){
 					  "tokens":  "0.05",
 					  "assetId": "WAVES"
 					 },
-					 dApp: '3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK',
+					 dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
 					 call: {
 							 function: 'PushReward',
 							 args: []
-						 }, payment: [{assetId: "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA", tokens: result.value}]
+						 }, payment: [{assetId: "DHZVHe6JzD61zTwH4ZnHnmo3w7oKGABXwgBt4S8KkzUP", tokens: result.value}]
 				}
 			  }).then((tx) => {
 			   
@@ -717,7 +716,7 @@ function PushReward(){
 
 function DelayReward(){
 
-	$.getJSON(nodeUrl+'/addresses/data/3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK/DelayCost',  
+	$.getJSON(nodeUrl+'/addresses/data/3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE/DelayCost',  
 	function (DelayCost) {						
 		 if (DelayCost.length == 0) {
 			 DelayTokenCost = 10
@@ -743,11 +742,11 @@ function DelayReward(){
 							  "tokens":  "0.05",
 							  "assetId": "WAVES"
 							 },
-							 dApp: '3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK',
+							 dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
 							 call: {
 									 function: 'delayprize',
 									 args: []
-								 }, payment: [{assetId: "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA", tokens: result.value}]
+								 }, payment: [{assetId: "DHZVHe6JzD61zTwH4ZnHnmo3w7oKGABXwgBt4S8KkzUP", tokens: result.value}]
 						}
 					  }).then((tx) => {
 					   
@@ -790,14 +789,14 @@ function AddMentor(){
 					  "tokens":  "0.05",
 					  "assetId": "WAVES"
 					 },
-					 dApp: '3N9evuqxGecMq9hBmpdJu2VkMzdR5VNVrvK',
+					 dApp: '3PMf35RXPcJWV7uSmaTMHk8PbEaJyBfsaYE',
 					 call: {
 							 function: 'Addmentor',
 							 args: [{
 								"type": "string",
 								"value": result.value
 							  }]
-						 }, payment: [{assetId: "27RauQwTvdbcPqeFkzoTf5WPt3HtEAmRDVxprWUNp6bA", tokens: 5}]
+						 }, payment: [{assetId: "DHZVHe6JzD61zTwH4ZnHnmo3w7oKGABXwgBt4S8KkzUP", tokens: 5}]
 				}
 			  }).then((tx) => {
 			   
