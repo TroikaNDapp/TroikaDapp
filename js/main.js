@@ -196,7 +196,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 									// Show Retrieve reward GUI
 									RetrieveCountDown = (PrizeHeight[0].value+Delayblock[0].value-HeightBlockch[0].height) // CountDown for Users to Push
 									if (RetrieveCountDown < 0) {
-										RetrieveWait = (PrizeHeight[0].value+Delayblock[0].value+5-HeightBlockch[0].height) // achtung 5 to 1440 CountDown for Winner to retrieve the reward ONE DAY after winning
+										RetrieveWait = (PrizeHeight[0].value+Delayblock[0].value+1400-HeightBlockch[0].height) // CountDown for Winner to retrieve the reward ONE DAY after winning
 										
 										if (RetrieveWait > 0){
 											Days  =  Math.trunc(RetrieveWait/1440)
@@ -237,7 +237,7 @@ function UpdateBalance(dAppAddress,Address,StakedToken,GovernToken){
 									if (HighestPushAddress[0].value  != "" && (PrizeAmount[0].value > 0) )											
 										RetrieveCountDown = (PrizeHeight[0].value+Delayblock[0].value-HeightBlockch[0].height)
 										if (RetrieveCountDown < 0){
-											RetrieveWait = (PrizeHeight[0].value+Delayblock[0].value+5-HeightBlockch[0].height) // achtung 5 to 1440  CountDown for Winner to retrieve the reward ONE DAY after winning
+											RetrieveWait = (PrizeHeight[0].value+Delayblock[0].value+1440-HeightBlockch[0].height) // CountDown for Winner to retrieve the reward ONE DAY after winning
 					
 											if (RetrieveWait > 0) {
 												Days  =  Math.trunc(RetrieveWait/1440)
