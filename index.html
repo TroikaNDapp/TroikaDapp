@@ -20,12 +20,40 @@
         <p id="UtilityUse"></p>
         <p id="WalletInfo"><button class="round dark" onclick="UnlockMyWallet()" id="UnlockWallet">  Unlock My Wallet</button></p>
         </nav>
-
     </header>
-    <p>As announced days ago, the dApp has been updated so that the Pushing Option and Claiming Prize can only be available for users who have 01 referral who already stakes in the dApp.
-        We believe this will help get the reward reach higher amounts and attract more users for the dApp. Big Stakers (minimum Stake: 1% of total Staked ASIMI amount in the dApp) will continue to earn their ASIMI related to Staking
-    </p>
+
     <div class="spacer" ></div>
+    <p></p>
+
+    <style>
+        .alert {
+          padding: 20px;
+          background-color: #f44336;
+          color: white;
+          opacity: 1;
+          transition: opacity 0.6s;
+          margin-bottom: 15px;
+        }
+        
+        .alert.success {background-color: #04AA6D;}
+        .alert.info {background-color: #2196F3;}
+        .alert.warning {background-color: #ff9800;}
+        
+        }
+        
+        </style>
+        </head>
+        <body>
+        
+        <h2>dApp Updates</h2>
+        
+        <div class="alert success">
+            
+           As announced days ago, the dApp has been updated so that the Pushing Option and Claiming Prize can only be available for users who have 01 referral who already stakes in the dApp.
+           <p>We believe this will help get the reward reach higher amounts and attract more users for the dApp. Big Stakers (minimum Stake: 1% of total Staked ASIMI amount in the dApp) will continue to earn their ASIMI related to Staking.</p>
+        </div>
+        
+
     <p id="Rewarding"></p>
     <div id="funds-container" >
         <div class="fund-item" hidden>
@@ -101,4 +129,6 @@
 <script src="js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 </html>
